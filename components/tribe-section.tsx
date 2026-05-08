@@ -398,7 +398,9 @@ export function TribeSection({ language }: { language: Language }) {
                 <g
                   key={node.id}
                   onPointerDown={(e) => e.stopPropagation()}
-                  onMouseEnter={() => !isEmerging && setActiveNode(node.community)}
+                  onMouseEnter={() => {
+                    if (node.community !== "emerging") setActiveNode(node.community);
+                  }}
                   onMouseLeave={() => main && setActiveNode(null)}
                   onClick={() => clickNode(node.id, node.community)}
                   className="cursor-pointer"

@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion, type PanInfo } from "framer-motion";
 import { ChevronDown, ChevronLeft, ChevronRight, X } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import type { Language } from "@/lib/i18n";
 import { principlesEn } from "@/lib/principles-en";
 import { principles, spheres, type Principle } from "@/lib/principles";
@@ -78,15 +78,15 @@ export function PrinciplesSection({ language }: { language: Language }) {
   const hasPrevious = activeIndex > 0;
   const hasNext = activeIndex >= 0 && activeIndex < principles.length - 1;
 
-  function goToPrevious() {
+  const goToPrevious = useCallback(() => {
     if (!hasPrevious) return;
     setActiveId(principles[activeIndex - 1].id);
-  }
+  }, [hasPrevious, activeIndex]);
 
-  function goToNext() {
+  const goToNext = useCallback(() => {
     if (!hasNext) return;
     setActiveId(principles[activeIndex + 1].id);
-  }
+  }, [hasNext, activeIndex]);
 
   function handleSwipe(_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) {
     const swipeThreshold = 72;
@@ -115,7 +115,7 @@ export function PrinciplesSection({ language }: { language: Language }) {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [activePrinciple, hasNext, hasPrevious, activeIndex]);
+  }, [activePrinciple, goToNext, goToPrevious]);
 
   return (
     <section id="prinzipien" className="section-shell overflow-hidden">
