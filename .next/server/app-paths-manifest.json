@@ -1,0 +1,6 @@
+{
+  "/page": "app/page.js",
+  "/impressum/page": "app/impressum/page.js",
+  "/science/quantum/page": "app/science/quantum/page.js",
+  "/datenschutz/page": "app/datenschutz/page.js"
+}

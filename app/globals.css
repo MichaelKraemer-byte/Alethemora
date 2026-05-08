@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+body {
+  @apply bg-onyx text-zinc-100 antialiased;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.08), transparent 32%),
+    radial-gradient(circle at 80% 18%, rgba(0, 229, 255, 0.09), transparent 28%),
+    radial-gradient(circle at 48% 68%, rgba(255, 255, 255, 0.03), transparent 40%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 30% -10%, rgba(212, 175, 55, 0.08), transparent 32%),
+    radial-gradient(circle at 80% 110%, rgba(0, 229, 255, 0.08), transparent 34%);
+  z-index: -1;
+}
+
+.mesh-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(circle at center, black 28%, transparent 85%);
+}
+
+.section-shell {
+  @apply relative mx-auto w-full max-w-7xl px-6 py-24 lg:px-10;
+}
+
+.crystal-card {
+  @apply rounded-2xl border border-white/10 bg-charcoal/70;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
+}
+
+.constellation-network {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.45;
+  background-image:
+    radial-gradient(circle at 12% 20%, rgba(212, 175, 55, 0.24) 0 1px, transparent 2px),
+    radial-gradient(circle at 72% 14%, rgba(0, 229, 255, 0.24) 0 1px, transparent 2px),
+    repeating-linear-gradient(
+      26deg,
+      transparent 0 55px,
+      rgba(255, 255, 255, 0.045) 56px 57px,
+      transparent 58px 118px
+    ),
+    repeating-linear-gradient(
+      -22deg,
+      transparent 0 68px,
+      rgba(255, 255, 255, 0.035) 69px 70px,
+      transparent 71px 134px
+    );
+  mask-image: radial-gradient(circle at center, black 28%, transparent 92%);
+}
+
+.constellation-node {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.95) 0%, rgba(212, 175, 55, 0.5) 55%, transparent 100%);
+  box-shadow:
+    0 0 10px rgba(0, 229, 255, 0.45),
+    0 0 20px rgba(212, 175, 55, 0.25);
+}
+
+.pyramid-shell::before {
+  content: "";
+  position: absolute;
+  inset: -30% -10% auto -10%;
+  height: 60%;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 30%, rgba(212, 175, 55, 0.18), transparent 70%);
+  animation: pyramidGlow 5.2s ease-in-out infinite;
+}
+
+.pyramid-shell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.06), transparent 35%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 25%);
+  mix-blend-mode: screen;
+}
+
+@keyframes pyramidGlow {
+  0%,
+  100% {
+    opacity: 0.42;
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: translateY(8px) scale(1.04);
+  }
+}
