@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Globe2, Menu, X } from "lucide-react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AlethemoraRing } from "@/components/alethemora-ring";
 import type { Language } from "@/lib/i18n";
@@ -60,22 +61,22 @@ export function SiteHeader({
       className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-onyx/85 backdrop-blur-xl"
     >
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between gap-2 px-4 sm:gap-3 sm:px-6 lg:px-10">
-        <a href="/" className="flex min-w-0 max-w-[55%] items-center gap-2 sm:max-w-none sm:gap-3" onClick={closeMobile}>
+        <Link href="/" className="flex min-w-0 max-w-[55%] items-center gap-2 sm:max-w-none sm:gap-3" onClick={closeMobile}>
           <div className="shrink-0 rounded-xl border border-soul-gold/45 bg-gradient-to-br from-soul-gold/12 to-black/40 p-1.5 shadow-[0_0_20px_rgba(212,175,55,0.15)] sm:p-2">
             <AlethemoraRing variant="mark" className="h-7 w-7 sm:h-8 sm:w-8" />
           </div>
           <span className="truncate font-serif text-base tracking-wide text-zinc-100 sm:text-lg">ALETHEMORA</span>
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-5 text-sm text-zinc-300 lg:gap-6 md:flex">
           {navItems[language].map((item) => (
-            <a
+            <Link
               key={item.label}
               href={isHome ? item.href : `/${item.href}`}
               className="whitespace-nowrap transition hover:text-white"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -149,13 +150,13 @@ export function SiteHeader({
               <ul className="relative flex flex-col px-3 py-2 pb-4">
                 {navItems[language].map((item) => (
                   <li key={item.href + item.label}>
-                    <a
+                    <Link
                       href={isHome ? item.href : `/${item.href}`}
                       className="block rounded-xl px-3 py-3.5 text-[15px] text-zinc-200 transition active:bg-white/10 hover:bg-white/5 hover:text-white"
                       onClick={closeMobile}
                     >
                       {item.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import { Inter, Playfair_Display } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import "./globals.css";
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
   description: "The eternal within us, lived in the now."
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body className="font-sans">
