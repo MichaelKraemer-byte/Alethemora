@@ -112,6 +112,101 @@ body::before {
   mix-blend-mode: screen;
 }
 
+@keyframes beliefGlowPulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.04);
+  }
+}
+
+.belief-visual-stage {
+  perspective: 900px;
+  transform-style: preserve-3d;
+}
+
+.belief-visual-scene {
+  transform-style: preserve-3d;
+}
+
+.belief-visual-glow {
+  background:
+    radial-gradient(circle at 35% 30%, rgba(212, 175, 55, 0.22), transparent 55%),
+    radial-gradient(circle at 70% 65%, rgba(0, 229, 255, 0.16), transparent 50%);
+  animation: beliefGlowPulse 4.8s ease-in-out infinite;
+}
+
+.belief-visual-stage[data-phase="source"] .belief-visual-glow {
+  background:
+    radial-gradient(circle at 50% 45%, rgba(255, 248, 220, 0.28), transparent 58%),
+    radial-gradient(circle at 30% 70%, rgba(212, 175, 55, 0.18), transparent 52%);
+}
+
+.belief-visual-stage[data-phase="soulWorld"] .belief-visual-glow {
+  background:
+    radial-gradient(circle at 40% 35%, rgba(155, 135, 196, 0.22), transparent 55%),
+    radial-gradient(circle at 65% 60%, rgba(126, 200, 200, 0.16), transparent 50%),
+    radial-gradient(circle at 50% 80%, rgba(232, 180, 212, 0.1), transparent 45%);
+}
+
+.belief-visual-stage-return,
+.belief-visual-stage[data-phase="frequency"] {
+  overflow: visible;
+  contain: none;
+  isolation: auto;
+  perspective: none;
+  transform-style: flat;
+  background: transparent;
+}
+
+.belief-visual-scene-return,
+.belief-visual-stage[data-phase="frequency"] .belief-visual-scene {
+  overflow: visible;
+  top: -2rem;
+  right: -0.5rem;
+  bottom: 0;
+  left: -0.5rem;
+  height: auto;
+  transform-style: flat;
+}
+
+.belief-thread-return-visual {
+  overflow: visible;
+  contain: none;
+  background: transparent;
+}
+
+.belief-return-scene {
+  background: transparent;
+}
+
+/* Erdenschule: nahtlose Kontinent-Textur — GPU, linear, 2-Keyframe-Loop */
+.earth-texture-scroll {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+  animation: earthTextureScroll var(--earth-spin-duration, 38s) linear infinite;
+}
+
+@keyframes earthTextureScroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .earth-texture-scroll {
+    animation: none;
+  }
+}
+
 @keyframes pyramidGlow {
   0%,
   100% {

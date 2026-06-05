@@ -16,7 +16,7 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: "ALETHEMORA",
-  description: "The eternal within us, lived in the now."
+  description: "Soul continuity as a lived philosophy — research-informed and practice-rooted."
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {

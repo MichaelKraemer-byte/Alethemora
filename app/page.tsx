@@ -14,15 +14,17 @@ export default function HomePage() {
   const { language, setLanguage } = useLanguagePreference();
 
   return (
-    <main className="relative min-h-screen overflow-x-hidden pt-16">
+    <>
       <SiteHeader language={language} onLanguageChange={setLanguage} />
-      <HeroSection language={language} />
-      <WhySection language={language} />
-      <PrinciplesSection language={language} />
-      <PathOfPracticeSection language={language} />
-      <RhythmSection language={language} />
-      <ScienceSection language={language} />
-      <TribeSection language={language} />
-    </main>
+      <main className="relative min-h-screen overflow-x-clip pt-16">
+        <HeroSection language={language} />
+        <WhySection language={language} />
+        <PrinciplesSection language={language} />
+        <PathOfPracticeSection language={language} />
+        <RhythmSection language={language} />
+        <ScienceSection language={language} />
+        <TribeSection language={language} />
+      </main>
+    </>
   );
 }

@@ -174,7 +174,7 @@ export const scienceTopics: Record<ScienceTopicKey, Record<Language, ScienceTopi
           ]
         },
         {
-          heading: "Bridge to Soul Mastery",
+          heading: "Bridge to Soul Maturity",
           paragraphs: [
             "Spiritual work without material sovereignty remains structurally vulnerable. Constant extraction pressure narrows cognition toward survival loops.",
             "A freer monetary substrate supports dignity, voluntary cooperation, and the time-depth required for real inner development."
@@ -207,7 +207,7 @@ export const scienceTopics: Record<ScienceTopicKey, Record<Language, ScienceTopi
           ]
         },
         {
-          heading: "Brücke zur Seelenmeisterschaft",
+          heading: "Brücke zur Seelenreife",
           paragraphs: [
             "Spirituelle Arbeit ohne materielle Souveränität bleibt strukturell verletzlich. Permanenter Extraktionsdruck verengt Kognition auf Überlebensschleifen.",
             "Ein freieres monetäres Substrat unterstützt Würde, freiwillige Kooperation und die zeitliche Tiefe, die echte innere Entwicklung benötigt."

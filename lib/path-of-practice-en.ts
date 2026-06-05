@@ -12,12 +12,12 @@ export const practiceTiersEn: PracticeTier[] = [
     dissonanceTooltip: "Dissonance: Lethargy, inflammation, blocked life force.",
     sections: [
       {
-        title: "Vitality & Health",
+        title: "Vitality & Functional Training",
         bullets: [
           "Consciously protect sleep as the highest regeneration practice",
-          "Move daily - not as duty, but as an expression of aliveness",
-          "Strength training to build and maintain musculature",
-          "Endurance for heart, lungs, and nervous system"
+          "Functional training daily - as an expression of aliveness, not performance pressure",
+          "Cultivate vitality, endurance, strength, agility, and flexibility as connected movement qualities",
+          "Strengthen heart, lungs, and musculoskeletal system through varied, natural movement"
         ]
       },
       {
@@ -30,9 +30,11 @@ export const practiceTiersEn: PracticeTier[] = [
         ]
       },
       {
-        title: "Body Awareness",
+        title: "Body Awareness & Hormonal Balance",
         bullets: [
           "Know your body: organs, nervous system, hormonal system",
+          "Support hormonal balance naturally - keep cortisol in rhythm, growth hormone in regeneration, testosterone and estrogen in healthy ranges",
+          "Activate endorphins and the body's own messengers through conscious movement and breath",
           "Recognize and regulate stress signals early",
           "Use breath as a direct tool between body and mind"
         ]
@@ -55,7 +57,8 @@ export const practiceTiersEn: PracticeTier[] = [
       }
     ],
     resonance: [
-      "Stable sleep rhythm and regular movement",
+      "Stable sleep rhythm and functional training",
+      "Natural hormonal balance through movement and regeneration",
       "Nutrient-dense anti-inflammatory nutrition",
       "Breathwork and early stress regulation",
       "Responsible stewardship of sexual energy"
@@ -72,7 +75,7 @@ export const practiceTiersEn: PracticeTier[] = [
     title: "MIND",
     subtitle: "The Tool",
     concept:
-      "The mind is not an enemy - it is the soul's most precise instrument. Soul mastery means training it, not suppressing it.",
+      "The mind is not an enemy - it is the soul's most precise instrument. Soul maturity means training it, not suppressing it.",
     colorClass: "from-cyan-500/30 to-blue-500/30 border-cyan-300/45",
     resonanceTooltip: "Resonance: Focus, discernment, mental sovereignty.",
     dissonanceTooltip: "Dissonance: Reactivity, distraction, conditioning loops.",
@@ -167,7 +170,7 @@ export const practiceTiersEn: PracticeTier[] = [
         bullets: [
           "Notice daily micro-moments where you choose against ego impulse",
           "Understand free will as a sacred instrument of soul - not ego freedom",
-          "Celebrate each conscious soul-aligned choice as an act of mastery"
+          "Celebrate each conscious soul-aligned choice as an act of soul maturity"
         ]
       },
       {

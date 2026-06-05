@@ -24,20 +24,20 @@ export const levelMeta: Record<RhythmLevel, Record<Language, { label: string; de
   level2: {
     en: {
       label: "Level 2 - Foundation",
-      description: "Next eight weeks: expand morning practice plus deep reflection and digital hygiene."
+      description: "Next eight weeks: complete the morning sequence, deepen day presence, expand evening reflection, and begin digital hygiene."
     },
     de: {
       label: "Stufe 2 - Fundament",
-      description: "Nächste acht Wochen: Ausbau der Morgenpraxis plus Tiefenreflexion und digitale Hygiene."
+      description: "Nächste acht Wochen: Morgensequenz vervollständigen, Tag-Präsenz vertiefen, Abendreflexion ausbauen und digitale Hygiene beginnen."
     }
   },
   level3: {
     en: {
-      label: "Level 3 - Mastery",
+      label: "Level 3 - Soul maturity",
       description: "From month four onward: full rhythm as a durable vessel for soul-led living."
     },
     de: {
-      label: "Stufe 3 - Meisterschaft",
+      label: "Stufe 3 - Seelenreife",
       description: "Ab Monat vier: vollständiger Rhythmus als dauerhaftes Gefäß für Seelenführung."
     }
   }
@@ -56,12 +56,12 @@ export const rhythmBlocks: RhythmBlock[] = [
       level1: {
         en: [
           "5 minutes of silence immediately after waking.",
-          "Feel 3 lines of gratitude consciously.",
+          "Consciously feel three gratitudes.",
           "Short dream-window note (last dream, first feeling, first image)."
         ],
         de: [
           "5 Minuten Stille direkt nach dem Erwachen.",
-          "3 Sätze Dankbarkeit bewusst fühlen.",
+          "Drei Dankbarkeiten bewusst fühlen.",
           "Kurze Notiz zum Traumfenster (letzter Traum, erstes Gefühl, erstes Bild)."
         ]
       },
@@ -97,8 +97,8 @@ export const rhythmBlocks: RhythmBlock[] = [
   },
   {
     key: "day",
-    title: { en: "Day", de: "Tag" },
-    subtitle: { en: "The soul in daily life", de: "Die Seele im Alltag" },
+    title: { en: "Day", de: "Tag & Mittag" },
+    subtitle: { en: "The soul in daily life", de: "Die Seele im bewussten Tag" },
     purpose: {
       en: "Carry morning alignment through the whole day.",
       de: "Die Morgenausrichtung durch den gesamten Tag tragen."
@@ -107,24 +107,24 @@ export const rhythmBlocks: RhythmBlock[] = [
       level1: {
         en: [
           "Before important encounters: three-breaths practice.",
-          "Prepare evening reflection by noting key moments during the day."
+          "Note key moments during the day to prepare your evening reflection."
         ],
         de: [
           "Vor wichtigen Begegnungen: Drei-Atemzüge-Praxis.",
-          "Abends 5 Minuten schriftliche Reflexion vorbereiten, indem Schlüsselmomente notiert werden."
+          "Tagsüber Schlüsselmomente notieren, um die Abendreflexion vorzubereiten."
         ]
       },
       level2: {
         en: [
           "Three-breaths practice before conversations, decisions, and conflict.",
           "At least one mindful meal without a screen.",
-          "Midday silence break (5-10 min) for re-alignment.",
+          "Midday silence pause (5-10 min) for re-alignment.",
           "Digital hygiene with clear time windows instead of passive scrolling."
         ],
         de: [
           "Drei-Atemzüge-Praxis vor Gesprächen, Entscheidungen und Konflikten.",
           "Mindestens eine achtsame Mahlzeit ohne Bildschirm.",
-          "Mittagspause in Stille (5-10 Min) zur Neuausrichtung.",
+          "Mittagspause der Stille (5-10 Min) zur Neuausrichtung.",
           "Digitale Hygiene mit klaren Zeiten statt passivem Scrollen."
         ]
       },
@@ -155,13 +155,13 @@ export const rhythmBlocks: RhythmBlock[] = [
         en: [
           "5-minute daily reflection with three questions:",
           "Where did I act from the soul?",
-          "Where did ego take over?",
+          "Where did the ego take over?",
           "What do I want to live differently tomorrow?"
         ],
         de: [
           "5 Minuten Tagesreflexion mit drei Fragen:",
           "Wo habe ich aus der Seele gehandelt?",
-          "Wo hat das Ego übernommen?",
+          "Wo hat das Ego das Ruder übernommen?",
           "Was will ich morgen anders leben?"
         ]
       },

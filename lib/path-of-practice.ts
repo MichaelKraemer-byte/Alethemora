@@ -25,12 +25,12 @@ export const practiceTiers: PracticeTier[] = [
     dissonanceTooltip: "Dissonanz: Trägheit, Entzündung, blockierte Lebensenergie.",
     sections: [
       {
-        title: "Vitalität & Gesundheit",
+        title: "Vitalität & funktionelles Training",
         bullets: [
           "Schlaf als höchste Regenerationspraxis bewusst pflegen",
-          "Bewegung täglich — nicht als Pflicht, sondern als Ausdruck von Lebendigkeit",
-          "Krafttraining zum Aufbau und Erhalt der Muskulatur",
-          "Ausdauer für Herz, Lunge und Nervensystem"
+          "Funktionelles Training täglich — als Ausdruck von Lebendigkeit, nicht als Leistungszwang",
+          "Vitalität, Ausdauer, Kraft, Agilität und Flexibilität als verbundene Bewegungsqualitäten kultivieren",
+          "Herz, Lunge und Bewegungsapparat durch abwechslungsreiche, natürliche Bewegung stärken"
         ]
       },
       {
@@ -43,9 +43,11 @@ export const practiceTiers: PracticeTier[] = [
         ]
       },
       {
-        title: "Körperbewusstsein",
+        title: "Körperbewusstsein & Hormonbalance",
         bullets: [
           "Den eigenen Körper kennen: Organe, Nervensystem, hormonelles System",
+          "Das hormonelle Gleichgewicht natürlich fördern — Cortisol im Rhythmus halten, Wachstumshormon in der Regeneration, Testosteron und Östrogen in gesunden Bereichen",
+          "Endorphine und körpereigene Botenstoffe durch bewusste Bewegung und Atem aktivieren",
           "Stresssignale früh erkennen und regulieren",
           "Atem als direktes Werkzeug zwischen Körper und Geist nutzen"
         ]
@@ -68,7 +70,8 @@ export const practiceTiers: PracticeTier[] = [
       }
     ],
     resonance: [
-      "Stabiler Schlafrhythmus und regelmäßige Bewegung",
+      "Stabiler Schlafrhythmus und funktionelles Training",
+      "Natürliches hormonelles Gleichgewicht durch Bewegung und Regeneration",
       "Nährstoffreiche, entzündungsarme Ernährung",
       "Atemarbeit und frühe Stressregulation",
       "Verantwortlicher Umgang mit sexueller Energie"
@@ -85,7 +88,7 @@ export const practiceTiers: PracticeTier[] = [
     title: "GEIST",
     subtitle: "Das Werkzeug",
     concept:
-      "Der Geist ist kein Feind — er ist das präziseste Werkzeug der Seele. Seelenmeisterschaft bedeutet, ihn zu schulen, nicht ihn zu unterdrücken.",
+      "Der Geist ist kein Feind — er ist das präziseste Werkzeug der Seele. Seelenreife bedeutet, ihn zu schulen, nicht ihn zu unterdrücken.",
     colorClass: "from-cyan-500/30 to-blue-500/30 border-cyan-300/45",
     resonanceTooltip: "Resonanz: Fokus, Unterscheidungskraft, geistige Souveränität.",
     dissonanceTooltip: "Dissonanz: Reaktivität, Zerstreuung, Konditionierungs-Schleifen.",
@@ -180,7 +183,7 @@ export const practiceTiers: PracticeTier[] = [
         bullets: [
           "Täglich kleine Momente bewusst wahrnehmen, in denen man gegen den Impuls des Egos wählt",
           "Den freien Willen als heiliges Werkzeug der Seele verstehen — nicht als Freiheit des Egos",
-          "Jede bewusste Wahl im Dienst der Seele als Akt der Seelenmeisterschaft feiern"
+          "Jede bewusste Wahl im Dienst der Seele als Akt der Seelenreife feiern"
         ]
       },
       {

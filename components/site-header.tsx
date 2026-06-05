@@ -10,7 +10,7 @@ import type { Language } from "@/lib/i18n";
 
 const navItems: Record<Language, { label: string; href: string }[]> = {
   en: [
-    { label: "Why", href: "#why" },
+    { label: "Belief", href: "#why" },
     { label: "Principles", href: "#prinzipien" },
     { label: "Practice Path", href: "#path-of-practice" },
     { label: "Rhythm", href: "#rhythmus" },
@@ -18,7 +18,7 @@ const navItems: Record<Language, { label: string; href: string }[]> = {
     { label: "Tribe", href: "#tribe" }
   ],
   de: [
-    { label: "Warum", href: "#why" },
+    { label: "Glaube", href: "#why" },
     { label: "Prinzipien", href: "#prinzipien" },
     { label: "Praxispfad", href: "#path-of-practice" },
     { label: "Rhythmus", href: "#rhythmus" },
@@ -54,12 +54,7 @@ export function SiteHeader({
   const closeMobile = () => setMobileOpen(false);
 
   return (
-    <motion.header
-      initial={{ opacity: 0, y: -24 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, ease: "easeOut" }}
-      className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-onyx/85 backdrop-blur-xl"
-    >
+    <header className="fixed inset-x-0 top-0 z-[100] border-b border-white/10 bg-onyx/90 backdrop-blur-xl">
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between gap-2 px-4 sm:gap-3 sm:px-6 lg:px-10">
         <Link href="/" className="flex min-w-0 max-w-[55%] items-center gap-2 sm:max-w-none sm:gap-3" onClick={closeMobile}>
           <div className="shrink-0 rounded-xl border border-soul-gold/45 bg-gradient-to-br from-soul-gold/12 to-black/40 p-1.5 shadow-[0_0_20px_rgba(212,175,55,0.15)] sm:p-2">
@@ -164,6 +159,6 @@ export function SiteHeader({
           </>
         ) : null}
       </AnimatePresence>
-    </motion.header>
+    </header>
   );
 }

@@ -128,7 +128,7 @@ export const principles: Principle[] = [
     title: "Gruppenentwicklung",
     statement: "Ich trage bewusst zur Entwicklung unserer gemeinsamen Seelengruppe bei.",
     detail:
-      "Mein Wachstum ist nicht nur meins. Wenn ich mich entwickle, entwickle ich mich auch im Namen meiner Seelengruppe — denn wir sind miteinander verwoben. Wenn ich eine Lektion lerne, die wir gemeinsam als Gruppe vereinbart haben, entlaste ich auch die anderen. Ich trage diese Verantwortung bewusst: Meine Seelenmeisterschaft ist ein Geschenk nicht nur an mich, sondern an alle, mit denen ich durch die Zeiten reise."
+      "Mein Wachstum ist nicht nur meins. Wenn ich mich entwickle, entwickle ich mich auch im Namen meiner Seelengruppe — denn wir sind miteinander verwoben. Wenn ich eine Lektion lerne, die wir gemeinsam als Gruppe vereinbart haben, entlaste ich auch die anderen. Ich trage diese Verantwortung bewusst: Meine Seelenreife ist ein Geschenk nicht nur an mich, sondern an alle, mit denen ich durch die Zeiten reise."
   },
   {
     id: 15,
@@ -212,7 +212,7 @@ export const principles: Principle[] = [
     statement:
       "Ich kultiviere Freude und Leichtigkeit als echten Ausdruck meiner Seele — nicht als Ablenkung, sondern als spirituellen Zustand.",
     detail:
-      "Seelenmeisterschaft ist kein ernstes, graues Unterfangen. Newton beschreibt die Zwischenwelt als Ort tiefer Freude, Humor und Leichtigkeit — das ist der natürliche Zustand der Seele. Je mehr ich mich von Ego, Angst und Anhaftung befreie, desto mehr kehrt diese natürliche Freude zurück. Ich kultiviere sie aktiv: durch Spiel, durch Lachen, durch Genuss der einfachen Dinge — als spirituelle Praxis, nicht als Flucht."
+      "Seelenreife ist kein ernstes, graues Unterfangen. Newton beschreibt die Zwischenwelt als Ort tiefer Freude, Humor und Leichtigkeit — das ist der natürliche Zustand der Seele. Je mehr ich mich von Ego, Angst und Anhaftung befreie, desto mehr kehrt diese natürliche Freude zurück. Ich kultiviere sie aktiv: durch Spiel, durch Lachen, durch Genuss der einfachen Dinge — als spirituelle Praxis, nicht als Flucht."
   },
   {
     id: 25,
@@ -275,7 +275,7 @@ export const principles: Principle[] = [
     id: 32,
     sphere: "Die neue Zivilisation",
     title: "Verkörpertes Beispiel",
-    statement: "Ich lebe als Beispiel dafür, dass Seelenmeisterschaft im Alltag möglich ist.",
+    statement: "Ich lebe als Beispiel dafür, dass Seelenreife im Alltag möglich ist.",
     detail:
       "Ich missioniere nicht. Ich predige nicht. Ich überzeuge nicht durch Worte. Ich lebe. Das ist die wirksamste Form des Zeugnisses: ein Leben, das die Gebote nicht beschreibt, sondern verkörpert. Wenn Menschen fragen, was mich trägt, was mich ruhig macht, was mir Kraft gibt — dann teile ich offen. Aber der erste und stärkste Beweis ist das Leben selbst."
   },

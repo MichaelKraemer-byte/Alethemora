@@ -201,7 +201,7 @@ export const principlesEn: Record<number, { title: string; statement: string; de
   32: {
     title: "Embodied Example",
     statement:
-      "I live as an example that soul mastery is possible in daily life.",
+      "I live as an example that soul maturity is possible in daily life.",
     detail:
       "I do not rely on preaching or pressure. I let lived coherence speak first. When people ask, I share openly; until then, embodiment remains the primary message. A life aligned with soul is itself instruction."
   },
