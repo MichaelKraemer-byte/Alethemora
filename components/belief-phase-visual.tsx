@@ -2,6 +2,7 @@
 
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useId, type CSSProperties, type PointerEvent } from "react";
+import type { ViewportTier } from "@/lib/soul-thread-path";
 
 export type BeliefPhaseKey =
   | "source"
@@ -14,11 +15,20 @@ export type BeliefPhaseKey =
 export const journeySoulClassName =
   "rounded-full border border-white/50 bg-gradient-to-br from-[#fffef8] via-[#f5e6c8] to-[#d4af37] shadow-[0_0_20px_rgba(255,248,220,0.9),0_0_36px_rgba(212,175,55,0.45)]";
 
+export type BeliefPhaseVisualVariant = "compact" | "timeline" | "watermark" | "icon";
+
+/** Mobile/tablet left-rail cards use CSS phase patterns instead of BeliefPhaseVisual */
+export function getMobileVisualPlacement(_phase: BeliefPhaseKey): "watermark" | "icon" | "none" {
+  return "none";
+}
+
 type BeliefPhaseVisualProps = {
   phase: BeliefPhaseKey;
   isActive: boolean;
   isHovered: boolean;
-  variant?: "compact" | "timeline";
+  variant?: BeliefPhaseVisualVariant;
+  /** Responsive scale tier for timeline visuals */
+  viewportTier?: ViewportTier;
 };
 
 function useHoverTilt(isHovered: boolean) {
@@ -46,38 +56,73 @@ export function BeliefPhaseVisual({
   phase,
   isActive,
   isHovered,
-  variant = "compact"
+  variant = "compact",
+  viewportTier = "desktop"
 }: BeliefPhaseVisualProps) {
   const { rotateX, rotateY, lift, onPointerMove, onPointerLeave } = useHoverTilt(isHovered);
   const translateZ = useTransform(lift, [0, 1], [0, 5]);
   const isTimeline = variant === "timeline";
-  const boost = isActive || isHovered;
+  const isWatermark = variant === "watermark";
+  const isIcon = variant === "icon";
+  const effectiveBoost = isWatermark || isIcon ? isActive : isActive || isHovered;
+  const visualMode: "full" | "watermark" | "icon" = isIcon ? "icon" : isWatermark ? "watermark" : "full";
   const isReturn = phase === "frequency";
   const isSoulWorld = phase === "soulWorld";
-  const stageAspect = isReturn ? "belief-visual-stage-return min-h-[17.5rem] sm:min-h-[19.5rem]" : "aspect-square";
-  const stageMaxW = isSoulWorld
-    ? isTimeline
-      ? "max-w-[310px] sm:max-w-[350px]"
-      : "max-w-[185px] sm:max-w-[205px]"
-    : isTimeline
-      ? "max-w-[240px] sm:max-w-[280px]"
-      : "max-w-[160px] sm:max-w-[180px]";
-  const useTilt = !isReturn;
+  const stageAspect = isReturn && isTimeline
+    ? viewportTier === "phone"
+      ? "belief-visual-stage-return min-h-[11rem] sm:min-h-[13.5rem]"
+      : viewportTier === "tablet"
+        ? "belief-visual-stage-return min-h-[14rem] md:min-h-[16rem]"
+        : "belief-visual-stage-return min-h-[17.5rem] lg:min-h-[19.5rem]"
+    : isIcon
+      ? "aspect-square"
+      : isWatermark
+        ? "aspect-square"
+        : "aspect-square";
+  const stageMaxW = isIcon
+    ? viewportTier === "phone"
+      ? "max-w-[52px]"
+      : "max-w-[64px]"
+    : isWatermark
+      ? viewportTier === "phone"
+        ? "max-w-[120px]"
+        : "max-w-[160px]"
+      : isSoulWorld
+        ? isTimeline
+          ? viewportTier === "phone"
+            ? "max-w-[172px] sm:max-w-[200px]"
+            : viewportTier === "tablet"
+              ? "max-w-[240px] md:max-w-[280px]"
+              : "max-w-[310px] lg:max-w-[350px]"
+          : "max-w-[185px] sm:max-w-[205px]"
+        : isTimeline
+          ? viewportTier === "phone"
+            ? "max-w-[148px] sm:max-w-[168px]"
+            : viewportTier === "tablet"
+              ? "max-w-[200px] md:max-w-[228px]"
+              : "max-w-[240px] lg:max-w-[280px]"
+          : "max-w-[160px] sm:max-w-[180px]";
+  const useTilt = !isReturn && viewportTier === "desktop" && isTimeline;
 
   return (
     <div
       className={
         isTimeline
           ? `belief-visual-stage relative mx-auto ${stageAspect} w-full ${stageMaxW} overflow-visible`
-          : `belief-visual-stage relative ${stageAspect} w-full ${stageMaxW} overflow-visible`
+          : isWatermark
+            ? `belief-visual-stage belief-visual-watermark relative ${stageAspect} w-full ${stageMaxW} overflow-visible`
+            : isIcon
+              ? `belief-visual-stage belief-visual-icon relative shrink-0 ${stageAspect} ${stageMaxW} overflow-visible`
+              : `belief-visual-stage relative ${stageAspect} w-full ${stageMaxW} overflow-visible`
       }
       data-phase={phase}
-      onPointerMove={onPointerMove}
-      onPointerLeave={onPointerLeave}
+      data-active={isActive ? "true" : "false"}
+      onPointerMove={useTilt ? onPointerMove : undefined}
+      onPointerLeave={useTilt ? onPointerLeave : undefined}
     >
       <motion.div
         className={
-          isReturn
+          isReturn && isTimeline
             ? "belief-visual-scene belief-visual-scene-return absolute inset-x-0 bottom-0 flex items-end justify-center overflow-visible pb-1"
             : "belief-visual-scene absolute inset-0 flex items-center justify-center overflow-visible"
         }
@@ -91,13 +136,63 @@ export function BeliefPhaseVisual({
               }
             : undefined
         }
+        animate={
+          isWatermark
+            ? { opacity: isActive ? 0.22 : 0.1, scale: isActive ? 1 : 0.92 }
+            : isIcon
+              ? { opacity: isActive ? 1 : 0.55, scale: isActive ? 1 : 0.88 }
+              : undefined
+        }
+        transition={{ duration: 0.4, ease: "easeInOut" }}
       >
-        {phase === "source" ? <SourceScene timeline={isTimeline} boost={boost} /> : null}
-        {phase === "soulWorld" ? <SoulWorldScene timeline={isTimeline} boost={boost} /> : null}
-        {phase === "incarnation" ? <IncarnationScene timeline={isTimeline} boost={boost} /> : null}
-        {phase === "earthly" ? <EarthlyScene timeline={isTimeline} boost={boost} /> : null}
-        {phase === "frequency" ? <ReturnScene timeline={isTimeline} boost={boost} /> : null}
-        {phase === "mastery" ? <SoulMaturityScene timeline={isTimeline} boost={boost} /> : null}
+        {phase === "source" ? (
+          <SourceScene
+            timeline={isTimeline || isWatermark || isIcon}
+            boost={effectiveBoost}
+            viewportTier={viewportTier}
+            visualMode={visualMode}
+          />
+        ) : null}
+        {phase === "soulWorld" ? (
+          <SoulWorldScene
+            timeline={isTimeline || isWatermark}
+            boost={effectiveBoost}
+            viewportTier={viewportTier}
+            visualMode={visualMode}
+          />
+        ) : null}
+        {phase === "incarnation" ? (
+          <IncarnationScene
+            timeline={isTimeline || isIcon}
+            boost={effectiveBoost}
+            viewportTier={viewportTier}
+            visualMode={visualMode}
+          />
+        ) : null}
+        {phase === "earthly" ? (
+          <EarthlyScene
+            timeline={isTimeline || isWatermark}
+            boost={effectiveBoost}
+            viewportTier={viewportTier}
+            visualMode={visualMode}
+          />
+        ) : null}
+        {phase === "frequency" ? (
+          <ReturnScene
+            timeline={isTimeline || isIcon}
+            boost={effectiveBoost}
+            viewportTier={viewportTier}
+            visualMode={visualMode}
+          />
+        ) : null}
+        {phase === "mastery" ? (
+          <SoulMaturityScene
+            timeline={isTimeline || isWatermark}
+            boost={effectiveBoost}
+            viewportTier={viewportTier}
+            visualMode={visualMode}
+          />
+        ) : null}
       </motion.div>
     </div>
   );
@@ -106,7 +201,32 @@ export function BeliefPhaseVisual({
 type SceneProps = {
   boost: boolean;
   timeline?: boolean;
+  viewportTier?: ViewportTier;
+  visualMode?: "full" | "watermark" | "icon";
 };
+
+function timelineSize(
+  base: number,
+  timeline: boolean | undefined,
+  tier: ViewportTier = "desktop",
+  visualMode: "full" | "watermark" | "icon" = "full"
+) {
+  if (visualMode === "icon") {
+    return tier === "phone" ? 52 : 64;
+  }
+  if (visualMode === "watermark") {
+    return tier === "phone" ? 118 : 158;
+  }
+  if (!timeline) return Math.round(base * 0.68);
+  switch (tier) {
+    case "phone":
+      return Math.round(base * 0.72);
+    case "tablet":
+      return Math.round(base * 0.86);
+    default:
+      return base;
+  }
+}
 
 type SoulStream = {
   dx: number;
@@ -247,8 +367,8 @@ function SourceSacredRays({ boost, size }: { boost: boolean; size: number }) {
   );
 }
 
-function SourceScene({ timeline, boost }: SceneProps) {
-  const size = timeline ? 220 : 150;
+function SourceScene({ timeline, boost, viewportTier, visualMode = "full" }: SceneProps) {
+  const size = timelineSize(220, timeline, viewportTier, visualMode);
   const streams = buildSoulStreams(28);
   const cycleDuration = boost ? 6.2 : 8.4;
 
@@ -438,9 +558,20 @@ function SoulWorldJellyLayer({
 }
 
 /** Newton: Schichten / Resonanzen — Heilung, Seelengruppe, Resonanz, Führung */
-function SoulWorldScene({ timeline, boost }: SceneProps) {
-  const size = timeline ? 310 : 195;
-  const scale = timeline ? 1.2 : 0.82;
+function SoulWorldScene({ timeline, boost, viewportTier, visualMode = "full" }: SceneProps) {
+  const size = timelineSize(310, timeline, viewportTier, visualMode);
+  const scale =
+    visualMode === "icon"
+      ? 0.85
+      : visualMode === "watermark"
+        ? 0.92
+        : timeline
+          ? viewportTier === "phone"
+            ? 0.98
+            : viewportTier === "tablet"
+              ? 1.08
+              : 1.2
+          : 0.82;
 
   const layers: NewtonLayer[] = [
     {
@@ -536,8 +667,8 @@ function SoulWorldScene({ timeline, boost }: SceneProps) {
 }
 
 /** Gewähltes Leben: Seelenring als Familie, umkreisende Geistseelen, wählende Seele */
-function IncarnationScene({ timeline, boost }: SceneProps) {
-  const size = timeline ? 240 : 170;
+function IncarnationScene({ timeline, boost, viewportTier, visualMode = "full" }: SceneProps) {
+  const size = timelineSize(240, timeline, viewportTier, visualMode);
   const familyCount = 6;
   const familyRadius = 38;
   const orbitRadius = 78;
@@ -893,13 +1024,29 @@ function EarthGlobe({ size, boost }: { size: number; boost: boolean }) {
   );
 }
 
-function EarthlyScene({ timeline, boost }: SceneProps) {
-  const earthSize = timeline ? 96 : 72;
+function EarthlyScene({ timeline, boost, viewportTier, visualMode = "full" }: SceneProps) {
+  const sceneSize = timelineSize(240, timeline, viewportTier, visualMode);
+  const earthSize =
+    visualMode === "icon"
+      ? viewportTier === "phone"
+        ? 28
+        : 34
+      : visualMode === "watermark"
+        ? viewportTier === "phone"
+          ? 42
+          : 54
+        : timeline
+          ? viewportTier === "phone"
+            ? 68
+            : viewportTier === "tablet"
+              ? 84
+              : 96
+          : 72;
 
   return (
     <div
       className="relative [transform-style:preserve-3d]"
-      style={{ width: timeline ? 240 : 170, height: timeline ? 240 : 170, perspective: 900 }}
+      style={{ width: sceneSize, height: sceneSize, perspective: 900 }}
       aria-hidden
     >
       <div className="absolute inset-0 [transform-style:preserve-3d]" style={{ transform: "rotateX(18deg)" }}>
@@ -913,16 +1060,25 @@ function EarthlyScene({ timeline, boost }: SceneProps) {
   );
 }
 
-function ReturnScene({ timeline, boost }: SceneProps) {
-  const size = timeline ? 240 : 170;
-  const sceneHeight = Math.round(size * 1.08);
+function ReturnScene({ timeline, boost, viewportTier, visualMode = "full" }: SceneProps) {
+  const size = timelineSize(240, timeline, viewportTier, visualMode);
+  const sceneHeight =
+    visualMode === "icon"
+      ? size
+      : Math.round(size * (viewportTier === "phone" ? 1.02 : 1.08));
   const uid = useId().replace(/:/g, "");
   const beamId = `return-beam-${uid}`;
   const portalId = `return-portal-${uid}`;
   const glowId = `return-glow-${uid}`;
   const ambientId = `return-ambient-${uid}`;
   const cycleDuration = boost ? 5.8 : 7.5;
-  const soulLift = timeline ? -108 : -82;
+  const soulLift = timeline
+    ? viewportTier === "phone"
+      ? -68
+      : viewportTier === "tablet"
+        ? -88
+        : -108
+    : -82;
   const soulOrigin = "50%";
 
   return (
@@ -1044,7 +1200,9 @@ function ReturnScene({ timeline, boost }: SceneProps) {
 
       {/* Soul ascending from earthly plane into higher dimension */}
       <motion.span
-        className={`absolute h-5 w-5 -translate-x-1/2 ${journeySoulClassName}`}
+        className={`absolute -translate-x-1/2 ${journeySoulClassName} ${
+          viewportTier === "phone" ? "h-4 w-4" : viewportTier === "tablet" ? "h-[1.125rem] w-[1.125rem]" : "h-5 w-5"
+        }`}
         style={{ left: soulOrigin, bottom: "14%" }}
         animate={{
           y: [0, soulLift * 0.35, soulLift * 0.72, soulLift, soulLift * 0.95],
@@ -1056,7 +1214,17 @@ function ReturnScene({ timeline, boost }: SceneProps) {
 
       <motion.span
         className="pointer-events-none absolute w-1 -translate-x-1/2 rounded-full bg-gradient-to-t from-violet-200/25 via-soul-gold/50 to-white/80"
-        style={{ left: soulOrigin, bottom: "15%", height: timeline ? 96 : 72 }}
+        style={{
+          left: soulOrigin,
+          bottom: "15%",
+          height: timeline
+            ? viewportTier === "phone"
+              ? 64
+              : viewportTier === "tablet"
+                ? 80
+                : 96
+            : 72
+        }}
         animate={{ opacity: boost ? [0.08, 0.58, 0.08] : 0.22, scaleY: boost ? [0.5, 1, 0.5] : 0.72 }}
         transition={{ duration: cycleDuration, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
       />
@@ -1083,10 +1251,22 @@ function ReturnScene({ timeline, boost }: SceneProps) {
   );
 }
 
-function SoulMaturityScene({ timeline, boost }: SceneProps) {
-  const size = timeline ? 240 : 170;
-  /** Align heart centroid with thread anchor at step 6 (row center, right column). */
-  const heartOffsetY = timeline ? 20 : 14;
+function SoulMaturityScene({ timeline, boost, viewportTier, visualMode = "full" }: SceneProps) {
+  const size = timelineSize(240, timeline, viewportTier, visualMode);
+  const heartOffsetY =
+    visualMode === "icon"
+      ? 4
+      : visualMode === "watermark"
+        ? viewportTier === "phone"
+          ? 6
+          : 10
+        : timeline
+          ? viewportTier === "phone"
+            ? 10
+            : viewportTier === "tablet"
+              ? 16
+              : 20
+          : 14;
   const uid = useId().replace(/:/g, "");
   const heartGradId = `mastery-heart-${uid}`;
   const glowFilterId = `mastery-glow-${uid}`;

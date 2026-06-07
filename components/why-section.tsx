@@ -66,53 +66,78 @@ const uiCopy = {
     steps: [
       {
         title: "Source",
-        summary: "Before birth: a luminous origin from which every soul emerges.",
+        summary: "A luminous origin from which every soul consciously emerges.",
+        teaserTraits: [
+          "Ocean of consciousness and love",
+          "Each soul carries a unique signature",
+          "Life as intentional expression"
+        ],
         journeyText:
-          "The Source is not a place but an ocean of consciousness and love. Countless souls stream forth — yours consciously detaches and becomes the soul of this path.",
+          "The Source is an ocean of consciousness and love. Countless souls stream forth — yours consciously detaches and becomes the soul of this path.",
         corePoints: [
           "Your soul carries a signature before any biography begins.",
           "LBL and NDE research converge on the same source-light.",
-          "Life gains direction when understood as expression — not random noise."
+          "Life gains direction when understood as expression."
         ]
       },
       {
         title: "Soul world",
         summary: "Between lives: healing, soul family, and planning in soft realms of light.",
+        teaserTraits: [
+          "Pastel realms of layered resonance",
+          "Soul groups and wise teachers",
+          "Growth ripens in relationship"
+        ],
         journeyText:
           "Newton describes pastel realms of layered resonance — healing, soul groups, councils, and life libraries. Your soul arrives here; what you learn on Earth ripens in relationship.",
         corePoints: [
           "Vibrational layers: healing, companionship, resonance, and guidance.",
           "Soul groups and teachers shape the arc between incarnations.",
-          "You never learn alone — growth is guided and collective."
+          "Growth is guided and collective — you learn in soul company."
         ]
       },
       {
         title: "Chosen life",
         summary: "The soul consciously chooses family, frame, and trials as curriculum.",
+        teaserTraits: [
+          "Deliberate pre-birth planning",
+          "Trials as training for capacity",
+          "Responsibility with compassion"
+        ],
         journeyText:
-          "Here the soul decides: which family ring, which conditions, which trials — not as punishment, but as training for specific capacities.",
+          "Here the soul decides: which family ring, which conditions, which trials — as training for specific capacities the soul seeks to develop.",
         corePoints: [
           "Hard lives often train compassion, courage, and sovereignty.",
           "LBL sessions describe precise pre-birth planning with the soul ring.",
-          "Responsibility without guilt — difficulty as training, not victimhood."
+          "Difficulty as training — responsibility held with clarity."
         ]
       },
       {
         title: "Earth school",
         summary: "Daily life is the classroom — relationships mirror what still seeks integration.",
+        teaserTraits: [
+          "The body as a living classroom",
+          "Relationships reveal open themes",
+          "Insight forged through real contact"
+        ],
         journeyText:
-          "The body and everyday friction are not obstacles to escape — they are the forge where insight becomes character.",
+          "The body and everyday friction are the forge where insight becomes character — daily life is where soul learning becomes visible.",
         corePoints: [
           "Limits, loss, and relationship mirror open themes.",
           "Cross-case reincarnation and NDE literature show recurring relational loads.",
-          "Insight matures only where it meets real resistance."
+          "Insight matures where it meets real resistance."
         ]
       },
       {
         title: "The Return",
         summary: "After death the soul comes home — life review, healing, and reunion with the spirit world.",
+        teaserTraits: [
+          "Passage into light and healing",
+          "Life review from every perspective",
+          "Understanding, forgiveness, renewal"
+        ],
         journeyText:
-          "Incarnation ends; the soul releases the body and ascends. Newton, NDE research, and LBL literature describe the same arc: passage into light, life review from every affected perspective, reunion with soul family and guides — not punishment, but honest reckoning held in love.",
+          "Incarnation ends; the soul releases the body and ascends. Newton, NDE research, and LBL literature describe the same arc: passage into light, life review from every affected perspective, reunion with soul family and guides — honest reckoning held in love.",
         corePoints: [
           "The crossing: releasing the body, rising into light, healing in spheres of resonance.",
           "Life review: you see your life — and how it landed in others — from the inside.",
@@ -122,10 +147,15 @@ const uiCopy = {
       {
         title: "Soul maturity",
         summary: "Mature love and greater service — guidance, creation, and ascent into the soul's higher roles.",
+        teaserTraits: [
+          "Compassion deepened through cycles",
+          "Spirit guides and council service",
+          "Co-creation as mature responsibility"
+        ],
         journeyText:
-          "Reincarnation is not a meaningless loop: it wears down ego, deepens compassion, and prepares the soul for work larger than one lifespan. Newton maps advanced souls as spirit guides, teachers, and council members; Cannon's subjects describe councils and creation spheres where mature souls co-design worlds, life forms, and learning paths with others.",
+          "Reincarnation wears down ego, deepens compassion, and prepares the soul for work larger than one lifespan. Newton maps advanced souls as spirit guides, teachers, and council members; Cannon's subjects describe councils and creation spheres where mature souls co-design worlds, life forms, and learning paths with others.",
         corePoints: [
-          "Mastery of love: clear, serving understanding — not sentiment, not attachment.",
+          "Mastery of love: clear, serving understanding.",
           "New tasks: become a soul guide, serve on councils of wise beings, help others plan lives.",
           "Highest reaches: co-create planets, species, and new paths of evolution — maturity as creative responsibility."
         ]
@@ -156,53 +186,78 @@ const uiCopy = {
     steps: [
       {
         title: "Quelle",
-        summary: "Vor der Geburt: ein lichtvoller Urgrund, aus dem jede Seele hervorgeht.",
+        summary: "Ein lichtvoller Urgrund, aus dem jede Seele bewusst hervorgeht.",
+        teaserTraits: [
+          "Meer aus Bewusstsein und Liebe",
+          "Jede Seele trägt eine Signatur",
+          "Leben als bewusster Ausdruck"
+        ],
         journeyText:
-          "Die Quelle ist kein Ort — ein Meer aus Bewusstsein und Liebe. Unzählige Seelen strömen hervor; deine löst sich bewusst ab und wird zur Seele auf diesem Faden.",
+          "Die Quelle ist ein Meer aus Bewusstsein und Liebe. Unzählige Seelen strömen hervor; deine löst sich bewusst ab und wird zur Seele auf diesem Faden.",
         corePoints: [
           "Die Seele trägt eine Signatur, bevor es eine Biografie gibt.",
           "LBL- und NDE-Forschung konvergieren auf dasselbe Quellenlicht.",
-          "Leben gewinnt Richtung, wenn es Ausdruck ist — nicht zufälliges Rauschen."
+          "Leben gewinnt Richtung als Ausdruck der Seele."
         ]
       },
       {
         title: "Geistige Welt",
         summary: "Zwischen den Leben: Heilung, Seelengruppe und Planung in sanften Lichtwelten.",
+        teaserTraits: [
+          "Pastellwelten aus Schichten und Resonanzen",
+          "Seelengruppen und weise Lehrer",
+          "Reifung geschieht in Beziehung"
+        ],
         journeyText:
           "Newton beschreibt Pastellwelten aus Schichten und Resonanzen — Heilung, Seelengruppen, Räte und Lebensbibliotheken. Hier reift, was du auf Erden lernst.",
         corePoints: [
           "Schichten der Resonanz: Heilung, Gemeinschaft, Resonanz, Führung.",
           "Seelengruppen und Lehrer formen den Bogen zwischen Inkarnationen.",
-          "Du lernst nie allein — Reifung geschieht in Beziehung."
+          "Reifung geschieht in Seelengemeinschaft — geleitet und geteilt."
         ]
       },
       {
         title: "Gewähltes Leben",
         summary: "Die Seele wählt bewusst Familie, Rahmen und Prüfungen als Lehrplan.",
+        teaserTraits: [
+          "Bewusste Geburtsplanung",
+          "Prüfungen als Training für Fähigkeiten",
+          "Verantwortung mit Mitgefühl"
+        ],
         journeyText:
-          "Hier entscheidet die Seele: welcher Familienring, welche Bedingungen, welche Prüfungen — nicht als Strafe, sondern als Training bestimmter Fähigkeiten.",
+          "Hier entscheidet die Seele: welcher Familienring, welche Bedingungen, welche Prüfungen — als Training bestimmter Fähigkeiten, die die Seele entwickeln will.",
         corePoints: [
           "Schwere Leben trainieren Mitgefühl, Mut und Souveränität.",
           "LBL-Sitzungen beschreiben präzise Geburtsplanung mit dem Seelenring.",
-          "Verantwortung ohne Schuld — Schwierigkeit als Training, nicht Opferrolle."
+          "Schwierigkeit als Training — Verantwortung mit Klarheit getragen."
         ]
       },
       {
         title: "Erdenschule",
         summary: "Der Alltag ist Klassenzimmer — Beziehungen spiegeln, was noch reift.",
+        teaserTraits: [
+          "Der Körper als lebendiges Klassenzimmer",
+          "Beziehungen zeigen offene Themen",
+          "Einsicht wird im Kontakt geschmiedet"
+        ],
         journeyText:
-          "Körper und Alltagsreibung sind keine Fluchtobjekte — sie sind die Schmiede, in der Einsicht zu Charakter wird.",
+          "Körper und Alltagsreibung sind die Schmiede, in der Einsicht zu Charakter wird — der Alltag ist der Ort, an dem Seelenlernen sichtbar wird.",
         corePoints: [
           "Grenze, Verlust und Beziehung spiegeln offene Themen.",
           "Reinkarnations- und NDE-Literatur zeigt wiederkehrende Beziehungslasten.",
-          "Einsicht reift nur dort, wo sie auf echte Reibung trifft."
+          "Einsicht reift dort, wo sie auf echte Reibung trifft."
         ]
       },
       {
         title: "Die Rückkehr",
         summary: "Nach dem Tod kehrt die Seele heim — Life Review, Heilung und Wiederanbindung an die geistige Welt.",
+        teaserTraits: [
+          "Übergang ins Licht und Heilung",
+          "Life Review aus jeder Perspektive",
+          "Verstehen, Vergeben, Erneuerung"
+        ],
         journeyText:
-          "Die Inkarnation endet; die Seele löst sich vom Körper und steigt zurück. Newton, NDE-Forschung und LBL-Literatur beschreiben denselben Bogen: Übergang ins Licht, Life Review aus der Perspektive aller Betroffenen, Begegnung mit Seelengruppe und Führern — nicht als Strafe, sondern als ehrliche Bilanz in Liebe.",
+          "Die Inkarnation endet; die Seele löst sich vom Körper und steigt zurück. Newton, NDE-Forschung und LBL-Literatur beschreiben denselben Bogen: Übergang ins Licht, Life Review aus der Perspektive aller Betroffenen, Begegnung mit Seelengruppe und Führern — ehrliche Bilanz in Liebe.",
         corePoints: [
           "Der Übergang: Loslassen des Körpers, Aufstieg ins Licht, Heilung in Resonanzzonen.",
           "Life Review: du siehst dein Leben — und seine Wirkung auf andere — von innen.",
@@ -212,10 +267,15 @@ const uiCopy = {
       {
         title: "Seelenreife",
         summary: "Reife Liebe, größerer Dienst — Führung, Schöpfung und Aufstieg in höhere Rollen der Seele.",
+        teaserTraits: [
+          "Mitgefühl vertieft durch Zyklen",
+          "Seelenführung und Rat der Weisen",
+          "Mitschöpfung als reife Verantwortung"
+        ],
         journeyText:
-          "Reinkarnation ist kein sinnloser Kreislauf: Sie schleift das Ego ab, vertieft Mitgefühl und bereitet die Seele auf Aufgaben vor, die größer sind als ein Leben. Newton beschreibt fortgeschrittene Seelen als Geistführer, Lehrer und Ratsmitglieder; Cannon berichtet von Räten und Schöpfungszonen, in denen reife Seelen gemeinsam Welten, Lebensformen und Lernpfade entwerfen.",
+          "Reinkarnation schleift das Ego ab, vertieft Mitgefühl und bereitet die Seele auf Aufgaben vor, die größer sind als ein Leben. Newton beschreibt fortgeschrittene Seelen als Geistführer, Lehrer und Ratsmitglieder; Cannon berichtet von Räten und Schöpfungszonen, in denen reife Seelen gemeinsam Welten, Lebensformen und Lernpfade entwerfen.",
         corePoints: [
-          "Meisterschaft in Liebe: klares, dienendes Verstehen — nicht Sentimentalität, nicht Anhaftung.",
+          "Meisterschaft in Liebe: klares, dienendes Verstehen.",
           "Neue Aufgaben: Seelenführer werden, im Rat der Weisen mitwirken, anderen bei der Lebensplanung helfen.",
           "Höchste Stufen: mit anderen Seelen Planeten, Spezies und Entwicklungsbahnen miterschaffen — Reife als Schöpferverantwortung."
         ]
@@ -232,6 +292,7 @@ export function WhySection({ language }: { language: Language }) {
   const [researchCategory, setResearchCategory] = useState<ResearchCategoryId>("lbl");
   const [activeResearcherId, setActiveResearcherId] = useState<string | null>(null);
   const [activeStep, setActiveStep] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const [hoveredStep, setHoveredStep] = useState<number | null>(null);
   const sectionRef = useRef<HTMLElement | null>(null);
   const stepRefs = useRef<Array<HTMLDivElement | null>>([]);
@@ -298,33 +359,74 @@ export function WhySection({ language }: { language: Language }) {
   }, [activeResearcher, goToNextResearcher, goToPreviousResearcher]);
 
   useEffect(() => {
-    const onScroll = () => {
-      if (!sectionRef.current) return;
-      const centerY = window.innerHeight * 0.5;
-      let closestIdx = 0;
-      let closestDistance = Number.POSITIVE_INFINITY;
+    let raf = 0;
+    let retryRaf = 0;
 
-      stepRefs.current.forEach((node, idx) => {
-        if (!node) return;
+    const computeProgress = (nodes: HTMLDivElement[]) => {
+      const viewportFocus = window.innerHeight * 0.42;
+      const anchors = nodes.map((node) => {
         const rect = node.getBoundingClientRect();
-        const distance = Math.abs(rect.top + rect.height * 0.5 - centerY);
-        if (distance < closestDistance) {
-          closestDistance = distance;
-          closestIdx = idx;
-        }
+        return rect.top + rect.height * 0.42;
       });
 
-      setActiveStep(closestIdx);
+      if (anchors.length === 0) return { progress: 0, active: 0 };
+
+      if (viewportFocus <= anchors[0]!) {
+        return { progress: 0, active: 0 };
+      }
+
+      const last = anchors.length - 1;
+      if (viewportFocus >= anchors[last]!) {
+        return { progress: last, active: last };
+      }
+
+      for (let i = 0; i < last; i++) {
+        const start = anchors[i]!;
+        const end = anchors[i + 1]!;
+        if (viewportFocus >= start && viewportFocus <= end) {
+          const segmentT = (viewportFocus - start) / (end - start);
+          const progress = i + segmentT;
+          return { progress, active: Math.round(progress) };
+        }
+      }
+
+      return { progress: 0, active: 0 };
     };
 
-    onScroll();
+    const update = () => {
+      const nodes = stepRefs.current.filter((node): node is HTMLDivElement => node !== null);
+      if (nodes.length < t.steps.length) return;
+
+      const { progress, active } = computeProgress(nodes);
+      setScrollProgress(progress);
+      setActiveStep(active);
+    };
+
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(update);
+    };
+
+    const waitForRefs = () => {
+      const ready = stepRefs.current.filter(Boolean).length >= t.steps.length;
+      if (ready) {
+        update();
+        return;
+      }
+      retryRaf = requestAnimationFrame(waitForRefs);
+    };
+
+    waitForRefs();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
+
     return () => {
+      cancelAnimationFrame(raf);
+      cancelAnimationFrame(retryRaf);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
     };
-  }, []);
+  }, [t.steps.length, language]);
 
   function scrollToStep(idx: number) {
     stepRefs.current[idx]?.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -415,7 +517,7 @@ export function WhySection({ language }: { language: Language }) {
 
       <div className="mb-5">
         <p className="text-xs tracking-[0.14em] text-zinc-500">{t.threadLabel}</p>
-        <div className="mt-2 flex gap-1 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="mt-2 -mx-1 flex gap-1.5 overflow-x-auto px-1 pb-1.5 [-ms-overflow-style:none] [scrollbar-width:none] [touch-action:pan-x] [&::-webkit-scrollbar]:hidden">
           {t.steps.map((step, idx) => {
             const Icon = phaseIcons[idx]!;
             const isActive = activeStep === idx;
@@ -425,29 +527,33 @@ export function WhySection({ language }: { language: Language }) {
                 type="button"
                 onClick={() => scrollToStep(idx)}
                 title={step.title}
-                className={`flex shrink-0 items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] transition sm:px-3 sm:text-xs ${
+                aria-current={isActive ? "step" : undefined}
+                className={`flex min-h-11 shrink-0 items-center gap-1.5 rounded-full border px-3 py-2 text-xs transition sm:min-h-0 sm:px-3 sm:py-1 sm:text-xs ${
                   isActive
                     ? "border-soul-gold/45 bg-soul-gold/10 text-soul-gold"
                     : "border-white/10 bg-black/20 text-zinc-500 hover:text-zinc-300"
                 }`}
               >
-                <Icon className="h-3 w-3" strokeWidth={1.75} />
-                <span className="max-w-[5.5rem] truncate sm:max-w-none">{step.title}</span>
+                <Icon className="h-3.5 w-3.5 shrink-0 sm:h-3 sm:w-3" strokeWidth={1.75} />
+                <span className="max-w-[6.5rem] truncate sm:max-w-none">{step.title}</span>
               </button>
             );
           })}
         </div>
       </div>
 
-      <div className="overflow-visible">
+      <div className="overflow-x-clip overflow-y-visible">
         <SoulThreadJourney
           steps={t.steps}
           phaseKeys={phaseKeys}
           phaseIcons={phaseIcons}
           activeStep={activeStep}
+          scrollProgress={scrollProgress}
           hoveredStep={hoveredStep}
           onHoverStep={setHoveredStep}
           stepRefs={stepRefs}
+          expandStepLabel={t.expandStep}
+          collapseStepLabel={t.collapseStep}
         />
       </div>
 
