@@ -10,22 +10,15 @@ import type { Language } from "@/lib/i18n";
 import { funnelCopy } from "@/lib/funnel-copy";
 import { phase } from "@/lib/site-config";
 
+// TODO: EN prüfen
 const navItems: Record<Language, { label: string; href: string }[]> = {
   en: [
-    { label: "Belief", href: "#why" },
-    { label: "Principles", href: "#prinzipien" },
-    { label: "Practice Path", href: "#path-of-practice" },
-    { label: "Rhythm", href: "#rhythmus" },
-    { label: "Science", href: "#wissenschaft" },
-    { label: "Tribe", href: "#tribe" }
+    { label: "What it is", href: "#was" },
+    { label: "In the book", href: "#buch" }
   ],
   de: [
-    { label: "Glaube", href: "#why" },
-    { label: "Prinzipien", href: "#prinzipien" },
-    { label: "Praxispfad", href: "#path-of-practice" },
-    { label: "Rhythmus", href: "#rhythmus" },
-    { label: "Wissenschaft", href: "#wissenschaft" },
-    { label: "Stamm", href: "#tribe" }
+    { label: "Was es ist", href: "#was" },
+    { label: "Im Buch", href: "#buch" }
   ]
 };
 

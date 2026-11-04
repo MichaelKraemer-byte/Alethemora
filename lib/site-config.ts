@@ -15,7 +15,7 @@ export const startTermin: Record<Language, string> = {
   en: "early 2028"
 };
 export const youtube = "";
-export const kitFormId = "1234567";
+export const kitFormId = "10141587";
 export const calErstgespraech = "TODO";
 export const calKlarheitsgespraech = "TODO";
 export const preisKlarheitsgespraech = 90;

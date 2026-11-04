@@ -16,7 +16,9 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: "ALETHEMORA",
-  description: "Soul continuity as a lived philosophy — research-informed and practice-rooted."
+  // TODO: EN prüfen
+  description:
+    "Alethemora means this: the truth of one's own fate — the remembrance of the life the soul has chosen. The full text is in the free book."
 };
 
 export const viewport: Viewport = {
