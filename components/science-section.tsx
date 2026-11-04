@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { emphasize } from "@/lib/emphasize";
 import type { Language } from "@/lib/i18n";
 
 // TODO: EN prüfen
@@ -34,6 +35,7 @@ const copy = {
       },
       {
         title: "Energie, Schwingung und Resonanz",
+        lead: "Messbar sind die Rhythmen von Körper und Beziehung",
         body: "Messbar sind die Rhythmen von Körper und Beziehung: ruhiges Atmen bringt den Herzrhythmus in einen kohärenten Zustand, Gefühle gehen von Mensch zu Mensch über, und die Gehirnaktivität von Menschen, die einander wirklich zuhören, gleicht sich an. Das Licht der Seele ist ein Bild aus der Landkarte. Nicht gemeint ist, dass „hohe Schwingung“ Glück anzieht oder dass Menschen, die leiden, „zu niedrig schwingen“.",
         href: "/science/resonanz"
       },
@@ -44,10 +46,12 @@ const copy = {
       },
       {
         title: "Bildung neu gedacht",
+        lead: "Kinder sind ewig lernende Seelen",
         body: "Kinder sind ewig lernende Seelen, kein Rohmaterial für einen Arbeitsmarkt. Bindung ohne Autonomie erzeugt Abhängigkeit. Autonomie ohne Bindung erzeugt Angst statt Mut."
       }
     ],
     commonTitle: "Der gemeinsame Nenner",
+    commonLead: "Fordern und Fördern",
     common: [
       "All diese Verschiebungen — in Bildung, Wirtschaft, Politik, im Umgang mit der Erde — folgen demselben Prinzip, das schon die persönliche Praxis trägt: Fordern und Fördern.",
       "Nicht weil ein neues Geldsystem allein die Seele reifen lässt — sondern weil es den Raum schafft, in dem diese Reifung überhaupt stattfinden kann."
@@ -82,6 +86,7 @@ const copy = {
       },
       {
         title: "Energy, vibration, and resonance",
+        lead: "What can be measured are the rhythms of body and relationship",
         body: "What can be measured are the rhythms of body and relationship: calm breathing brings the heart rhythm into a coherent state, feelings pass from person to person, and the brain activity of people who truly listen to each other aligns. The light of the soul is an image from the map. What is not meant: that “high vibration” attracts luck, or that people who suffer “vibrate too low.”",
         href: "/science/resonanz"
       },
@@ -92,10 +97,12 @@ const copy = {
       },
       {
         title: "Education, thought anew",
+        lead: "Children are eternally learning souls",
         body: "Children are eternally learning souls, not raw material for a labor market. Attachment without autonomy produces dependence. Autonomy without attachment produces fear instead of courage."
       }
     ],
     commonTitle: "The common denominator",
+    commonLead: "challenge and support",
     common: [
       "All these shifts — in education, economy, politics, in the way we treat the earth — follow the same principle that already carries the personal practice: challenge and support.",
       "Not because a new money system by itself lets the soul mature — but because it creates the space in which this maturing can happen at all."
@@ -123,7 +130,7 @@ export function ScienceSection({ language }: { language: Language }) {
           {t.topics.map((topic) => (
             <li key={topic.title} className="border-t border-sand pt-4">
               <h3 className="type-h3-sm">{topic.title}</h3>
-              <p className="type-body mt-3">{topic.body}</p>
+              <p className="type-body mt-3">{emphasize(topic.body, "lead" in topic ? topic.lead : "")}</p>
               {"href" in topic && topic.href ? (
                 <Link
                   href={topic.href}
@@ -139,7 +146,7 @@ export function ScienceSection({ language }: { language: Language }) {
         <div className="mt-4 max-w-3xl space-y-4">
           {t.common.map((paragraph) => (
             <p key={paragraph} className="type-body">
-              {paragraph}
+              {emphasize(paragraph, paragraph.includes(t.commonLead) ? t.commonLead : "")}
             </p>
           ))}
         </div>

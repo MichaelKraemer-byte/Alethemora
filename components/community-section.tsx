@@ -1,11 +1,13 @@
 "use client";
 
+import { emphasize } from "@/lib/emphasize";
 import type { Language } from "@/lib/i18n";
 
 // TODO: EN prüfen
 const copy = {
   de: {
     title: "Gemeinschaft",
+    introMark: "Ich missioniere nicht.",
     intro:
       "Ich missioniere nicht. Ich predige nicht. Ich überzeuge nicht durch Worte. Ich lebe. Das ist die wirksamste Form des Zeugnisses: ein Leben, das die Prinzipien nicht beschreibt, sondern verkörpert. Wenn Menschen fragen, was mich trägt, was mich ruhig macht, was mir Kraft gibt — dann teile ich offen. Aber der erste und stärkste Beweis ist das Leben selbst.",
     rituals:
@@ -28,6 +30,7 @@ const copy = {
   },
   en: {
     title: "Community",
+    introMark: "I do not missionize.",
     intro:
       "I do not missionize. I do not preach. I do not persuade with words. I live. That is the most effective form of witness: a life that does not describe the principles, but embodies them. When people ask what carries me, what makes me calm, what gives me strength — then I share openly. But the first and strongest proof is life itself.",
     rituals:
@@ -57,7 +60,7 @@ export function CommunitySection({ language }: { language: Language }) {
     <section id="tribe" className="bg-beige">
       <div className="section-shell">
         <h2 className="type-h2">{t.title}</h2>
-        <p className="type-lead mt-6 max-w-3xl">{t.intro}</p>
+        <p className="type-lead mt-6 max-w-3xl">{emphasize(t.intro, t.introMark)}</p>
         <p className="type-body mt-4 max-w-3xl">{t.rituals}</p>
         <h3 className="type-h3-sm mt-12">{t.formatsTitle}</h3>
         <p className="type-small mt-3 max-w-3xl text-tinte-weich">{t.note}</p>

@@ -1,5 +1,6 @@
 "use client";
 
+import { emphasize } from "@/lib/emphasize";
 import type { Language } from "@/lib/i18n";
 
 // TODO: EN prüfen
@@ -12,6 +13,7 @@ const copy = {
     cards: [
       {
         title: "Du bist eine Seele.",
+        lead: "Ein Teil der Quelle – aus Licht und Liebe, einzigartig und unsterblich.",
         body: "Ein Teil der Quelle – aus Licht und Liebe, einzigartig und unsterblich. Du bist nicht dein Körper, dein Name oder deine Geschichte. Dein Körper ist dein Werkzeug, nicht dein Wesen."
       },
       {
@@ -24,6 +26,7 @@ const copy = {
       },
       {
         title: "Du hast vergessen – damit es echt wird.",
+        lead: "Mit der Geburt vergisst die Seele",
         body: "Mit der Geburt vergisst die Seele, woher sie kommt und was sie sich vorgenommen hat. Erst im Vergessen wird jede liebevolle Entscheidung zu einer wirklichen Wahl. Der Weg führt zurück: vom Vergessen zur Erinnerung."
       },
       {
@@ -32,6 +35,7 @@ const copy = {
       },
       {
         title: "Liebe erschafft.",
+        lead: "Liebe musst du nicht finden – sie ist, was du bist.",
         body: "Liebe musst du nicht finden – sie ist, was du bist. Die Seele entfaltet sich, erschafft, erlebt, was sie erschaffen hat, und lernt daraus: der Kreis der Liebe. Weit gereifte Seelen, so die Berichte, gestalten sogar Lebensformen und Welten mit – und erleben sie selbst."
       },
       {
@@ -40,6 +44,7 @@ const copy = {
       },
       {
         title: "Du bist nie allein.",
+        lead: "Du reist mit einer Gruppe vertrauter Seelen",
         body: "Du reist mit einer Gruppe vertrauter Seelen durch viele Leben – als Familie, Freunde, manchmal als schwierige Lehrer. Geistführer begleiten dich, ohne dir Entscheidungen abzunehmen. Und der Tod trennt nicht."
       }
     ],
@@ -58,32 +63,39 @@ const copy = {
         body: "Wer reift, verändert sein Umfeld. Eine höhere Zivilisation braucht ein Fundament, das Reife zulässt: hartes, dezentrales Geld, Bildung aus Bindung und Autonomie und überall dasselbe Prinzip – Fordern und Fördern."
       }
     ],
+    mapLead: "Alethemora ist eine Landkarte, kein Dogma.",
     map: "Alethemora ist eine Landkarte, kein Dogma. Sie verwebt vier Quellen – die Reinkarnationsforschung von Michael Newton, die Lehre von der Gegenwart, die Idee bewusster Erschaffung und die Wissenschaft von Gehirn und Verhalten – und lädt dazu ein, sie im eigenen Leben zu prüfen. Keine Religion besitzt die Wahrheit allein; sie alle können Wege zum selben Zuhause sein.",
     threadTitle: "Der rote Faden in sechs Schritten",
     threadLead: "Eine abschließende, bildhafte Zusammenfassung — eine Erzählung, kein Beweis.",
     steps: [
       {
         title: "Quelle",
+        lead: "Die Quelle ist, in diesem Bild, ein Ozean aus Bewusstsein und Liebe.",
         body: "Die Quelle ist, in diesem Bild, ein Ozean aus Bewusstsein und Liebe. Unzählige Seelen strömen aus ihr hervor. Das Leben gewinnt Ausrichtung, wenn es als Ausdruck dieser Quelle verstanden wird."
       },
       {
         title: "Geistwelt",
+        lead: "eine Welt geschichteter Resonanz",
         body: "In den Berichten der Hypnoseregression wird eine Welt geschichteter Resonanz beschrieben — Heilung, Seelengruppen, Räte, Wachstum, das geführt und gemeinschaftlich geschieht."
       },
       {
         title: "Gewähltes Leben",
+        lead: "entscheidet die Seele",
         body: "Hier, so die wiederkehrende Erzählung, entscheidet die Seele: welche Familie, welche Bedingungen, welche Prüfungen — als Training für das, was sie entwickeln möchte. Schwierigkeit als Training, nicht als Strafe."
       },
       {
         title: "Erdschule",
+        lead: "Der Körper und die alltägliche Reibung sind die Schmiede",
         body: "Der Körper und die alltägliche Reibung sind die Schmiede, in der Erkenntnis zu Charakter wird. Der Alltag ist der Ort, an dem Seelenlernen sichtbar wird — Erkenntnis reift dort, wo sie auf realen Widerstand trifft."
       },
       {
         title: "Die Rückkehr",
+        lead: "Die Inkarnation endet, die Seele lässt den Körper los.",
         body: "Die Inkarnation endet, die Seele lässt den Körper los. Übergang, Rückschau aus Liebe statt aus Urteil, Wiedersehen mit denen, die sie begleiteten. Rückkehr bedeutet verstehen, vergeben und neu planen."
       },
       {
         title: "Seelenreife",
+        lead: "Reinkarnation, so das Bild, schleift das Ego ab",
         body: "Reinkarnation, so das Bild, schleift das Ego ab und vertieft das Mitgefühl. Reife Seelen wachsen über sich selbst hinaus, in Dienst an anderen — Meisterschaft der Liebe als klares, dienendes Verstehen."
       }
     ]
@@ -96,6 +108,7 @@ const copy = {
     cards: [
       {
         title: "You are a soul.",
+        lead: "A part of the source — of light and love, unique and immortal.",
         body: "A part of the source — of light and love, unique and immortal. You are not your body, your name, or your story. Your body is your instrument, not your essence."
       },
       {
@@ -108,6 +121,7 @@ const copy = {
       },
       {
         title: "You forgot — so that it becomes real.",
+        lead: "With birth the soul forgets",
         body: "With birth the soul forgets where it comes from and what it set out to do. Only in forgetting does every loving decision become a real choice. The way leads back: from forgetting to remembrance."
       },
       {
@@ -116,6 +130,7 @@ const copy = {
       },
       {
         title: "Love creates.",
+        lead: "You do not have to find love — it is what you are.",
         body: "You do not have to find love — it is what you are. The soul unfolds, creates, experiences what it has created, and learns from it: the circle of love. Far-matured souls, so the reports say, even take part in shaping life forms and worlds — and experience them themselves."
       },
       {
@@ -124,6 +139,7 @@ const copy = {
       },
       {
         title: "You are never alone.",
+        lead: "You travel with a group of familiar souls",
         body: "You travel with a group of familiar souls through many lives — as family, friends, sometimes as difficult teachers. Spirit guides accompany you without taking your decisions from you. And death does not separate."
       }
     ],
@@ -142,32 +158,39 @@ const copy = {
         body: "Whoever matures changes their surroundings. A higher civilization needs a foundation that allows maturity: hard, decentralized money, education out of attachment and autonomy, and everywhere the same principle — challenge and support."
       }
     ],
+    mapLead: "Alethemora is a map, not a dogma.",
     map: "Alethemora is a map, not a dogma. It weaves four sources — the reincarnation research of Michael Newton, the teaching of the present, the idea of conscious creation, and the science of brain and behavior — and invites you to test them in your own life. No religion owns the truth alone; they can all be ways to the same home.",
     threadTitle: "The red thread in six steps",
     threadLead: "A closing, pictorial summary — a telling, not a proof.",
     steps: [
       {
         title: "Source",
+        lead: "The source, in this image, is an ocean of consciousness and love.",
         body: "The source, in this image, is an ocean of consciousness and love. Countless souls stream out of it. Life gains direction when it is understood as an expression of this source."
       },
       {
         title: "Spirit world",
+        lead: "a world of layered resonance",
         body: "In the reports of hypnosis regression a world of layered resonance is described — healing, soul groups, councils, growth that happens in a guided and communal way."
       },
       {
         title: "Chosen life",
+        lead: "the soul decides",
         body: "Here, so the recurring telling goes, the soul decides: which family, which conditions, which tests — as training for what it wants to develop. Difficulty as training, not as punishment."
       },
       {
         title: "Earth school",
+        lead: "The body and everyday friction are the forge",
         body: "The body and everyday friction are the forge in which recognition becomes character. Everyday life is the place where soul-learning becomes visible — recognition matures where it meets real resistance."
       },
       {
         title: "The return",
+        lead: "The incarnation ends, the soul lets go of the body.",
         body: "The incarnation ends, the soul lets go of the body. Transition, a review out of love rather than judgment, reunion with those who accompanied it. Return means to understand, to forgive, and to plan anew."
       },
       {
         title: "Soul maturity",
+        lead: "Reincarnation, so the image, wears the ego down",
         body: "Reincarnation, so the image, wears the ego down and deepens compassion. Mature souls grow beyond themselves, into service to others — mastery of love as clear, serving understanding."
       }
     ]
@@ -187,7 +210,7 @@ export function WhySection({ language }: { language: Language }) {
           {t.cards.map((card) => (
             <li key={card.title} className="crystal-card p-5">
               <h3 className="type-card-title">{card.title}</h3>
-              <p className="type-body mt-3">{card.body}</p>
+              <p className="type-body mt-3">{emphasize(card.body, "lead" in card ? card.lead : "")}</p>
             </li>
           ))}
         </ul>
@@ -200,7 +223,7 @@ export function WhySection({ language }: { language: Language }) {
             </li>
           ))}
         </ul>
-        <p className="type-small mt-12 max-w-3xl text-tinte-weich">{t.map}</p>
+        <p className="type-small mt-12 max-w-3xl text-tinte-weich">{emphasize(t.map, t.mapLead)}</p>
         <div className="mt-16 max-w-3xl">
           <h3 className="type-h3">{t.threadTitle}</h3>
           <p className="type-body mt-3 text-tinte-weich">{t.threadLead}</p>
@@ -211,7 +234,7 @@ export function WhySection({ language }: { language: Language }) {
                   <span className="text-gold">{index + 1}. </span>
                   {step.title}
                 </h4>
-                <p className="type-body mt-2">{step.body}</p>
+                <p className="type-body mt-2">{emphasize(step.body, step.lead)}</p>
               </li>
             ))}
           </ol>

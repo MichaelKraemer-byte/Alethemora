@@ -7,7 +7,7 @@ import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["400", "500", "700"],
   style: "normal",
   display: "swap",
   variable: "--font-inter",
@@ -16,7 +16,7 @@ const inter = Inter({
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400", "700"],
   style: "normal",
   display: "swap",
   variable: "--font-playfair",

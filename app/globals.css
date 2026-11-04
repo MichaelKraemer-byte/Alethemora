@@ -35,7 +35,8 @@ body {
   -webkit-hyphens: manual;
 }
 
-/* Titles stay Playfair 400. Short UI labels and buttons use Inter 500. */
+/* Titles stay Playfair 400. Body stays Inter 400. One emphasis weight: 700, in tinte.
+   Short UI labels use Inter 500. Rose buttons stay Inter 700 and white via font-bold. */
 @layer base {
   h1,
   h2,
@@ -68,7 +69,8 @@ body {
 
   strong,
   b {
-    font-weight: 500;
+    font-weight: 700;
+    color: var(--tinte);
   }
 }
 

@@ -1,5 +1,6 @@
 "use client";
 
+import { emphasize } from "@/lib/emphasize";
 import type { Language } from "@/lib/i18n";
 
 type Practice = { title: string; bullets: string[]; note?: string };
@@ -7,11 +8,19 @@ type Practice = { title: string; bullets: string[]; note?: string };
 // TODO: EN prüfen — Wortlaut der 18 Praktiken aus dem deutschen Buch übertragen.
 const areas: Record<
   Language,
-  { eyebrow: string; title: string; intro: string; book: string; groups: { title: string; practices: Practice[] }[] }
+  {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    introMark: string;
+    book: string;
+    groups: { title: string; practices: Practice[] }[];
+  }
 > = {
   de: {
     eyebrow: "Körper, Geist und Seele",
     title: "Praxis",
+    introMark: "Körper, Geist und Seele sind eine untrennbare Einheit",
     intro:
       "Körper, Geist und Seele sind eine untrennbare Einheit: Vernachlässigt man eine Ebene, leiden die anderen. Der Körper ist das Werkzeug der Seele, nicht ihr Wesen – und er bringt das Tier mit: Temperament, Instinkte und Ängste. Reife heißt, dass die Seele führt.",
     book: "Im Buch: 18 Praktiken in drei Bereichen – tägliche Praxis, Selbstbildung und Anwendung im Außen.",
@@ -149,6 +158,7 @@ const areas: Record<
   en: {
     eyebrow: "Body, mind, and soul",
     title: "Practice",
+    introMark: "Body, mind, and soul are an inseparable unity",
     intro:
       "Body, mind, and soul are an inseparable unity: neglect one level, and the others suffer. The body is the soul’s instrument, not its essence — and it brings the animal with it: temperament, instincts, and fears. Maturity means that the soul leads.",
     book: "In the book: 18 practices in three areas — daily practice, self-education, and application in the outer world.",
@@ -290,7 +300,7 @@ export function PathOfPracticeSection({ language }: { language: Language }) {
       <div className="section-shell">
         <p className="type-eyebrow">{t.eyebrow}</p>
         <h2 className="type-h2 mt-4">{t.title}</h2>
-        <p className="type-lead mt-6 max-w-3xl">{t.intro}</p>
+        <p className="type-lead mt-6 max-w-3xl">{emphasize(t.intro, t.introMark)}</p>
         <p className="type-body mt-4 max-w-3xl">{t.book}</p>
         <div className="mt-12 space-y-12">
           {t.groups.map((group) => (

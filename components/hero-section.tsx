@@ -3,13 +3,15 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { AlethemoraRing } from "@/components/alethemora-ring";
+import { emphasize } from "@/lib/emphasize";
 import type { Language } from "@/lib/i18n";
 
 // TODO: EN prüfen
-const copy: Record<Language, { badge: string; title: string; text: string; primary: string; secondary: string }> = {
+const copy: Record<Language, { badge: string; title: string; lead: string; text: string; primary: string; secondary: string }> = {
   en: {
     badge: "A philosophy of life for a higher civilization",
     title: "Remember who you are.",
+    lead: "You are an immortal soul.",
     text: "You are an immortal soul. You chose this life — its people, its tests, its turning points — but not a finished script. What becomes of it, you decide with every step, out of free will. And you have come to learn here what is easy in the spirit world: to create love — even out of the apparent nothing.",
     primary: "Get the book for free",
     secondary: "The core ideas"
@@ -17,6 +19,7 @@ const copy: Record<Language, { badge: string; title: string; text: string; prima
   de: {
     badge: "Eine Lebensphilosophie für eine höhere Zivilisation",
     title: "Erinnere dich, wer du bist.",
+    lead: "Du bist eine unsterbliche Seele.",
     text: "Du bist eine unsterbliche Seele. Du hast dieses Leben gewählt – seine Menschen, seine Prüfungen, seine Wendepunkte –, aber kein fertiges Drehbuch. Was daraus wird, entscheidest du mit jedem Schritt aus freiem Willen. Und du bist gekommen, um hier zu lernen, was in der Geistwelt leicht ist: Liebe zu erschaffen – auch aus dem scheinbaren Nichts.",
     primary: "Buch kostenlos erhalten",
     secondary: "Die Kerngedanken"
@@ -59,7 +62,7 @@ export function HeroSection({ language }: { language: Language }) {
         </div>
 
         <h1 className="type-hero">{t.title}</h1>
-        <p className="type-lead mx-auto mt-6 max-w-3xl">{t.text}</p>
+        <p className="type-lead mx-auto mt-6 max-w-3xl">{emphasize(t.text, t.lead)}</p>
 
         <div className="mt-10 flex flex-col items-center gap-3 sm:mt-12 sm:flex-row">
           <div className="rounded-full bg-white p-1.5">

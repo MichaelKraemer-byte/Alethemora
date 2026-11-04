@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { emphasize } from "@/lib/emphasize";
 import type { Language } from "@/lib/i18n";
 
 // TODO: EN prüfen
@@ -8,6 +9,7 @@ const copy = {
   de: {
     title: "Das Buch",
     subtitle: "Alethemora – Eine Lebensphilosophie für eine höhere Zivilisation",
+    lead: "Woher die Seele kommt und wohin sie zurückkehrt",
     text: "Woher die Seele kommt und wohin sie zurückkehrt, warum sie vergisst und wie sie zwischen Tier und Seele, Ego-Liebe und Seelen-Liebe reift. Dazu 49 Prinzipien, 18 Praktiken für den Alltag und eine Vision für eine höhere Zivilisation. Von Michael Krämer.",
     button: "Buch kostenlos erhalten",
     alt: "Buchcover Alethemora, deutsch"
@@ -15,6 +17,7 @@ const copy = {
   en: {
     title: "The book",
     subtitle: "Alethemora – A Philosophy of Life for a Higher Civilization",
+    lead: "Where the soul comes from and where it returns",
     text: "Where the soul comes from and where it returns, why it forgets, and how it matures between animal and soul, ego-love and soul-love. With that, 49 principles, 18 practices for everyday life, and a vision for a higher civilization. By Michael Krämer.",
     button: "Get the book for free",
     alt: "Alethemora book cover, English"
@@ -37,7 +40,7 @@ export function BookSection({ language }: { language: Language }) {
           <div className="crystal-card p-6 sm:p-8">
             <h2 className="type-h2">{t.title}</h2>
             <p className="type-h3-sm mt-3">{t.subtitle}</p>
-            <p className="type-body mt-5">{t.text}</p>
+            <p className="type-body mt-5">{emphasize(t.text, t.lead)}</p>
             <Link
               href="/start"
               className="mt-8 inline-flex min-h-12 items-center justify-center rounded-full bg-rose px-7 text-sm font-bold tracking-wide text-white transition hover:bg-rose-hover sm:text-base"

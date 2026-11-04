@@ -1,5 +1,6 @@
 "use client";
 
+import { emphasize } from "@/lib/emphasize";
 import type { Language } from "@/lib/i18n";
 import { principlesEn } from "@/lib/principles-en";
 import { principles, spheres } from "@/lib/principles";
@@ -77,15 +78,19 @@ const sphereTitle: Record<Language, Record<string, string>> = {
 const intro = {
   de: {
     title: "Die Prinzipien — Der Weg zum höheren Wesen",
+    credoMark: "Diese Prinzipien sind als persönliches Credo zu lesen",
     credo:
       "Diese Prinzipien sind als persönliches Credo zu lesen — als das, was ein Mensch sich vornimmt zu leben, nicht als wissenschaftlich bewiesene Aussage über die Welt. Im Licht der Grundüberzeugung („keine bewiesene Tatsache, eine Landkarte, kein Dogma“) sind sie eine Vertiefung dieser Haltung. Sie stammen aus unterschiedlichen Quellen — der Reinkarnationsforschung, der Lehre von der Gegenwart, der Vorstellung bewusster Erschaffung, der Wissenschaft von Gehirn und Verhalten —, sind hier aber bewusst nicht nach Herkunft, sondern nach Thema geordnet. Keine Quelle steht über der anderen; jede beleuchtet einen anderen Winkel desselben Weges.",
+    rulesMark: "Keine Regeln. Keine Dogmen.",
     rules: "Keine Regeln. Keine Dogmen. Diese Prinzipien beschreiben die Struktur bewusster Entwicklung. Wähle eines und öffne die volle Bedeutung.",
     pauseLabel: "Zum Innehalten"
   },
   en: {
     title: "The principles — the way to the higher being",
+    credoMark: "These principles are to be read as a personal credo",
     credo:
       "These principles are to be read as a personal credo — as what a person resolves to live, not as a scientifically proven statement about the world. In the light of the basic conviction (“no proven fact, a map, not a dogma”) they are a deepening of this stance. They come from different sources — reincarnation research, the teaching of the present, the idea of conscious creation, the science of brain and behavior — but here they are ordered deliberately not by origin, but by theme. No source stands above another; each lights a different angle of the same path.",
+    rulesMark: "No rules. No dogmas.",
     rules: "No rules. No dogmas. These principles describe the structure of conscious development. Choose one and open its full meaning.",
     pauseLabel: "To pause with"
   }
@@ -99,8 +104,8 @@ export function PrinciplesSection({ language }: { language: Language }) {
       <div className="section-shell">
         <h2 className="type-h2">{t.title}</h2>
         <div className="mt-6 max-w-3xl space-y-4">
-          <p className="type-lead">{t.credo}</p>
-          <p className="type-lead">{t.rules}</p>
+          <p className="type-lead">{emphasize(t.credo, t.credoMark)}</p>
+          <p className="type-lead">{emphasize(t.rules, t.rulesMark)}</p>
         </div>
         <div className="mt-14 space-y-14">
           {spheres.map((sphere) => {
