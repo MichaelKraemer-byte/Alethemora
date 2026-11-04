@@ -77,7 +77,7 @@ Die Phase bleibt `"aufbau"`. Als Nächstes steht der Umzug zu Cloudflare an (REA
 
 Weiterhin offen:
 
-- Porträtfoto für /start (auf der Seite steht der Platzhalter „TODO: Porträtfoto“)
+- Porträtfoto für /start (`public/images/michael.jpg`; solange die Datei fehlt, kein Bild)
 - Open-Graph-Bild für /start (in `app/start/page.tsx` als TODO vermerkt, es liegt keine Datei im Projekt)
 - Datenschutzerklärung mit einem Generator neu erstellen (Hinweis in `lib/legal-copy.ts`)
 - Englische Texte prüfen (Vermerke „TODO: EN prüfen“, unter anderem in `lib/funnel-copy.ts`)

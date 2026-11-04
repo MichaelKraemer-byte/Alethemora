@@ -1,6 +1,12 @@
+import fs from "node:fs";
+import path from "node:path";
 import type { Metadata } from "next";
 import { StartPage } from "@/components/funnel/start-page";
 import { funnelCopy } from "@/lib/funnel-copy";
+
+function publicImageExists(fileName: string) {
+  return fs.existsSync(path.join(process.cwd(), "public", "images", fileName));
+}
 
 // Static title and description are English, matching the first render without JavaScript.
 // German title and description are applied on the client with the language preference.
@@ -11,5 +17,11 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <StartPage />;
+  return (
+    <StartPage
+      showPortrait={publicImageExists("michael.jpg")}
+      showCoverDe={publicImageExists("cover-de.jpg")}
+      showCoverEn={publicImageExists("cover-en.jpg")}
+    />
+  );
 }

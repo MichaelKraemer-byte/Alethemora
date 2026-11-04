@@ -27,7 +27,7 @@ Der Ablauf von Anmeldung, Kit und Cal.com steht in `docs/funnel.md`.
 
 Als Nächstes der Umzug zu Cloudflare (oben). Die Phase bleibt dabei `"aufbau"`.
 
-- Porträtfoto für `/start` (auf der Seite steht „TODO: Porträtfoto“)
+- Porträtfoto für `/start` (`public/images/michael.jpg`; solange die Datei fehlt, kein Bild)
 - Open-Graph-Bild für `/start` (Vermerk in `app/start/page.tsx`, keine Datei im Projekt)
 - Datenschutzerklärung mit einem Generator neu erstellen (Hinweis in `lib/legal-copy.ts`)
 - Englische Texte prüfen (Vermerke „TODO: EN prüfen“)

@@ -83,7 +83,8 @@ const en = {
     afterAufbau:
       "My mentoring starts {startTermin}. With your sign-up above you are automatically on the waiting list and you will be the first to hear about it.",
     about:
-      "I am Michael Krämer, a social pedagogue and the author of Alethemora. I accompany people at turning points — because I know that this path begins exactly where it no longer goes on."
+      "I am Michael Krämer, a social pedagogue and the author of Alethemora. I accompany people at turning points — because I know that this path begins exactly where it no longer goes on.",
+    coverAlt: "Alethemora — A Philosophy of Life for a Higher Civilization"
   },
   danke: {
     title: "Almost there.",
@@ -160,7 +161,6 @@ const en = {
   },
   agb: {
     title: "Terms",
-    placeholder: "TODO: AGB und Widerrufsbelehrung für online gebuchte Dienstleistungen einfügen",
     unpublished: "This page is not public."
   }
 };
@@ -248,7 +248,8 @@ const de = {
     afterAufbau:
       "Mein Mentoring startet {startTermin}. Mit deiner Anmeldung oben stehst du automatisch auf der Warteliste und erfährst als Erstes davon.",
     about:
-      "Ich bin Michael Krämer, Sozialpädagoge und Autor von Alethemora. Ich begleite Menschen an Wendepunkten – weil ich weiß, dass dieser Weg genau dort beginnt, wo es nicht mehr weitergeht."
+      "Ich bin Michael Krämer, Sozialpädagoge und Autor von Alethemora. Ich begleite Menschen an Wendepunkten – weil ich weiß, dass dieser Weg genau dort beginnt, wo es nicht mehr weitergeht.",
+    coverAlt: "Alethemora – Eine Lebensphilosophie für eine höhere Zivilisation"
   },
   danke: {
     title: "Fast geschafft.",
@@ -326,7 +327,6 @@ const de = {
   },
   agb: {
     title: "AGB",
-    placeholder: "TODO: AGB und Widerrufsbelehrung für online gebuchte Dienstleistungen einfügen",
     unpublished: "Diese Seite ist nicht öffentlich."
   }
 };

@@ -20,7 +20,7 @@ export function AgbPage() {
         return (
           <>
             <h1 className={funnelH1}>{t.title}</h1>
-            <p className={funnelLead}>{t.placeholder}</p>
+            {/* AGB-Text folgt mit phase "live". Kein Platzhalter im Seiteninhalt. */}
           </>
         );
       }}
