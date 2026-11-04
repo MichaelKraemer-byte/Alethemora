@@ -7,5 +7,14 @@ import { useLanguagePreference } from "@/lib/use-language-preference";
 export default function ImpressumPage() {
   const { language } = useLanguagePreference();
   const c = impressumCopy[language];
-  return <LegalPageShell title={c.title} intro={c.intro} sections={[...c.sections]} />;
+  return (
+    <LegalPageShell
+      title={c.title}
+      sections={[
+        { heading: c.ddgHeading, body: c.address },
+        { body: c.responsible },
+        { body: c.arbitration }
+      ]}
+    />
+  );
 }

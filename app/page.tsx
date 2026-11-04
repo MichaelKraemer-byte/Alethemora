@@ -6,6 +6,7 @@ import { PrinciplesSection } from "@/components/principles-section";
 import { RhythmSection } from "@/components/rhythm-section";
 import { ScienceSection } from "@/components/science-section";
 import { SiteHeader } from "@/components/site-header";
+import { MentoringSection } from "@/components/mentoring-section";
 import { TribeSection } from "@/components/tribe-section";
 import { WhySection } from "@/components/why-section";
 import { useLanguagePreference } from "@/lib/use-language-preference";
@@ -24,6 +25,7 @@ export default function HomePage() {
         <RhythmSection language={language} />
         <ScienceSection language={language} />
         <TribeSection language={language} />
+        <MentoringSection language={language} />
       </main>
     </>
   );

@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion, type PanInfo } from "framer-motion";
 import { ChevronDown, ChevronLeft, ChevronRight, Download, X } from "lucide-react";
+import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import type { Language } from "@/lib/i18n";
 import { principlesEn } from "@/lib/principles-en";
@@ -111,7 +112,9 @@ const sectionCopy = {
     principlesInTheme: "principles in this theme",
     bookTitle: "The book",
     bookLead:
-      "Alethemora — A Philosophy of Life for a Higher Civilization. The full manuscript, in German and English."
+      "Alethemora — A Philosophy of Life for a Higher Civilization. The full manuscript, in German and English.",
+    // TODO: EN prüfen
+    impulsePrompt: "Would you like short impulses for your everyday life by email now and then?"
   },
   de: {
     badge: "49 PRINZIPIEN",
@@ -133,7 +136,8 @@ const sectionCopy = {
     principlesInTheme: "Prinzipien in diesem Thema",
     bookTitle: "Das Buch",
     bookLead:
-      "Alethemora — Eine Lebensphilosophie für eine höhere Zivilisation. Das Manuskript, auf Deutsch und auf Englisch."
+      "Alethemora — Eine Lebensphilosophie für eine höhere Zivilisation. Das Manuskript, auf Deutsch und auf Englisch.",
+    impulsePrompt: "Möchtest du dazu ab und zu kurze Impulse für deinen Alltag per E-Mail?"
   }
 } as const;
 
@@ -318,6 +322,14 @@ export function PrinciplesSection({ language }: { language: Language }) {
             </a>
           ))}
         </div>
+        <p className="mt-6 text-sm leading-relaxed">
+          <Link
+            href="/start#anmelden"
+            className="text-zinc-50 underline decoration-soul-gold/70 underline-offset-4 transition hover:text-soul-gold"
+          >
+            {t.impulsePrompt}
+          </Link>
+        </p>
       </div>
 
       <AnimatePresence>

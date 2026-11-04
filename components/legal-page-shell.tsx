@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
@@ -8,11 +9,12 @@ import { formatLegalBody } from "@/lib/legal-copy";
 
 type LegalPageShellProps = {
   title: string;
-  intro: string;
-  sections: { heading: string; body: string }[];
+  intro?: string;
+  notice?: ReactNode;
+  sections: readonly { heading?: string; body: string }[];
 };
 
-export function LegalPageShell({ title, intro, sections }: LegalPageShellProps) {
+export function LegalPageShell({ title, intro, notice, sections }: LegalPageShellProps) {
   const { language, setLanguage } = useLanguagePreference();
   const back = language === "en" ? "Back to home" : "Zurück zur Startseite";
 
@@ -30,12 +32,15 @@ export function LegalPageShell({ title, intro, sections }: LegalPageShellProps) 
 
         <article className="rounded-2xl border border-white/10 bg-charcoal/70 p-6 sm:p-8">
           <h1 className="font-serif text-3xl text-zinc-100 sm:text-4xl">{title}</h1>
-          <p className="mt-4 text-sm leading-relaxed text-amber-200/90 sm:text-base">{intro}</p>
+          {notice}
+          {intro ? <p className="mt-4 text-sm leading-relaxed text-amber-200/90 sm:text-base">{intro}</p> : null}
 
           <div className="mt-10 space-y-8">
             {sections.map((section) => (
-              <section key={section.heading}>
-                <h2 className="font-serif text-xl text-zinc-100 sm:text-2xl">{section.heading}</h2>
+              <section key={section.heading ?? section.body}>
+                {section.heading ? (
+                  <h2 className="font-serif text-xl text-zinc-100 sm:text-2xl">{section.heading}</h2>
+                ) : null}
                 <div className="mt-3 space-y-2 text-sm leading-relaxed text-zinc-300 sm:text-base">
                   {formatLegalBody(section.body).map((line) => (
                     <p key={line}>{line}</p>

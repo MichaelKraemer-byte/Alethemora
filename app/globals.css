@@ -485,6 +485,15 @@ body::before {
   }
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #d4af37;
+  outline-offset: 3px;
+}
+
 @keyframes pyramidGlow {
   0%,
   100% {
