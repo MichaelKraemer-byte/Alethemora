@@ -78,10 +78,10 @@ export function WhatSection({ language }: { language: Language }) {
   return (
     <section id="was" className="bg-white">
       <div className="section-shell">
-        <h2 className="font-serif text-3xl text-tinte sm:text-4xl">{t.whatTitle}</h2>
-        <div className="mt-6 max-w-3xl space-y-4 text-base leading-relaxed text-tinte sm:text-lg">
-          <p>{t.whatName}</p>
-          <p>{t.whatMap}</p>
+        <h2 className="type-h2">{t.whatTitle}</h2>
+        <div className="mt-6 max-w-3xl space-y-4">
+          <p className="type-lead">{t.whatName}</p>
+          <p className="type-lead">{t.whatMap}</p>
         </div>
       </div>
     </section>
@@ -94,18 +94,18 @@ export function BookTeaserSection({ language }: { language: Language }) {
   return (
     <section id="buch" className="bg-beige">
       <div className="section-shell">
-        <h2 className="font-serif text-3xl text-tinte sm:text-4xl">{t.bookTitle}</h2>
+        <h2 className="type-h2">{t.bookTitle}</h2>
         <ul className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {t.teasers.map((item) => (
             <li key={item.title} className="border-t border-sand pt-4">
-              <h3 className="font-serif text-xl text-tinte">{item.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-tinte sm:text-base">{item.line}</p>
+              <h3 className="type-h3-sm">{item.title}</h3>
+              <p className="type-body mt-2">{item.line}</p>
             </li>
           ))}
         </ul>
-        <p className="mt-12 max-w-3xl text-base leading-relaxed text-tinte sm:text-lg">{t.bookClose}</p>
+        <p className="type-lead mt-12 max-w-3xl">{t.bookClose}</p>
         <p className="mt-3">
-          <Link href="/start" className="text-base text-gold underline decoration-gold/70 underline-offset-4 transition hover:text-tinte sm:text-lg">
+          <Link href="/start" className="text-base font-normal text-gold underline decoration-gold/70 underline-offset-4 transition hover:text-tinte sm:text-lg">
             {t.bookLink}
           </Link>
         </p>

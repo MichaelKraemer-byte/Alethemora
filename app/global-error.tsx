@@ -19,13 +19,17 @@ export default function GlobalError({ reset }: GlobalErrorProps) {
             gap: "1rem",
             padding: "1.5rem",
             fontFamily: "system-ui, sans-serif",
+            fontWeight: 400,
+            lineHeight: 1.6,
             textAlign: "center",
             background: "#FFFFFF",
             color: "#2A2522"
           }}
         >
-          <h2 style={{ fontSize: "1.5rem", margin: 0 }}>Etwas ist schiefgelaufen</h2>
-          <p style={{ margin: 0, color: "#5E564C", maxWidth: "28rem" }}>
+          <h2 style={{ fontSize: "1.5rem", fontWeight: 400, lineHeight: 1.32, letterSpacing: "-0.015em", margin: 0 }}>
+            Etwas ist schiefgelaufen
+          </h2>
+          <p style={{ margin: 0, color: "#5E564C", maxWidth: "28rem", fontWeight: 400, lineHeight: 1.65 }}>
             Die Anwendung konnte nicht geladen werden.
           </p>
           <button
@@ -37,6 +41,7 @@ export default function GlobalError({ reset }: GlobalErrorProps) {
               background: "transparent",
               color: "#2A2522",
               padding: "0.5rem 1.25rem",
+              fontWeight: 500,
               cursor: "pointer"
             }}
           >

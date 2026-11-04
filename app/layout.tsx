@@ -1,17 +1,26 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
+import Script from "next/script";
 import { Inter, Playfair_Display } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-inter"
+  weight: ["400", "500"],
+  style: "normal",
+  display: "swap",
+  variable: "--font-inter",
+  preload: true
 });
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-playfair"
+  weight: "400",
+  style: "normal",
+  display: "swap",
+  variable: "--font-playfair",
+  preload: true
 });
 
 export const metadata: Metadata = {
@@ -28,8 +37,11 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="font-sans">
+    <html lang="en" className={`${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
+      <body className="font-sans font-normal">
+        <Script id="alethemora-language-boot" strategy="beforeInteractive">
+          {`(function(){try{var k="alethemora-language";var s=localStorage.getItem(k);var n=(navigator.language||"").toLowerCase();var lang=(s==="en"||s==="de")?s:(n.indexOf("de")===0?"de":"en");document.documentElement.lang=lang;document.documentElement.setAttribute("data-lang",lang);if(lang!=="en"){document.documentElement.setAttribute("data-pending-lang","1");setTimeout(function(){document.documentElement.removeAttribute("data-pending-lang");},2500);}}catch(e){}})();`}
+        </Script>
         {children}
         <SiteFooter />
       </body>

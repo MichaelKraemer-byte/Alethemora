@@ -101,8 +101,8 @@ export const practiceTiersEn: PracticeTier[] = [
       {
         title: "Knowledge Fields of the Mind",
         bullets: [
-          "Study near-death experiences and reincarnation research (Newton, Stevenson, Weiss, etc.)",
-          "Understand quantum physics and its spiritual implications",
+          "Study near-death experiences and reincarnation research — as a map, not as proof",
+          "Read reports of the spirit world as a recurring pattern, not as a photograph of the beyond",
           "Engage astronomy and natural science as practices of wonder",
           "Understand Austrian economics as a foundation for sovereign social organization",
           "Understand Bitcoin as decentralized honest money for a free civilization"

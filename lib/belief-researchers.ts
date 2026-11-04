@@ -49,46 +49,6 @@ const researchersCopy = {
         "Newton supplies the architectural blueprint Alethemora uses: continuity, relational learning, and intentional incarnation."
     },
     {
-      id: "weiss",
-      category: "lbl",
-      name: "Brian Weiss",
-      tag: "Clinical regression",
-      teaser: "Past-life therapy under hypnosis — trauma release across lifetimes.",
-      works: [
-        "Many Lives, Many Masters (1988) — breakthrough past-life regression case series",
-        "Through Time Into Healing (1992) — therapeutic application and ethics",
-        "Same Soul, Many Bodies (2004) — continuity of soul themes across incarnations"
-      ],
-      findings: [
-        "Patients under deep hypnosis report past-life narratives that unlock present symptoms.",
-        "Emotional and somatic healing can follow when unfinished soul themes are integrated.",
-        "Master/guide figures appear in sessions — paralleling LBL literature independently.",
-        "Regression work suggests memory-like continuity beyond single-biography explanation."
-      ],
-      convergence:
-        "Weiss bridges clinical practice and soul continuity — Alethemora treats such patterns as workable, not merely symbolic."
-    },
-    {
-      id: "cannon",
-      category: "lbl",
-      name: "Dolores Cannon",
-      tag: "QHHT / deep trance",
-      teaser: "Quantized deep-trance sessions — overlapping maps of the soul realm.",
-      works: [
-        "Between Death and Life (1993) — interviews from the between-life space",
-        "The Convoluted Universe series — expanded cosmology from deep trance",
-        "The Three Waves of Volunteers — soul missions and incarnation choice"
-      ],
-      findings: [
-        "Deep trance subjects describe staging areas, councils, and learning spheres between lives.",
-        "Soul contracts and volunteer incarnations appear as recurring planning motifs.",
-        "Multiple session layers converge on non-local consciousness and guided development.",
-        "Independent from Newton’s method, similar structural motifs emerge at scale."
-      ],
-      convergence:
-        "Cannon reinforces cross-method convergence — different techniques, comparable soul-world architecture."
-    },
-    {
       id: "stevenson",
       category: "reincarnation",
       name: "Ian Stevenson",
@@ -288,46 +248,6 @@ const researchersCopy = {
       ],
       convergence:
         "Newton liefert den architektonischen Bauplan, den Alethemora nutzt: Kontinuität, relationales Lernen, intentionale Inkarnation."
-    },
-    {
-      id: "weiss",
-      category: "lbl",
-      name: "Brian Weiss",
-      tag: "Klinische Regression",
-      teaser: "Vor-Leben-Therapie unter Hypnose — Trauma-Auflösung über Leben hinweg.",
-      works: [
-        "Many Lives, Many Masters (1988) — bahnbrechende Vor-Leben-Regression",
-        "Through Time Into Healing (1992) — therapeutische Anwendung und Ethik",
-        "Same Soul, Many Bodies (2004) — Kontinuität von Seelenthemen über Inkarnationen"
-      ],
-      findings: [
-        "Patienten unter tiefer Hypnose berichten Vor-Leben-Narrative, die gegenwärtige Symptome lösen.",
-        "Emotionale und somatische Heilung kann folgen, wenn offene Seelenthemen integriert werden.",
-        "Meister-/Führerfiguren erscheinen in Sitzungen — unabhängig parallel zur LBL-Literatur.",
-        "Regressionsarbeit deutet auf erinnerungsähnliche Kontinuität jenseits einer Biografie hin."
-      ],
-      convergence:
-        "Weiss verbindet klinische Praxis und Seelenkontinuität — Alethemora behandelt solche Muster als bearbeitbar, nicht nur symbolisch."
-    },
-    {
-      id: "cannon",
-      category: "lbl",
-      name: "Dolores Cannon",
-      tag: "QHHT / Tieftrance",
-      teaser: "Tiefste Trance-Sitzungen — überlappende Karten der Seelenwelt.",
-      works: [
-        "Between Death and Life (1993) — Interviews aus dem Zwischen-Leben-Raum",
-        "The Convoluted Universe-Reihe — erweiterte Kosmologie aus Tieftrance",
-        "The Three Waves of Volunteers — Seelenaufträge und Inkarnationswahl"
-      ],
-      findings: [
-        "Tieftrance-Probanden beschreiben Zwischenstationen, Räte und Lernsphären zwischen Leben.",
-        "Seelenverträge und freiwillige Inkarnationen erscheinen als Planungsmotive.",
-        "Mehrere Sitzungsebenen konvergieren auf nicht-lokales Bewusstsein und geführte Entwicklung.",
-        "Unabhängig von Newtons Methode entstehen vergleichbare Strukturmotive in großer Zahl."
-      ],
-      convergence:
-        "Cannon stärkt methodenübergreifende Konvergenz — verschiedene Techniken, vergleichbare Seelenwelt-Architektur."
     },
     {
       id: "stevenson",

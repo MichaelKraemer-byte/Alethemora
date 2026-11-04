@@ -16,29 +16,29 @@ export function MentoringPage() {
         return (
           <>
             <h1 className={funnelH1}>{m.title}</h1>
-            <p className="mt-4 font-serif text-2xl text-tinte">{m.leadTitle}</p>
+            <p className="type-subtitle mt-4">{m.leadTitle}</p>
             <p className={funnelLead}>{m.lead}</p>
             <ol className="mt-10 list-none space-y-4">
               <li className="crystal-card p-6">
-                <p className="text-xs tracking-[0.16em] text-gold">1</p>
-                <h2 className="mt-2 font-serif text-2xl text-tinte">
+                <p className="type-eyebrow">1</p>
+                <h2 className="type-h3 mt-2">
                   <Link href="/start" className={textLinkClass}>
                     {m.giftTitle}
                   </Link>
                 </h2>
-                <p className="mt-3 text-base leading-relaxed text-tinte">{m.giftText}</p>
+                <p className="type-body mt-3">{m.giftText}</p>
               </li>
               <li className="crystal-card p-6">
-                <p className="text-xs tracking-[0.16em] text-gold">2</p>
-                <h2 className="mt-2 font-serif text-2xl text-tinte">
+                <p className="type-eyebrow">2</p>
+                <h2 className="type-h3 mt-2">
                   <Link href="/erstgespraech" className={textLinkClass}>
                     {m.introTitle}
                   </Link>
                 </h2>
-                <p className="mt-3 text-base leading-relaxed text-tinte">{m.introText}</p>
+                <p className="type-body mt-3">{m.introText}</p>
                 {phase === "live" ? null : (
                   <div className="mt-5">
-                    <p className="text-base text-tinte">{fill(t.common.mentoringFrom, copyValuesFor(language))}</p>
+                    <p className="type-body">{fill(t.common.mentoringFrom, copyValuesFor(language))}</p>
                     <div className="mt-4">
                       <WaitlistButton language={language} />
                     </div>
@@ -46,13 +46,13 @@ export function MentoringPage() {
                 )}
               </li>
               <li className="crystal-card p-6">
-                <p className="text-xs tracking-[0.16em] text-gold">3</p>
-                <h2 className="mt-2 font-serif text-2xl text-tinte">
+                <p className="type-eyebrow">3</p>
+                <h2 className="type-h3 mt-2">
                   <Link href="/die-wandlung" className={textLinkClass}>
                     {m.wandlungTitle}
                   </Link>
                 </h2>
-                <p className="mt-3 text-base leading-relaxed text-tinte">{m.wandlungText}</p>
+                <p className="type-body mt-3">{m.wandlungText}</p>
                 {phase === "live" ? (
                   <p className="mt-4">
                     <Link href="/erstgespraech" className={textLinkClass}>
@@ -61,7 +61,7 @@ export function MentoringPage() {
                   </p>
                 ) : (
                   <div className="mt-5">
-                    <p className="text-base text-tinte">{fill(t.common.starts, copyValuesFor(language))}</p>
+                    <p className="type-body">{fill(t.common.starts, copyValuesFor(language))}</p>
                     <div className="mt-4">
                       <WaitlistButton language={language} />
                     </div>
@@ -74,15 +74,15 @@ export function MentoringPage() {
                 href="/klarheitsgespraech"
                 className="rounded-2xl border border-sand bg-white p-4 transition hover:border-gold/35"
               >
-                <span className="block font-serif text-lg text-tinte">{m.clarityTitle}</span>
-                <span className="mt-2 block text-sm leading-relaxed text-tinte">{m.clarityText}</span>
+                <span className="type-card-title">{m.clarityTitle}</span>
+                <span className="type-small mt-2 block">{m.clarityText}</span>
               </Link>
               <Link
                 href="/vortrag"
                 className="rounded-2xl border border-sand bg-white p-4 transition hover:border-gold/35"
               >
-                <span className="block font-serif text-lg text-tinte">{m.talkTitle}</span>
-                <span className="mt-2 block text-sm leading-relaxed text-tinte">{m.talkText}</span>
+                <span className="type-card-title">{m.talkTitle}</span>
+                <span className="type-small mt-2 block">{m.talkText}</span>
               </Link>
             </div>
           </>

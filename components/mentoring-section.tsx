@@ -19,10 +19,16 @@ export function MentoringSection({ language }: { language: Language }) {
   };
 
   return (
-    <section id="mentoring" className="bg-white">
+    <section id="mentoring" className="bg-beige">
       <div className="section-shell">
-      <h2 className="font-serif text-3xl text-tinte sm:text-4xl">{t.title}</h2>
-      <p className="mt-4 max-w-3xl text-base leading-relaxed text-tinte sm:text-lg">{t.text}</p>
+      <h2 className="type-h2">{t.title}</h2>
+      <p className="type-lead mt-4 max-w-3xl">{t.text}</p>
+      {/* TODO: EN prüfen */}
+      <p className="type-body mt-4 max-w-3xl">
+        {language === "de"
+          ? "Mein Mentoring trägt den Namen eines Schrittes aus dem Buch: Die Wandlung – erst fühlen, was ist, dann entscheiden, was du daraus erschaffen willst."
+          : "My mentoring carries the name of a step from the book: The Transformation — first feel what is, then decide what you want to create from it."}
+      </p>
       <div className="mt-10 grid gap-4 md:grid-cols-3">
         {cards.map((card) => (
           <Link
@@ -30,8 +36,8 @@ export function MentoringSection({ language }: { language: Language }) {
             href={card.href}
             className="crystal-card block p-6 transition hover:border-tinte/30"
           >
-            <h3 className="font-serif text-2xl text-tinte">{content[card.key].title}</h3>
-            <p className="mt-3 text-sm leading-relaxed text-tinte">{content[card.key].text}</p>
+            <h3 className="type-h3">{content[card.key].title}</h3>
+            <p className="type-body mt-3">{content[card.key].text}</p>
           </Link>
         ))}
       </div>

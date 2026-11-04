@@ -19,7 +19,7 @@ export const primaryButtonClass =
   "inline-flex min-h-11 items-center justify-center rounded-full bg-rose px-5 py-2.5 text-center text-sm font-medium text-tinte transition hover:bg-rose-hover disabled:cursor-not-allowed disabled:border disabled:border-sand disabled:bg-transparent disabled:text-tinte-weich";
 
 export const textLinkClass =
-  "text-gold underline decoration-gold underline-offset-4";
+  "font-normal text-gold underline decoration-gold underline-offset-4";
 
 const downloadClass =
   "group flex items-center justify-between gap-4 rounded-2xl border border-sand bg-white px-5 py-4 text-tinte transition hover:border-tinte";
@@ -66,14 +66,14 @@ export function LanguageBooks({ language }: { language: Language }) {
     <div className="grid gap-3 sm:grid-cols-2">
       <a href={edition.pdf} download={edition.pdfName} className={downloadClass}>
         <span>
-          <span className="block font-serif text-lg">{label}</span>
-          <span className="mt-1 block text-xs tracking-[0.16em] text-gold">PDF</span>
+          <span className="type-card-title">{label}</span>
+          <span className="type-eyebrow mt-1 block">PDF</span>
         </span>
       </a>
       <a href={edition.epub} download={edition.epubName} className={downloadClass}>
         <span>
-          <span className="block font-serif text-lg">{label}</span>
-          <span className="mt-1 block text-xs tracking-[0.16em] text-gold">EPUB</span>
+          <span className="type-card-title">{label}</span>
+          <span className="type-eyebrow mt-1 block">EPUB</span>
         </span>
       </a>
     </div>
@@ -89,7 +89,7 @@ const editionLabels = {
 export function BothEditions({ language }: { language: Language }) {
   const order = language === "de" ? (["de", "en"] as const) : (["en", "de"] as const);
   return (
-    <div className="mt-8 space-y-3 text-base text-tinte sm:text-lg">
+    <div className="type-lead mt-8 space-y-3">
       {order.map((edition) => (
         <p key={edition}>
           {editionLabels[edition]}
@@ -123,7 +123,7 @@ export function SignupBlock({ language, embedded = false }: { language: Language
     <section id="anmelden" className={embedded ? "mt-8" : "crystal-card mt-10 p-5 sm:p-6"}>
       <form method="post" action={action} className="space-y-4">
         <div>
-          <label htmlFor="email_address" className="block text-sm font-medium text-tinte">
+          <label htmlFor="email_address" className="type-field-label">
             {t.label}
           </label>
           <input
@@ -134,16 +134,16 @@ export function SignupBlock({ language, embedded = false }: { language: Language
             autoComplete="email"
             inputMode="email"
             aria-describedby="email-hint"
-            className="mt-2 w-full rounded-xl border border-sand bg-white px-4 py-3 text-base text-tinte"
+            className="mt-2 w-full rounded-xl border border-sand bg-white px-4 py-3 text-base font-normal text-tinte"
           />
-          <p id="email-hint" className="mt-2 text-sm leading-relaxed text-tinte-weich">
+          <p id="email-hint" className="type-muted mt-2 text-sm">
             {t.hint}
           </p>
         </div>
         <button type="submit" className={primaryButtonClass}>
           {t.button}
         </button>
-        <p className="text-sm leading-relaxed text-tinte-weich">
+        <p className="type-muted text-sm">
           {t.fineBefore}
           <Link href="/datenschutz" className={textLinkClass}>
             {t.fineLink}

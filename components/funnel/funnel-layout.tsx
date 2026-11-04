@@ -10,10 +10,10 @@ import { useLanguagePreference } from "@/lib/use-language-preference";
 
 export type FunnelPageId = keyof typeof funnelCopy.en.meta;
 
-export const funnelH1 = "font-serif text-4xl leading-tight text-tinte sm:text-5xl";
-export const funnelH2 = "mt-14 font-serif text-2xl text-tinte sm:text-3xl";
-export const funnelLead = "mt-5 text-base leading-relaxed text-tinte sm:text-lg";
-export const funnelList = "mt-4 list-disc space-y-2 pl-5 text-base leading-relaxed text-tinte";
+export const funnelH1 = "type-h1";
+export const funnelH2 = "type-h2-sm mt-14";
+export const funnelLead = "type-lead mt-5";
+export const funnelList = "mt-4 list-disc space-y-2 pl-5 text-base font-normal leading-relaxed text-tinte";
 
 export function FunnelLayout({
   page,

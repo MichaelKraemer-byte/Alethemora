@@ -8,7 +8,7 @@ import { legalNav } from "@/lib/legal-copy";
 import { phase, youtube } from "@/lib/site-config";
 import { useLanguagePreference } from "@/lib/use-language-preference";
 
-const linkClass = "text-sm text-gold underline decoration-gold/70 underline-offset-4 transition hover:text-tinte";
+const linkClass = "text-sm font-normal text-gold underline decoration-gold/70 underline-offset-4 transition hover:text-tinte";
 
 export function SiteFooter() {
   const pathname = usePathname();
@@ -22,7 +22,7 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-sand bg-beige py-8 text-tinte">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 sm:flex-row sm:px-6 lg:px-10">
-        <p className="text-center text-xs sm:text-left">© {year} Alethemora</p>
+        <p className="text-center text-xs font-normal sm:text-left">© {year} Alethemora</p>
         <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
           {focus ? null : (
             <>

@@ -13,14 +13,29 @@ import { phase } from "@/lib/site-config";
 // TODO: EN prüfen
 const navItems: Record<Language, { label: string; href: string }[]> = {
   en: [
-    { label: "What it is", href: "#was" },
-    { label: "In the book", href: "#buch" }
+    { label: "Core", href: "#why" },
+    { label: "Principles", href: "#prinzipien" },
+    { label: "Practice", href: "#path-of-practice" },
+    { label: "Rhythm", href: "#rhythmus" },
+    { label: "Science", href: "#wissenschaft" },
+    { label: "Community", href: "#tribe" },
+    { label: "Mentoring", href: "/mentoring" }
   ],
   de: [
-    { label: "Was es ist", href: "#was" },
-    { label: "Im Buch", href: "#buch" }
+    { label: "Kern", href: "#why" },
+    { label: "Prinzipien", href: "#prinzipien" },
+    { label: "Praxis", href: "#path-of-practice" },
+    { label: "Rhythmus", href: "#rhythmus" },
+    { label: "Wissenschaft", href: "#wissenschaft" },
+    { label: "Gemeinschaft", href: "#tribe" },
+    { label: "Mentoring", href: "/mentoring" }
   ]
 };
+
+function itemHref(isHome: boolean, href: string) {
+  if (href.startsWith("/")) return href;
+  return isHome ? href : `/${href}`;
+}
 
 const ctaClass =
   "inline-flex min-h-10 shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-rose px-2.5 text-[11px] font-medium tracking-wide text-tinte transition hover:bg-rose-hover sm:px-3.5 sm:text-xs";
@@ -75,23 +90,20 @@ export function SiteHeader({
           <div className="shrink-0 rounded-xl border border-sand bg-white p-1.5 sm:p-2">
             <AlethemoraRing variant="mark" className="h-7 w-7 sm:h-8 sm:w-8" />
           </div>
-          <span className="truncate font-serif text-base tracking-wide text-tinte sm:text-lg">ALETHEMORA</span>
+          <span className="type-wordmark">ALETHEMORA</span>
         </Link>
 
         {showNav ? (
-          <nav className="hidden items-center gap-5 text-sm text-tinte lg:gap-6 md:flex">
+          <nav className="hidden items-center gap-5 text-sm font-normal text-tinte lg:gap-6 md:flex">
             {navItems[language].map((item) => (
               <Link
                 key={item.label}
-                href={isHome ? item.href : `/${item.href}`}
+                href={itemHref(isHome, item.href)}
                 className="whitespace-nowrap text-tinte transition hover:text-gold"
               >
                 {item.label}
               </Link>
             ))}
-            <Link href="/mentoring" className="whitespace-nowrap text-tinte transition hover:text-gold">
-              {labels.mentoring}
-            </Link>
           </nav>
         ) : null}
 
@@ -109,7 +121,7 @@ export function SiteHeader({
                   key={lang}
                   type="button"
                   onClick={() => onLanguageChange(lang)}
-                  className={`inline-flex items-center gap-1 rounded-full px-2 py-1 text-[10px] tracking-[0.1em] transition sm:gap-1.5 sm:px-3 sm:py-1 sm:text-[11px] sm:tracking-[0.12em] ${
+                  className={`inline-flex items-center gap-1 rounded-full px-2 py-1 text-[10px] font-medium tracking-[0.12em] transition sm:gap-1.5 sm:px-3 sm:py-1 sm:text-[11px] sm:tracking-[0.14em] ${
                     active
                       ? "bg-beige text-tinte"
                       : "text-tinte-weich hover:bg-beige hover:text-tinte"
@@ -118,7 +130,7 @@ export function SiteHeader({
                   aria-pressed={active}
                 >
                   <Globe2 className="hidden h-3 w-3 sm:block" />
-                  <span className="font-medium sm:hidden">{lang.toUpperCase()}</span>
+                  <span className="sm:hidden">{lang.toUpperCase()}</span>
                   <span className="hidden sm:inline">{lang === "en" ? "ENGLISH" : "DEUTSCH"}</span>
                 </button>
               );
@@ -183,23 +195,14 @@ export function SiteHeader({
                   {navItems[language].map((item) => (
                     <li key={item.href + item.label}>
                       <Link
-                        href={isHome ? item.href : `/${item.href}`}
-                        className="block rounded-xl px-3 py-3.5 text-[15px] text-tinte transition hover:bg-beige hover:text-gold"
+                        href={itemHref(isHome, item.href)}
+                        className="block rounded-xl px-3 py-3.5 text-[15px] font-normal text-tinte transition hover:bg-beige hover:text-gold"
                         onClick={closeMobile}
                       >
                         {item.label}
                       </Link>
                     </li>
                   ))}
-                  <li>
-                    <Link
-                      href="/mentoring"
-                      className="block rounded-xl px-3 py-3.5 text-[15px] text-tinte transition hover:bg-beige hover:text-gold"
-                      onClick={closeMobile}
-                    >
-                      {labels.mentoring}
-                    </Link>
-                  </li>
                 </ul>
               </motion.nav>
             </>

@@ -18,12 +18,233 @@ html {
   scroll-behavior: smooth;
 }
 
+html[data-pending-lang] body {
+  visibility: hidden;
+}
+
 section[id] {
   scroll-margin-top: 5rem;
 }
 
 body {
-  @apply bg-weiss text-tinte antialiased;
+  @apply bg-weiss font-sans font-normal text-tinte antialiased;
+  font-size: 1rem;
+  line-height: 1.65;
+  font-synthesis: none;
+  hyphens: manual;
+  -webkit-hyphens: manual;
+}
+
+/* Titles stay Playfair 400. Short UI labels and buttons use Inter 500. */
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 400;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-playfair), Georgia, "Times New Roman", serif;
+    letter-spacing: -0.015em;
+    line-height: 1.32;
+    text-wrap: balance;
+  }
+
+  h1 {
+    letter-spacing: -0.02em;
+    line-height: 1.28;
+  }
+
+  p,
+  li {
+    font-weight: 400;
+    line-height: 1.65;
+  }
+
+  strong,
+  b {
+    font-weight: 500;
+  }
+}
+
+@layer components {
+  .type-hero,
+  .type-h1,
+  .type-h2,
+  .type-h2-sm,
+  .type-h3,
+  .type-h3-sm,
+  .type-subtitle,
+  .type-card-title,
+  .type-doc-title,
+  .type-doc-heading,
+  .type-wordmark {
+    font-family: var(--font-playfair), Georgia, "Times New Roman", serif;
+    font-weight: 400;
+    text-wrap: balance;
+  }
+
+  .type-hero {
+    @apply max-w-4xl text-tinte;
+    font-size: 1.875rem;
+    letter-spacing: -0.02em;
+    line-height: 1.28;
+  }
+
+  .type-h1 {
+    @apply text-tinte;
+    font-size: 2.25rem;
+    letter-spacing: -0.02em;
+    line-height: 1.28;
+  }
+
+  .type-h2 {
+    @apply text-tinte;
+    font-size: 1.875rem;
+    letter-spacing: -0.015em;
+    line-height: 1.32;
+  }
+
+  .type-h2-sm {
+    @apply text-tinte;
+    font-size: 1.5rem;
+    letter-spacing: -0.015em;
+    line-height: 1.32;
+  }
+
+  .type-h3 {
+    @apply text-tinte;
+    font-size: 1.5rem;
+    letter-spacing: -0.012em;
+    line-height: 1.35;
+  }
+
+  .type-h3-sm {
+    @apply text-tinte;
+    font-size: 1.25rem;
+    letter-spacing: -0.012em;
+    line-height: 1.35;
+  }
+
+  .type-subtitle {
+    @apply text-tinte;
+    font-size: 1.5rem;
+    letter-spacing: -0.01em;
+    line-height: 1.4;
+  }
+
+  .type-card-title {
+    @apply block text-tinte;
+    font-size: 1.125rem;
+    letter-spacing: -0.01em;
+    line-height: 1.4;
+  }
+
+  .type-doc-title {
+    @apply text-tinte;
+    font-size: 1.875rem;
+    letter-spacing: -0.02em;
+    line-height: 1.28;
+  }
+
+  .type-doc-heading {
+    @apply text-tinte;
+    font-size: 1.25rem;
+    letter-spacing: -0.015em;
+    line-height: 1.35;
+  }
+
+  .type-wordmark {
+    @apply truncate text-tinte;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+  }
+
+  .type-eyebrow {
+    @apply text-gold;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    line-height: 1.5;
+  }
+
+  .type-lead,
+  .type-body,
+  .type-small,
+  .type-muted {
+    font-weight: 400;
+    line-height: 1.65;
+  }
+
+  .type-lead,
+  .type-body,
+  .type-small {
+    @apply text-tinte;
+  }
+
+  .type-lead,
+  .type-body {
+    font-size: 1rem;
+  }
+
+  .type-small {
+    font-size: 0.875rem;
+  }
+
+  .type-muted {
+    @apply text-tinte-weich;
+  }
+
+  .type-field-label {
+    @apply block text-tinte;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.45;
+  }
+}
+
+@media (min-width: 640px) {
+  .type-hero {
+    font-size: 3rem;
+  }
+
+  .type-h1 {
+    font-size: 3rem;
+  }
+
+  .type-h2,
+  .type-doc-title {
+    font-size: 2.25rem;
+  }
+
+  .type-h2-sm {
+    font-size: 1.875rem;
+  }
+
+  .type-doc-heading {
+    font-size: 1.5rem;
+  }
+
+  .type-wordmark {
+    font-size: 1.125rem;
+    letter-spacing: 0.16em;
+  }
+
+  .type-lead {
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .type-hero {
+    font-size: 3.75rem;
+  }
 }
 
 ::selection {
@@ -55,6 +276,7 @@ select {
   background-color: var(--weiss);
   border: 1px solid var(--sand);
   color: var(--tinte);
+  font-weight: 400;
 }
 
 input:focus,

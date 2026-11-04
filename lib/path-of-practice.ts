@@ -114,8 +114,8 @@ export const practiceTiers: PracticeTier[] = [
       {
         title: "Wissensfelder des Geistes",
         bullets: [
-          "Nahtoderfahrungen, Reinkarnationsforschung (Newton, Stevenson, Weiss u.a.) studieren",
-          "Quantenphysik und ihre spirituellen Implikationen verstehen",
+          "Nahtoderfahrungen und die Reinkarnationsforschung studieren — als Landkarte, nicht als Beweis",
+          "Berichte über die Geistwelt als wiederkehrendes Muster lesen, nicht als Foto vom Jenseits",
           "Astronomie und Naturwissenschaft als Staunen-Praxis",
           "Österreichische Ökonomie als Fundament souveräner Gesellschaftsorganisation",
           "Bitcoin als dezentrales, ehrliches Geldsystem für eine freie Zivilisation begreifen"

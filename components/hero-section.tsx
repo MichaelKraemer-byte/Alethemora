@@ -3,30 +3,28 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { AlethemoraRing } from "@/components/alethemora-ring";
-import { funnelCopy } from "@/lib/funnel-copy";
 import type { Language } from "@/lib/i18n";
-import { phase } from "@/lib/site-config";
 
 // TODO: EN prüfen
-const copy: Record<Language, { badge: string; title: string }> = {
+const copy: Record<Language, { badge: string; title: string; text: string; primary: string; secondary: string }> = {
   en: {
-    badge: "A PHILOSOPHY OF LIFE FOR A HIGHER CIVILIZATION",
-    title:
-      "Alethemora means this: the truth of one's own fate — the remembrance of the life the soul has chosen."
+    badge: "A philosophy of life for a higher civilization",
+    title: "Remember who you are.",
+    text: "You are an immortal soul. You chose this life — its people, its tests, its turning points — but not a finished script. What becomes of it, you decide with every step, out of free will. And you have come to learn here what is easy in the spirit world: to create love — even out of the apparent nothing.",
+    primary: "Get the book for free",
+    secondary: "The core ideas"
   },
   de: {
-    badge: "EINE LEBENSPHILOSOPHIE FÜR EINE HÖHERE ZIVILISATION",
-    title:
-      "Alethemora heißt damit: die Wahrheit des eigenen Schicksals — die Erinnerung an das Leben, das die Seele gewählt hat."
+    badge: "Eine Lebensphilosophie für eine höhere Zivilisation",
+    title: "Erinnere dich, wer du bist.",
+    text: "Du bist eine unsterbliche Seele. Du hast dieses Leben gewählt – seine Menschen, seine Prüfungen, seine Wendepunkte –, aber kein fertiges Drehbuch. Was daraus wird, entscheidest du mit jedem Schritt aus freiem Willen. Und du bist gekommen, um hier zu lernen, was in der Geistwelt leicht ist: Liebe zu erschaffen – auch aus dem scheinbaren Nichts.",
+    primary: "Buch kostenlos erhalten",
+    secondary: "Die Kerngedanken"
   }
 };
 
 export function HeroSection({ language }: { language: Language }) {
-  const labels = funnelCopy[language].nav;
-  const cta =
-    phase === "live"
-      ? { href: "/erstgespraech", label: labels.ctaLive }
-      : { href: "/start", label: labels.ctaAufbau };
+  const t = copy[language];
 
   return (
     <section className="relative overflow-hidden bg-beige">
@@ -55,21 +53,28 @@ export function HeroSection({ language }: { language: Language }) {
       />
 
       <div className="section-shell relative z-10 flex min-h-[78vh] flex-col items-center justify-center px-4 pb-16 pt-8 text-center sm:min-h-[82vh] sm:pb-20 sm:pt-12">
-        <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-gold/40 bg-white/80 px-4 py-2.5 text-xs tracking-[0.2em] text-gold sm:mb-10 sm:tracking-[0.22em]">
+        <div className="type-eyebrow mb-8 inline-flex items-center gap-3 rounded-full border border-gold/40 bg-white/80 px-4 py-2.5 text-center leading-relaxed tracking-[0.12em] sm:mb-10">
           <AlethemoraRing variant="badge" className="h-4 w-4 shrink-0 sm:h-[1.15rem] sm:w-[1.15rem]" />
-          {copy[language].badge}
+          {t.badge}
         </div>
 
-        <h1 className="max-w-4xl font-serif text-3xl leading-[1.2] text-tinte sm:text-5xl sm:leading-tight lg:text-6xl">
-          {copy[language].title}
-        </h1>
+        <h1 className="type-hero">{t.title}</h1>
+        <p className="type-lead mx-auto mt-6 max-w-3xl">{t.text}</p>
 
-        <div className="mt-10 rounded-full bg-white p-1.5 sm:mt-12">
+        <div className="mt-10 flex flex-col items-center gap-3 sm:mt-12 sm:flex-row">
+          <div className="rounded-full bg-white p-1.5">
+            <Link
+              href="/start"
+              className="inline-flex min-h-12 items-center justify-center rounded-full bg-rose px-7 text-sm font-medium tracking-wide text-tinte transition hover:bg-rose-hover sm:text-base"
+            >
+              {t.primary}
+            </Link>
+          </div>
           <Link
-            href={cta.href}
-            className="inline-flex min-h-12 items-center justify-center rounded-full bg-rose px-7 text-sm font-medium tracking-wide text-tinte transition hover:bg-rose-hover sm:text-base"
+            href="#why"
+            className="inline-flex min-h-12 items-center justify-center rounded-full border border-sand bg-white/80 px-7 text-sm font-medium tracking-wide text-tinte transition hover:bg-white sm:text-base"
           >
-            {cta.label}
+            {t.secondary}
           </Link>
         </div>
       </div>

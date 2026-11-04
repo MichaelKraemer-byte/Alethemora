@@ -10,7 +10,10 @@ const paths = [
   "/erstgespraech",
   "/die-wandlung",
   "/klarheitsgespraech",
-  "/vortrag"
+  "/vortrag",
+  "/science/reincarnation",
+  "/science/resonanz",
+  "/science/sovereignty"
 ];
 
 if (phase === "live") paths.push("/agb");

@@ -37,7 +37,7 @@ export function StartPage({ showPortrait = false, showCoverDe = false, showCover
                   />
                 ) : null}
                 <div className="min-w-0 w-full flex-1">
-                  <p className="text-xs font-medium tracking-[0.18em] text-gold">{t.eyebrow}</p>
+                  <p className="type-eyebrow">{t.eyebrow}</p>
                   <h1 className={`mt-4 ${funnelH1}`}>{t.title}</h1>
                   <p className={funnelLead}>{t.text}</p>
                   <SignupBlock language={language} embedded />
@@ -70,7 +70,7 @@ export function StartPage({ showPortrait = false, showCoverDe = false, showCover
                   className="h-24 w-24 shrink-0 rounded-full object-cover"
                 />
               ) : null}
-              <p className="text-base leading-relaxed text-tinte">{t.about}</p>
+              <p className="type-body">{t.about}</p>
             </div>
           </>
         );

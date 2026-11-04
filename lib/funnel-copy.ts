@@ -136,6 +136,8 @@ const en = {
   wandlung: {
     title: "The Transformation",
     text: "8 weeks of mentoring that change how you live. For people after a separation, a loss, exhaustion — or with the feeling that there must be more.",
+    fromBook:
+      "The name comes from the book: first what is, is felt — not skipped over, not talked into something prettier. Then you decide what you want to create from it.",
     includes: "This is part of it:",
     bullet1: "a personal conversation every week, online via Google Meet",
     bullet2: "guided meditations to take with you, seated and in movement",
@@ -301,6 +303,8 @@ const de = {
   wandlung: {
     title: "Die Wandlung",
     text: "8 Wochen Mentoring, die verändern, wie du lebst. Für Menschen nach einer Trennung, einem Verlust, einer Erschöpfung – oder mit dem Gefühl, dass da mehr sein muss.",
+    fromBook:
+      "Der Name kommt aus dem Buch: Zuerst wird gefühlt, was ist – nicht überflogen, nicht schöngeredet. Dann entscheidest du, was du daraus erschaffen willst.",
     includes: "Das gehört dazu:",
     bullet1: "jede Woche ein persönliches Gespräch, online per Google Meet",
     bullet2: "geführte Meditationen zum Mitnehmen, im Sitzen und in Bewegung",

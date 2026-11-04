@@ -16,7 +16,8 @@ export function WandlungPage() {
           <>
             <h1 className={funnelH1}>{w.title}</h1>
             <p className={funnelLead}>{w.text}</p>
-            <h2 className="mt-10 font-serif text-2xl text-tinte">{w.includes}</h2>
+            <p className={funnelLead}>{w.fromBook}</p>
+            <h2 className="type-h2-sm mt-10">{w.includes}</h2>
             <ul className={funnelList}>
               <li>{w.bullet1}</li>
               <li>{w.bullet2}</li>
@@ -25,16 +26,16 @@ export function WandlungPage() {
             </ul>
             {phase === "live" ? (
               <div className="mt-8 space-y-4">
-                <p className="text-base leading-relaxed text-tinte">{fill(w.price, copyValuesFor(language))}</p>
+                <p className="type-body">{fill(w.price, copyValuesFor(language))}</p>
                 {pilotPlaetzeFrei > 0 ? (
-                  <p className="text-base leading-relaxed text-tinte">{fill(w.pilot, copyValuesFor(language))}</p>
+                  <p className="type-body">{fill(w.pilot, copyValuesFor(language))}</p>
                 ) : null}
-                <p className="text-base leading-relaxed text-tinte">{w.path}</p>
+                <p className="type-body">{w.path}</p>
                 <CalButton which="intro" label={t.common.bookCall} />
               </div>
             ) : (
               <div className="mt-8">
-                <p className="text-base text-tinte">{fill(t.common.starts, copyValuesFor(language))}</p>
+                <p className="type-body">{fill(t.common.starts, copyValuesFor(language))}</p>
                 <div className="mt-4">
                   <WaitlistButton language={language} />
                 </div>

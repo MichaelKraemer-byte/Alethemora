@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 
 export function DocumentMeta({ title, description }: { title: string; description: string }) {
-  useEffect(() => {
+  useLayoutEffect(() => {
     document.title = title;
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute("content", description);
