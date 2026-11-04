@@ -3,13 +3,6 @@
 import Link from "next/link";
 import type { Language } from "@/lib/i18n";
 
-const downloads = [
-  { href: "/downloads/alethemora-lebensphilosophie-de.pdf", label: "PDF DE" },
-  { href: "/downloads/alethemora-lebensphilosophie-de.epub", label: "EPUB DE" },
-  { href: "/downloads/alethemora-philosophy-of-life-en.pdf", label: "PDF EN" },
-  { href: "/downloads/alethemora-philosophy-of-life-en.epub", label: "EPUB EN" }
-];
-
 // TODO: EN prüfen
 const copy = {
   de: {
@@ -47,21 +40,10 @@ export function BookSection({ language }: { language: Language }) {
             <p className="type-body mt-5">{t.text}</p>
             <Link
               href="/start"
-              className="mt-8 inline-flex min-h-12 items-center justify-center rounded-full bg-rose px-7 text-sm font-medium tracking-wide text-tinte transition hover:bg-rose-hover sm:text-base"
+              className="mt-8 inline-flex min-h-12 items-center justify-center rounded-full bg-rose px-7 text-sm font-bold tracking-wide text-white transition hover:bg-rose-hover sm:text-base"
             >
               {t.button}
             </Link>
-            <p className="mt-5 flex flex-wrap gap-x-4 gap-y-2">
-              {downloads.map((file) => (
-                <a
-                  key={file.href}
-                  href={file.href}
-                  className="text-sm font-normal text-gold underline decoration-gold/70 underline-offset-4 transition hover:text-tinte"
-                >
-                  {file.label}
-                </a>
-              ))}
-            </p>
           </div>
         </div>
       </div>

@@ -16,7 +16,7 @@ import { calErstgespraech, calKlarheitsgespraech, instagram } from "@/lib/site-c
 import { funnelH1 } from "@/components/funnel/funnel-layout";
 
 export const primaryButtonClass =
-  "inline-flex min-h-11 items-center justify-center rounded-full bg-rose px-5 py-2.5 text-center text-sm font-medium text-tinte transition hover:bg-rose-hover disabled:cursor-not-allowed disabled:border disabled:border-sand disabled:bg-transparent disabled:text-tinte-weich";
+  "inline-flex min-h-11 items-center justify-center rounded-full bg-rose px-5 py-2.5 text-center text-sm font-bold text-white transition hover:bg-rose-hover disabled:cursor-not-allowed disabled:border disabled:border-sand disabled:bg-transparent disabled:text-tinte-weich";
 
 export const textLinkClass =
   "font-normal text-gold underline decoration-gold underline-offset-4";
