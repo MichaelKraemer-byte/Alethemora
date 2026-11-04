@@ -30,7 +30,10 @@ const navItems: Record<Language, { label: string; href: string }[]> = {
 };
 
 const ctaClass =
-  "inline-flex min-h-10 shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-soul-gold/70 bg-gradient-to-r from-soul-gold/30 to-quantum-cyan/25 px-2.5 text-[11px] font-medium tracking-wide text-white shadow-[0_0_18px_rgba(212,175,55,0.22)] transition hover:from-soul-gold/40 sm:px-3.5 sm:text-xs";
+  "inline-flex min-h-10 shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-rose px-2.5 text-[11px] font-medium tracking-wide text-tinte transition hover:bg-rose-hover sm:px-3.5 sm:text-xs";
+
+const menuCtaClass =
+  "inline-flex min-h-10 w-full items-center justify-center whitespace-nowrap rounded-full border border-tinte bg-transparent px-2.5 text-[11px] font-medium tracking-wide text-tinte transition hover:bg-tinte hover:text-white sm:px-3.5 sm:text-xs";
 
 export function SiteHeader({
   language,
@@ -67,7 +70,7 @@ export function SiteHeader({
   const closeMobile = () => setMobileOpen(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-[100] border-b border-white/10 bg-onyx/90 backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-[100] border-b border-sand bg-white">
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between gap-2 px-4 sm:gap-3 sm:px-6 lg:px-10">
         <Link
           href="/"
@@ -76,24 +79,24 @@ export function SiteHeader({
           }`}
           onClick={closeMobile}
         >
-          <div className="shrink-0 rounded-xl border border-soul-gold/45 bg-gradient-to-br from-soul-gold/12 to-black/40 p-1.5 shadow-[0_0_20px_rgba(212,175,55,0.15)] sm:p-2">
+          <div className="shrink-0 rounded-xl border border-sand bg-white p-1.5 sm:p-2">
             <AlethemoraRing variant="mark" className="h-7 w-7 sm:h-8 sm:w-8" />
           </div>
-          <span className="truncate font-serif text-base tracking-wide text-zinc-100 sm:text-lg">ALETHEMORA</span>
+          <span className="truncate font-serif text-base tracking-wide text-tinte sm:text-lg">ALETHEMORA</span>
         </Link>
 
         {showNav ? (
-          <nav className="hidden items-center gap-5 text-sm text-zinc-300 lg:gap-6 md:flex">
+          <nav className="hidden items-center gap-5 text-sm text-tinte lg:gap-6 md:flex">
             {navItems[language].map((item) => (
               <Link
                 key={item.label}
                 href={isHome ? item.href : `/${item.href}`}
-                className="whitespace-nowrap transition hover:text-white"
+                className="whitespace-nowrap text-tinte transition hover:text-gold"
               >
                 {item.label}
               </Link>
             ))}
-            <Link href="/mentoring" className="whitespace-nowrap transition hover:text-white">
+            <Link href="/mentoring" className="whitespace-nowrap text-tinte transition hover:text-gold">
               {labels.mentoring}
             </Link>
           </nav>
@@ -105,7 +108,7 @@ export function SiteHeader({
               {cta.label}
             </Link>
           ) : null}
-          <div className="inline-flex items-center rounded-full border border-white/20 bg-black/45 p-0.5 shadow-[0_8px_26px_rgba(0,0,0,0.45)] sm:p-1">
+          <div className="inline-flex items-center rounded-full border border-sand bg-white p-0.5 sm:p-1">
             {(["en", "de"] as const).map((lang) => {
               const active = language === lang;
               return (
@@ -115,8 +118,8 @@ export function SiteHeader({
                   onClick={() => onLanguageChange(lang)}
                   className={`inline-flex items-center gap-1 rounded-full px-2 py-1 text-[10px] tracking-[0.1em] transition sm:gap-1.5 sm:px-3 sm:py-1 sm:text-[11px] sm:tracking-[0.12em] ${
                     active
-                      ? "bg-gradient-to-r from-soul-gold/35 to-quantum-cyan/35 text-white shadow-[0_0_18px_rgba(212,175,55,0.28)]"
-                      : "text-zinc-300 hover:bg-white/5 hover:text-white"
+                      ? "bg-beige text-tinte"
+                      : "text-tinte-weich hover:bg-beige hover:text-tinte"
                   }`}
                   aria-label={lang === "en" ? "English" : "Deutsch"}
                   aria-pressed={active}
@@ -132,7 +135,7 @@ export function SiteHeader({
           {showNav ? (
             <button
               type="button"
-              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/15 bg-black/35 text-zinc-100 transition hover:border-white/25 hover:bg-white/5 md:hidden"
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-sand bg-white text-tinte transition hover:bg-beige md:hidden"
               aria-expanded={mobileOpen}
               aria-controls="site-mobile-nav"
               aria-label={mobileOpen ? "Navigation schließen" : "Navigation öffnen"}
@@ -151,7 +154,7 @@ export function SiteHeader({
               <motion.button
                 type="button"
                 aria-label="Menü schließen"
-                className="fixed inset-0 top-16 z-40 bg-black/55 backdrop-blur-[2px] md:hidden"
+                className="fixed inset-0 top-16 z-40 bg-tinte/30 backdrop-blur-[2px] md:hidden"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -160,25 +163,25 @@ export function SiteHeader({
               />
               <motion.nav
                 id="site-mobile-nav"
-                className="fixed left-0 right-0 top-16 z-50 max-h-[min(32rem,calc(100dvh-4rem))] overflow-y-auto border-b border-white/15 border-t border-white/10 bg-charcoal/92 shadow-[0_28px_56px_rgba(0,0,0,0.65)] backdrop-blur-2xl md:hidden"
+                className="fixed left-0 right-0 top-16 z-50 max-h-[min(32rem,calc(100dvh-4rem))] overflow-y-auto border-b border-t border-sand bg-white shadow-[0_16px_40px_rgba(42,37,34,0.08)] md:hidden"
                 initial={{ opacity: 0, y: -8 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.22, ease: "easeOut" }}
               >
                 <div
-                  className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_80%_at_50%_-20%,rgba(212,175,55,0.12),transparent_52%),radial-gradient(90%_60%_at_100%_100%,rgba(0,229,255,0.08),transparent_45%),linear-gradient(180deg,rgba(8,8,8,0.4)_0%,rgba(17,17,17,0.85)_100%)]"
+                  className="pointer-events-none absolute inset-0"
                   aria-hidden
                 />
                 <div
-                  className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-soul-gold/35 to-transparent"
+                  className="pointer-events-none absolute inset-x-0 top-0 h-px bg-sand"
                   aria-hidden
                 />
                 <ul className="relative flex flex-col px-3 py-2 pb-4">
                   <li>
                     <Link
                       href={cta.href}
-                      className={`${ctaClass} my-2 w-full`}
+                      className={`${menuCtaClass} my-2`}
                       onClick={closeMobile}
                     >
                       {cta.label}
@@ -188,7 +191,7 @@ export function SiteHeader({
                     <li key={item.href + item.label}>
                       <Link
                         href={isHome ? item.href : `/${item.href}`}
-                        className="block rounded-xl px-3 py-3.5 text-[15px] text-zinc-200 transition active:bg-white/10 hover:bg-white/5 hover:text-white"
+                        className="block rounded-xl px-3 py-3.5 text-[15px] text-tinte transition hover:bg-beige hover:text-gold"
                         onClick={closeMobile}
                       >
                         {item.label}
@@ -198,7 +201,7 @@ export function SiteHeader({
                   <li>
                     <Link
                       href="/mentoring"
-                      className="block rounded-xl px-3 py-3.5 text-[15px] text-zinc-200 transition active:bg-white/10 hover:bg-white/5 hover:text-white"
+                      className="block rounded-xl px-3 py-3.5 text-[15px] text-tinte transition hover:bg-beige hover:text-gold"
                       onClick={closeMobile}
                     >
                       {labels.mentoring}

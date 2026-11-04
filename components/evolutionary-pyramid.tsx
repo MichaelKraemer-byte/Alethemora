@@ -70,16 +70,16 @@ export function EvolutionaryPyramid({
 
   return (
     <div className="relative mx-auto w-full max-w-3xl">
-      <div className="pointer-events-none absolute inset-0 rounded-[2rem] bg-gradient-to-br from-soul-gold/12 via-transparent to-quantum-cyan/12 blur-3xl" />
-      <div className="pyramid-shell relative overflow-hidden rounded-[2rem] border border-white/10 bg-charcoal/70 p-5 sm:p-8">
+      <div className="pointer-events-none absolute inset-0 rounded-[2rem]" />
+      <div className="pyramid-shell relative overflow-hidden rounded-[2rem] border border-sand bg-white p-5 sm:p-8">
         <svg viewBox="0 0 100 78" className="absolute inset-0 h-full w-full opacity-35">
           <path d="M6 73 C 24 61, 40 50, 50 4 C 60 50, 76 61, 94 73" stroke="url(#flow)" strokeWidth="0.9" fill="none" />
           <path d="M14 66 C 31 55, 42 45, 50 10 C 58 45, 69 55, 86 66" stroke="url(#flow)" strokeWidth="0.7" fill="none" />
           <path d="M24 58 C 36 49, 44 40, 50 17 C 56 40, 64 49, 76 58" stroke="url(#flow)" strokeWidth="0.55" fill="none" />
           <defs>
             <linearGradient id="flow" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#d4af37" />
-              <stop offset="100%" stopColor="#00E5FF" />
+              <stop offset="0%" stopColor="#DDD2BF" />
+              <stop offset="100%" stopColor="#7A5F2A" />
             </linearGradient>
           </defs>
         </svg>
@@ -104,25 +104,25 @@ export function EvolutionaryPyramid({
                 viewport={{ once: true, amount: 0.45 }}
                 transition={{ delay: index * 0.1, duration: 0.45 }}
                 whileHover={{ y: -2, scale: 1.01 }}
-                className={`group relative mx-auto block ${widths[index]} rounded-2xl border bg-gradient-to-r px-4 py-5 text-left ${tier.colorClass} hover:shadow-glowGold ${
-                  isActive ? "ring-2 ring-soul-gold/55 ring-offset-2 ring-offset-onyx" : ""
+                className={`group relative mx-auto block ${widths[index]} rounded-2xl border bg-gradient-to-r px-4 py-5 text-left ${tier.colorClass} hover:shadow-none ${
+                  isActive ? "ring-2 ring-gold/55 ring-offset-2 ring-offset-white" : ""
                 } ${isHovered ? "z-40" : "z-10"}`}
               >
                 <motion.span
                   className="pointer-events-none absolute -inset-px rounded-2xl"
                   style={{
                     background:
-                      "linear-gradient(105deg, rgba(212,175,55,0.0), rgba(212,175,55,0.5), rgba(0,229,255,0.5), rgba(0,229,255,0.0))"
+                      "linear-gradient(105deg, rgba(221,210,191,0), rgba(221,210,191,0.55), rgba(122,95,42,0.18), rgba(221,210,191,0))"
                   }}
                   animate={{ opacity: [0.25, 0.75, 0.25], x: ["-6%", "6%", "-6%"] }}
                   transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: index * 0.2 }}
                 />
                 <div className="flex items-center justify-between gap-3">
                   <div>
-                    <p className="text-xs tracking-[0.14em] text-zinc-200/80">{tier.subtitle.toUpperCase()}</p>
-                    <p className="mt-1 font-serif text-xl text-zinc-100 sm:text-2xl">{tier.title}</p>
+                    <p className="text-xs tracking-[0.14em] text-tinte/80">{tier.subtitle.toUpperCase()}</p>
+                    <p className="mt-1 font-serif text-xl text-tinte sm:text-2xl">{tier.title}</p>
                   </div>
-                  <Icon className="h-5 w-5 text-zinc-100/90" />
+                  <Icon className="h-5 w-5 text-tinte/90" />
                 </div>
 
                 {isHovered ? (
@@ -130,14 +130,14 @@ export function EvolutionaryPyramid({
                     initial={{ opacity: 0, y: 6 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.2 }}
-                    className="pointer-events-none absolute z-[80] hidden w-72 -translate-x-1/2 rounded-xl border border-white/20 bg-black/85 p-3 text-xs leading-relaxed text-zinc-100 shadow-2xl md:block"
+                    className="pointer-events-none absolute z-[80] hidden w-72 -translate-x-1/2 rounded-xl border border-sand bg-white p-3 text-xs leading-relaxed text-tinte shadow-2xl md:block"
                     style={{
                       left: `${tooltipPos.x}px`,
                       top: `${Math.max(16, tooltipPos.y - 14)}px`
                     }}
                   >
                     <p>{tier.resonanceTooltip}</p>
-                    <p className="mt-1 text-zinc-300">{tier.dissonanceTooltip}</p>
+                    <p className="mt-1 text-tinte">{tier.dissonanceTooltip}</p>
                   </motion.div>
                 ) : null}
 
@@ -145,10 +145,10 @@ export function EvolutionaryPyramid({
                   <motion.div
                     initial={{ opacity: 0, y: 6 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="mt-4 rounded-xl border border-white/20 bg-black/30 p-3 text-xs leading-relaxed text-zinc-200 md:hidden"
+                    className="mt-4 rounded-xl border border-sand bg-beige p-3 text-xs leading-relaxed text-tinte md:hidden"
                   >
                     <p>{tier.resonanceTooltip}</p>
-                    <p className="mt-1 text-zinc-300">{tier.dissonanceTooltip}</p>
+                    <p className="mt-1 text-tinte">{tier.dissonanceTooltip}</p>
                   </motion.div>
                 ) : null}
               </motion.button>

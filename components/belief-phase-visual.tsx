@@ -13,7 +13,7 @@ export type BeliefPhaseKey =
   | "mastery";
 
 export const journeySoulClassName =
-  "rounded-full border border-white/50 bg-gradient-to-br from-[#fffef8] via-[#f5e6c8] to-[#d4af37] shadow-[0_0_20px_rgba(255,248,220,0.9),0_0_36px_rgba(212,175,55,0.45)]";
+  "rounded-full border border-sand bg-gradient-to-br from-white via-beige to-gold shadow-[0_8px_18px_rgba(42,37,34,0.08)]";
 
 export type BeliefPhaseVisualVariant = "compact" | "timeline" | "watermark" | "icon";
 
@@ -274,12 +274,12 @@ function SourceSacredRays({ boost, size }: { boost: boolean; size: number }) {
       <defs>
         <linearGradient id={rayGradId} x1="50%" y1="50%" x2="50%" y2="0%">
           <stop offset="0%" stopColor="rgba(255,255,255,0.95)" />
-          <stop offset="18%" stopColor="rgba(255,252,235,0.82)" />
-          <stop offset="55%" stopColor="rgba(245,230,200,0.38)" />
-          <stop offset="100%" stopColor="rgba(212,175,55,0)" />
+          <stop offset="18%" stopColor="rgba(255,255,255,0.82)" />
+          <stop offset="55%" stopColor="rgba(221,210,191,0.38)" />
+          <stop offset="100%" stopColor="rgba(122,95,42,0)" />
         </linearGradient>
         <filter id={glowFilterId} x="-80%" y="-80%" width="260%" height="260%">
-          <feGaussianBlur stdDeviation="1.2" result="blur" />
+          <feGaussianBlur stdDeviation="0" result="blur" />
           <feMerge>
             <feMergeNode in="blur" />
             <feMergeNode in="SourceGraphic" />
@@ -332,7 +332,7 @@ function SourceSacredRays({ boost, size }: { boost: boolean; size: number }) {
               y1="50"
               x2="50"
               y2={50 - rayLen}
-              stroke="rgba(255,248,220,0.55)"
+              stroke="rgba(236,228,215,0.55)"
               strokeWidth="0.35"
               strokeLinecap="round"
               transform={`rotate(${angle} 50 50)`}
@@ -354,8 +354,8 @@ function SourceSacredRays({ boost, size }: { boost: boolean; size: number }) {
         cx="50"
         cy="50"
         r={size > 180 ? 14 : 11}
-        fill="rgba(255,252,235,0.12)"
-        stroke="rgba(255,248,220,0.22)"
+        fill="rgba(255,255,255,0.12)"
+        stroke="rgba(236,228,215,0.22)"
         strokeWidth="0.4"
         animate={{
           opacity: boost ? [0.35, 0.72, 0.35] : [0.28, 0.52, 0.28],
@@ -375,12 +375,12 @@ function SourceScene({ timeline, boost, viewportTier, visualMode = "full" }: Sce
   return (
     <div className="relative [transform-style:preserve-3d]" style={{ width: size, height: size }} aria-hidden>
       <motion.span
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"
         style={{
           width: size * 0.82,
           height: size * 0.82,
           background:
-            "radial-gradient(circle, rgba(255,252,235,0.42) 0%, rgba(255,248,220,0.22) 38%, rgba(212,175,55,0.12) 58%, transparent 76%)"
+            "radial-gradient(circle, rgba(255,255,255,0.42) 0%, rgba(236,228,215,0.22) 38%, rgba(122,95,42,0.12) 58%, transparent 76%)"
         }}
         animate={{ opacity: boost ? [0.55, 0.88, 0.55] : [0.42, 0.68, 0.42], scale: boost ? [1, 1.08, 1] : [1, 1.04, 1] }}
         transition={{ duration: boost ? 5.5 : 8, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
@@ -391,7 +391,7 @@ function SourceScene({ timeline, boost, viewportTier, visualMode = "full" }: Sce
       {[0, 1, 2].map((ring) => (
         <motion.span
           key={ring}
-          className="absolute left-1/2 top-1/2 rounded-full border border-amber-50/25"
+          className="absolute left-1/2 top-1/2 rounded-full border border-sand"
           style={{
             width: 68 + ring * 16,
             height: 68 + ring * 16,
@@ -406,9 +406,8 @@ function SourceScene({ timeline, boost, viewportTier, visualMode = "full" }: Sce
         className="absolute left-1/2 top-1/2 h-[4.5rem] w-[4.5rem] -translate-x-1/2 -translate-y-1/2 rounded-full"
         style={{
           background:
-            "radial-gradient(circle at 40% 35%, #ffffff 0%, #fff9e6 30%, #f0dfa0 55%, #d4af37 78%, rgba(168,216,234,0.4) 100%)",
-          boxShadow:
-            "0 0 44px rgba(255,250,230,0.7), 0 0 88px rgba(212,175,55,0.28), inset 0 0 22px rgba(255,255,255,0.55)"
+            "radial-gradient(circle at 40% 35%, #ffffff 0%, #ECE4D7 30%, #DDD2BF 55%, #7A5F2A 78%, rgba(221,210,191,0.4) 100%)",
+          boxShadow: "0 8px 18px rgba(42,37,34,0.08)"
         }}
         animate={{ scale: boost ? [1, 1.04, 1] : [1, 1.018, 1] }}
         transition={{ duration: boost ? 5.5 : 8, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
@@ -423,7 +422,7 @@ function SourceScene({ timeline, boost, viewportTier, visualMode = "full" }: Sce
         return (
           <motion.span
             key={streamIdx}
-            className="absolute left-1/2 top-1/2 rounded-full bg-gradient-to-br from-white via-amber-50/90 to-amber-100/75 shadow-[0_0_12px_rgba(255,248,220,0.8),0_0_22px_rgba(212,175,55,0.25)]"
+            className="absolute left-1/2 top-1/2 rounded-full bg-gradient-to-br from-white via-beige to-sand shadow-[0_6px_14px_rgba(42,37,34,0.08)]"
             style={{ width: particleSize, height: particleSize, transform: "translate(-50%, -50%)" }}
             animate={{
               x: [0, endX * 0.28, endX * 0.62, endX, endX],
@@ -450,7 +449,7 @@ function SourceScene({ timeline, boost, viewportTier, visualMode = "full" }: Sce
         return (
           <motion.span
             key={`trail-${streamIdx}`}
-            className="absolute left-1/2 top-1/2 rounded-full bg-amber-50/55 blur-[0.5px]"
+            className="absolute left-1/2 top-1/2 rounded-full bg-beige"
             style={{ width: 4, height: 4, transform: "translate(-50%, -50%)" }}
             animate={{
               x: [0, endX * 0.45, endX, endX],
@@ -518,7 +517,7 @@ function SoulWorldJellyLayer({
         marginTop: -layer.ry,
         background: `radial-gradient(ellipse 85% 75% at 42% 32%, ${layer.core} 0%, ${layer.mid} 48%, ${layer.rim} 78%, transparent 100%)`,
         borderColor: layer.stroke,
-        boxShadow: `0 0 ${18 - layerIdx * 2}px ${layer.glow}, inset 0 1px 8px rgba(255,255,255,0.35)`,
+        boxShadow: "inset 0 0 0 1px rgba(221,210,191,0.95)",
         transform: `rotateX(64deg) translateZ(${layer.translateZ}px)`,
         transformOrigin: "50% 50%",
         zIndex: layerIdx + 1
@@ -578,11 +577,11 @@ function SoulWorldScene({ timeline, boost, viewportTier, visualMode = "full" }: 
       id: "healing",
       rx: Math.round(56 * scale),
       ry: Math.round(17 * scale),
-      core: "rgba(168,230,218,0.72)",
-      mid: "rgba(126,200,184,0.52)",
-      rim: "rgba(98,175,160,0.28)",
-      stroke: "rgba(126,200,184,0.62)",
-      glow: "rgba(126,200,184,0.28)",
+      core: "rgba(236,228,215,0.72)",
+      mid: "rgba(221,210,191,0.52)",
+      rim: "rgba(94,86,76,0.28)",
+      stroke: "rgba(221,210,191,0.62)",
+      glow: "rgba(221,210,191,0.28)",
       translateZ: 0,
       delay: 0
     },
@@ -590,11 +589,11 @@ function SoulWorldScene({ timeline, boost, viewportTier, visualMode = "full" }: 
       id: "soulGroup",
       rx: Math.round(44 * scale),
       ry: Math.round(14 * scale),
-      core: "rgba(210,198,240,0.74)",
-      mid: "rgba(181,168,213,0.54)",
-      rim: "rgba(155,135,196,0.3)",
-      stroke: "rgba(181,168,213,0.68)",
-      glow: "rgba(181,168,213,0.32)",
+      core: "rgba(236,228,215,0.74)",
+      mid: "rgba(221,210,191,0.54)",
+      rim: "rgba(122,95,42,0.3)",
+      stroke: "rgba(221,210,191,0.68)",
+      glow: "rgba(221,210,191,0.32)",
       translateZ: 6,
       delay: 0.18
     },
@@ -602,11 +601,11 @@ function SoulWorldScene({ timeline, boost, viewportTier, visualMode = "full" }: 
       id: "resonance",
       rx: Math.round(32 * scale),
       ry: Math.round(11 * scale),
-      core: "rgba(245,210,225,0.76)",
-      mid: "rgba(232,196,212,0.56)",
-      rim: "rgba(210,165,190,0.3)",
-      stroke: "rgba(232,196,212,0.66)",
-      glow: "rgba(232,196,212,0.3)",
+      core: "rgba(236,228,215,0.76)",
+      mid: "rgba(221,210,191,0.56)",
+      rim: "rgba(122,95,42,0.3)",
+      stroke: "rgba(221,210,191,0.66)",
+      glow: "rgba(221,210,191,0.3)",
       translateZ: 12,
       delay: 0.36
     },
@@ -615,10 +614,10 @@ function SoulWorldScene({ timeline, boost, viewportTier, visualMode = "full" }: 
       rx: Math.round(20 * scale),
       ry: Math.round(8 * scale),
       core: "rgba(255,252,240,0.82)",
-      mid: "rgba(245,230,200,0.62)",
-      rim: "rgba(212,175,55,0.28)",
-      stroke: "rgba(245,230,200,0.72)",
-      glow: "rgba(245,230,200,0.38)",
+      mid: "rgba(221,210,191,0.62)",
+      rim: "rgba(122,95,42,0.28)",
+      stroke: "rgba(221,210,191,0.72)",
+      glow: "rgba(221,210,191,0.38)",
       translateZ: 18,
       delay: 0.54
     }
@@ -631,12 +630,12 @@ function SoulWorldScene({ timeline, boost, viewportTier, visualMode = "full" }: 
       aria-hidden
     >
       <span
-        className="pointer-events-none absolute left-1/2 top-[54%] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
+        className="pointer-events-none absolute left-1/2 top-[54%] -translate-x-1/2 -translate-y-1/2 rounded-full"
         style={{
           width: size * 0.88,
           height: size * 0.42,
           background:
-            "radial-gradient(ellipse, rgba(181,168,213,0.22) 0%, rgba(126,200,184,0.14) 42%, rgba(232,196,212,0.08) 68%, transparent 82%)"
+            "radial-gradient(ellipse, rgba(221,210,191,0.22) 0%, rgba(221,210,191,0.14) 42%, rgba(221,210,191,0.08) 68%, transparent 82%)"
         }}
       />
 
@@ -677,9 +676,9 @@ function IncarnationScene({ timeline, boost, viewportTier, visualMode = "full" }
   return (
     <div className="relative" style={{ width: size, height: size }} aria-hidden>
       <span
-        className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl"
+        className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full"
         style={{
-          background: "radial-gradient(circle, rgba(181,168,213,0.2) 0%, rgba(168,216,234,0.1) 50%, transparent 72%)"
+          background: "radial-gradient(circle, rgba(221,210,191,0.2) 0%, rgba(221,210,191,0.1) 50%, transparent 72%)"
         }}
       />
 
@@ -700,8 +699,8 @@ function IncarnationScene({ timeline, boost, viewportTier, visualMode = "full" }
               style={{
                 width: 7,
                 height: 7,
-                background: "radial-gradient(circle, #fff 0%, #b5a8d5 60%, #9b8fc4 100%)",
-                boxShadow: "0 0 10px rgba(181,168,213,0.55)",
+                background: "radial-gradient(circle, #FFFFFF 0%, #DDD2BF 60%, #7A5F2A 100%)",
+                boxShadow: "none",
                 transform: `translate(-50%, -50%) translate(${ox}px, ${oy}px)`
               }}
             />
@@ -710,7 +709,7 @@ function IncarnationScene({ timeline, boost, viewportTier, visualMode = "full" }
       </motion.div>
 
       <span
-        className="absolute left-1/2 top-1/2 rounded-full border border-amber-100/25"
+        className="absolute left-1/2 top-1/2 rounded-full border border-sand"
         style={{
           width: familyRadius * 2 + 12,
           height: familyRadius * 2 + 12,
@@ -726,12 +725,12 @@ function IncarnationScene({ timeline, boost, viewportTier, visualMode = "full" }
         return (
           <motion.span
             key={memberIdx}
-            className="absolute left-1/2 top-1/2 rounded-full border border-rose-200/30"
+            className="absolute left-1/2 top-1/2 rounded-full border border-sand"
             style={{
               width: 11,
               height: 11,
-              background: "radial-gradient(circle, #fff 0%, #e8c4d4 55%, #c9b8e8 100%)",
-              boxShadow: "0 0 12px rgba(232,196,212,0.5)",
+              background: "radial-gradient(circle, #FFFFFF 0%, #ECE4D7 55%, #7A5F2A 100%)",
+              boxShadow: "none",
               transform: `translate(-50%, -50%) translate(${fx}px, ${fy}px)`
             }}
             animate={{ opacity: boost ? [0.55, 0.95, 0.55] : 0.6 }}
@@ -754,10 +753,10 @@ function IncarnationScene({ timeline, boost, viewportTier, visualMode = "full" }
 }
 
 const backgroundPlanets = [
-  { x: -58, y: -38, z: -70, size: 16, ocean: "#6b4a8a", land: "#9b7bb8", ring: false, duration: 42 },
-  { x: 62, y: -28, z: -85, size: 22, ocean: "#c45c3a", land: "#e8a070", ring: false, duration: 36 },
-  { x: -48, y: 52, z: -95, size: 14, ocean: "#2a6a9a", land: "#5aa8d8", ring: true, duration: 50 },
-  { x: 70, y: 44, z: -60, size: 12, ocean: "#8a7040", land: "#c4a860", ring: false, duration: 55 }
+  { x: -58, y: -38, z: -70, size: 16, ocean: "#5E564C", land: "#7A5F2A", ring: false, duration: 42 },
+  { x: 62, y: -28, z: -85, size: 22, ocean: "#7A5F2A", land: "#DDD2BF", ring: false, duration: 36 },
+  { x: -48, y: 52, z: -95, size: 14, ocean: "#5E564C", land: "#ECE4D7", ring: true, duration: 50 },
+  { x: 70, y: 44, z: -60, size: 12, ocean: "#7A5F2A", land: "#DDD2BF", ring: false, duration: 55 }
 ] as const;
 
 /**
@@ -771,24 +770,24 @@ function EarthContinents() {
     <svg viewBox="0 0 100 100" className="h-full w-full" aria-hidden preserveAspectRatio="xMidYMid slice">
       <defs>
         <linearGradient id={`earth-forest-${uid}`} x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="rgba(72,168,108,0.95)" />
-          <stop offset="55%" stopColor="rgba(38,128,72,0.93)" />
-          <stop offset="100%" stopColor="rgba(28,98,58,0.92)" />
+          <stop offset="0%" stopColor="rgba(122,95,42,0.95)" />
+          <stop offset="55%" stopColor="rgba(94,86,76,0.93)" />
+          <stop offset="100%" stopColor="rgba(42,37,34,0.92)" />
         </linearGradient>
         <linearGradient id={`earth-desert-${uid}`} x1="0%" y1="0%" x2="80%" y2="100%">
-          <stop offset="0%" stopColor="rgba(210,178,108,0.9)" />
-          <stop offset="100%" stopColor="rgba(168,138,78,0.88)" />
+          <stop offset="0%" stopColor="rgba(221,210,191,0.9)" />
+          <stop offset="100%" stopColor="rgba(122,95,42,0.88)" />
         </linearGradient>
         <linearGradient id={`earth-tundra-${uid}`} x1="50%" y1="0%" x2="50%" y2="100%">
-          <stop offset="0%" stopColor="rgba(195,215,195,0.82)" />
-          <stop offset="100%" stopColor="rgba(148,168,148,0.78)" />
+          <stop offset="0%" stopColor="rgba(236,228,215,0.82)" />
+          <stop offset="100%" stopColor="rgba(221,210,191,0.78)" />
         </linearGradient>
         <linearGradient id={`earth-ice-${uid}`} x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="rgba(235,248,255,0.88)" />
-          <stop offset="100%" stopColor="rgba(195,225,245,0.75)" />
+          <stop offset="0%" stopColor="rgba(255,255,255,0.88)" />
+          <stop offset="100%" stopColor="rgba(236,228,215,0.75)" />
         </linearGradient>
         <filter id={`earth-glow-${uid}`} x="-2%" y="-2%" width="104%" height="104%">
-          <feGaussianBlur stdDeviation="0.18" result="blur" />
+          <feGaussianBlur stdDeviation="0" result="blur" />
           <feMerge>
             <feMergeNode in="blur" />
             <feMergeNode in="SourceGraphic" />
@@ -796,7 +795,7 @@ function EarthContinents() {
         </filter>
       </defs>
 
-      <g filter={`url(#earth-glow-${uid})`} stroke="rgba(18,72,42,0.28)" strokeWidth="0.12" strokeLinejoin="round">
+      <g filter={`url(#earth-glow-${uid})`} stroke="rgba(42,37,34,0.28)" strokeWidth="0.12" strokeLinejoin="round">
         {/* North America */}
         <path
           fill={`url(#earth-forest-${uid})`}
@@ -807,7 +806,7 @@ function EarthContinents() {
         />
         {/* Florida peninsula */}
         <path
-          fill="rgba(48,132,78,0.9)"
+          fill="rgba(122,95,42,0.9)"
           d="M27.5,35.5 L28.2,36.8 L27.8,38.2 L27,37.2 Z"
         />
 
@@ -832,7 +831,7 @@ function EarthContinents() {
           d="M47.2,30.6 L48.6,28.3 L50.8,27.2 L52.5,28.3 L53.3,30 L52.8,32.2 L50.6,33.3
              L48.3,32.2 L47.2,30.6 Z"
         />
-        <path fill="rgba(52,138,82,0.9)" d="M46.7,27.8 L47.2,27.2 L47.8,27.8 L47.5,28.5 Z" />
+        <path fill="rgba(122,95,42,0.9)" d="M46.7,27.8 L47.2,27.2 L47.8,27.8 L47.5,28.5 Z" />
         <path
           fill={`url(#earth-tundra-${uid})`}
           d="M51.4,22.2 L53.1,19.4 L54.7,20 L55,22.2 L53.9,24.4 L52.2,24.4 Z"
@@ -849,7 +848,7 @@ function EarthContinents() {
           fill={`url(#earth-desert-${uid})`}
           d="M46.4,34.4 L52.8,33.3 L58.3,35 L58.9,38.3 L55.6,40 L49.4,39.4 L46.7,37.2 Z"
         />
-        <path fill="rgba(42,128,72,0.9)" d="M59.4,58.3 L60,60 L59.7,61.7 L59.2,59.4 Z" />
+        <path fill="rgba(94,86,76,0.9)" d="M59.4,58.3 L60,60 L59.7,61.7 L59.2,59.4 Z" />
 
         {/* Arabian Peninsula */}
         <path
@@ -870,16 +869,16 @@ function EarthContinents() {
              L55.6,24.4 Z"
         />
         <path
-          fill="rgba(48,138,78,0.92)"
+          fill="rgba(122,95,42,0.92)"
           d="M64.4,38.3 L68.3,37.2 L69.4,40.6 L68.3,46.1 L65.6,48.3 L63.9,45 L64.4,38.3 Z"
         />
-        <path fill="rgba(52,128,72,0.88)" d="M66.7,49.4 L67.2,48.9 L67.5,49.7 L67,50.3 Z" />
+        <path fill="rgba(122,95,42,0.88)" d="M66.7,49.4 L67.2,48.9 L67.5,49.7 L67,50.3 Z" />
         <path
-          fill="rgba(42,128,72,0.9)"
+          fill="rgba(94,86,76,0.9)"
           d="M72.2,42.2 L74.4,41.1 L74.7,44.4 L72.8,46.7 L71.4,45.6 Z"
         />
         <path
-          fill="rgba(48,132,78,0.88)"
+          fill="rgba(122,95,42,0.88)"
           d="M76.4,46.1 L77.5,45.6 L78.1,47.2 L77.2,48.3 Z M80.6,47.2 L81.4,46.4 L82.2,47.5 L81.4,48.6 Z M84.4,48.3 L85.3,47.5 L86.1,49.4 L85,50 Z M78.6,50.6 L79.4,49.7 L80.3,51.4 L79.2,52.2 Z M88.3,32.2 L89.2,31.4 L89.7,33.3 L88.9,34.4 Z M89.7,34.4 L90.3,33.6 L90.8,35 L90.3,35.8 Z"
         />
 
@@ -889,7 +888,7 @@ function EarthContinents() {
           d="M81.4,62.2 L86.1,56.7 L92.5,65.6 L87.5,69.4 L82.5,68.3 L81.4,62.2 Z"
         />
         <path
-          fill="rgba(42,118,68,0.88)"
+          fill="rgba(94,86,76,0.88)"
           d="M94.4,66.1 L94.7,65.3 L95.3,67.2 L94.7,68.3 Z
              M94.7,68.6 L95.3,67.8 L95.6,69.4 L95,70 Z"
         />
@@ -935,14 +934,14 @@ function RotatingPlanet({
       transition={{ duration: boost ? duration * 0.75 : duration, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
     >
       <span
-        className="absolute inset-0 rounded-full opacity-55 blur-md"
+        className="absolute inset-0 rounded-full opacity-55"
         style={{ background: `radial-gradient(circle, ${ocean}88 0%, transparent 70%)` }}
       />
       <span
         className="absolute inset-0 overflow-hidden rounded-full"
         style={{
-          background: `radial-gradient(circle at 32% 28%, ${land} 0%, ${ocean} 55%, #0a1628 100%)`,
-          boxShadow: `inset -${Math.max(2, size * 0.12)}px 0 ${size * 0.2}px rgba(0,0,0,0.45)`
+          background: `radial-gradient(circle at 32% 28%, ${land} 0%, ${ocean} 62%, #ECE4D7 100%)`,
+          boxShadow: "inset -4px 0 10px rgba(221,210,191,0.9)"
         }}
       >
         <span
@@ -952,7 +951,7 @@ function RotatingPlanet({
       </span>
       {ring ? (
         <span
-          className="absolute left-1/2 top-1/2 rounded-full border border-white/20"
+          className="absolute left-1/2 top-1/2 rounded-full border border-sand"
           style={{
             width: size * 1.7,
             height: size * 0.35,
@@ -973,26 +972,25 @@ function EarthGlobe({ size, boost }: { size: number; boost: boolean }) {
       style={{ width: size, height: size, transform: "translate(-50%, -50%) translateZ(12px)" }}
     >
       <span
-        className="absolute -inset-3 rounded-full blur-2xl"
+        className="absolute -inset-3 rounded-full"
         style={{
           background:
-            "radial-gradient(circle, rgba(56,189,248,0.22) 0%, rgba(34,197,94,0.12) 45%, transparent 72%)"
+            "radial-gradient(circle, rgba(122,95,42,0.22) 0%, rgba(221,210,191,0.12) 45%, transparent 72%)"
         }}
       />
       <motion.span
-        className="absolute -inset-2 rounded-full blur-xl"
+        className="absolute -inset-2 rounded-full"
         animate={{ opacity: boost ? [0.35, 0.58, 0.35] : 0.38 }}
         transition={{ duration: 5, repeat: boost ? Number.POSITIVE_INFINITY : 0, ease: "easeInOut" }}
-        style={{ background: "radial-gradient(circle, rgba(125,211,252,0.35) 0%, transparent 70%)" }}
+        style={{ background: "radial-gradient(circle, rgba(236,228,215,0.35) 0%, transparent 70%)" }}
       />
 
       <span
         className="absolute inset-0 overflow-hidden rounded-full [contain:strict]"
         style={{
           background:
-            "radial-gradient(circle at 30% 28%, rgba(147,220,255,0.5) 0%, #2563eb 32%, #1e40af 48%, #0c4a6e 68%, #021a2e 100%)",
-          boxShadow:
-            "inset -10px 0 20px rgba(0,0,0,0.52), 0 0 30px rgba(56,189,248,0.28), 0 0 52px rgba(34,197,94,0.14)"
+            "radial-gradient(circle at 30% 28%, rgba(236,228,215,0.5) 0%, #7A5F2A 32%, #5E564C 48%, #DDD2BF 68%, #DDD2BF 100%)",
+          boxShadow: "inset -8px 0 16px rgba(221,210,191,0.85)"
         }}
       >
         <div
@@ -1017,7 +1015,7 @@ function EarthGlobe({ size, boost }: { size: number; boost: boolean }) {
         className="pointer-events-none absolute inset-0 rounded-full"
         style={{
           background:
-            "radial-gradient(circle at 28% 24%, rgba(255,255,255,0.42) 0%, rgba(255,255,255,0.08) 18%, transparent 42%), radial-gradient(circle at 78% 50%, rgba(0,0,0,0.38) 0%, transparent 38%)"
+            "radial-gradient(circle at 28% 24%, rgba(255,255,255,0.42) 0%, rgba(255,255,255,0.08) 18%, transparent 42%), radial-gradient(circle at 78% 50%, rgba(94,86,76,0.16) 0%, transparent 38%)"
         }}
       />
     </div>
@@ -1094,32 +1092,32 @@ function ReturnScene({ timeline, boost, viewportTier, visualMode = "full" }: Sce
       >
         <defs>
           <linearGradient id={beamId} x1="50%" y1="100%" x2="50%" y2="0%">
-            <stop offset="0%" stopColor="rgba(181,168,213,0.35)" />
-            <stop offset="35%" stopColor="rgba(255,248,220,0.55)" />
-            <stop offset="72%" stopColor="rgba(212,175,55,0.28)" />
+            <stop offset="0%" stopColor="rgba(221,210,191,0.35)" />
+            <stop offset="35%" stopColor="rgba(236,228,215,0.55)" />
+            <stop offset="72%" stopColor="rgba(122,95,42,0.28)" />
             <stop offset="100%" stopColor="rgba(255,255,255,0)" />
           </linearGradient>
           <radialGradient id={portalId} cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="rgba(255,254,248,0.95)" />
-            <stop offset="45%" stopColor="rgba(245,230,200,0.55)" />
-            <stop offset="100%" stopColor="rgba(212,175,55,0.08)" />
+            <stop offset="0%" stopColor="rgba(255,255,255,0.95)" />
+            <stop offset="45%" stopColor="rgba(221,210,191,0.55)" />
+            <stop offset="100%" stopColor="rgba(122,95,42,0.08)" />
           </radialGradient>
           <filter id={glowId} x="-120%" y="-120%" width="340%" height="340%">
-            <feGaussianBlur stdDeviation="2.4" result="blur" />
+            <feGaussianBlur stdDeviation="0" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
               <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
           <radialGradient id={ambientId} cx="50%" cy="8%" r="42%">
-            <stop offset="0%" stopColor="rgba(255,248,220,0.42)" />
-            <stop offset="45%" stopColor="rgba(255,248,220,0.12)" />
-            <stop offset="100%" stopColor="rgba(255,248,220,0)" />
+            <stop offset="0%" stopColor="rgba(236,228,215,0.42)" />
+            <stop offset="45%" stopColor="rgba(236,228,215,0.12)" />
+            <stop offset="100%" stopColor="rgba(236,228,215,0)" />
           </radialGradient>
         </defs>
 
         <ellipse cx="50" cy="6" rx="38" ry="22" fill={`url(#${ambientId})`} opacity="0.85" />
-        <ellipse cx="50" cy="118" rx="32" ry="10" fill="rgba(181,168,213,0.1)" />
+        <ellipse cx="50" cy="118" rx="32" ry="10" fill="rgba(221,210,191,0.1)" />
 
         {/* Dimensional transition column */}
         <path
@@ -1129,7 +1127,7 @@ function ReturnScene({ timeline, boost, viewportTier, visualMode = "full" }: Sce
         />
 
         {/* Ground plane — subtle, no body */}
-        <ellipse cx="50" cy="112" rx={timeline ? 34 : 28} ry="2.8" fill="rgba(255,248,220,0.08)" />
+        <ellipse cx="50" cy="112" rx={timeline ? 34 : 28} ry="2.8" fill="rgba(236,228,215,0.08)" />
 
         {/* Portal rings above */}
         {[0, 1, 2].map((ring) => (
@@ -1140,7 +1138,7 @@ function ReturnScene({ timeline, boost, viewportTier, visualMode = "full" }: Sce
             rx={timeline ? 14 + ring * 5 : 12 + ring * 4}
             ry={timeline ? 4 + ring * 1.2 : 3.2 + ring}
             fill="none"
-            stroke="rgba(255,248,220,0.28)"
+            stroke="rgba(236,228,215,0.28)"
             strokeWidth="0.5"
             animate={{
               opacity: boost ? [0.12, 0.45 - ring * 0.08, 0.12] : [0.1, 0.3 - ring * 0.06, 0.1],
@@ -1155,7 +1153,7 @@ function ReturnScene({ timeline, boost, viewportTier, visualMode = "full" }: Sce
           cy="14"
           rx={timeline ? 22 : 18}
           ry={timeline ? 14 : 11}
-          fill="rgba(255,252,235,0.22)"
+          fill="rgba(255,255,255,0.22)"
           filter={`url(#${glowId})`}
           animate={{
             opacity: boost ? [0.35, 0.72, 0.35] : [0.28, 0.52, 0.28],
@@ -1170,7 +1168,7 @@ function ReturnScene({ timeline, boost, viewportTier, visualMode = "full" }: Sce
           cy="14"
           r={timeline ? 10 : 8}
           fill={`url(#${portalId})`}
-          stroke="rgba(255,248,220,0.62)"
+          stroke="rgba(236,228,215,0.62)"
           strokeWidth="0.75"
           filter={`url(#${glowId})`}
           animate={{ opacity: boost ? [0.72, 1, 0.72] : 0.82, r: boost ? [8, 10.5, 8] : [8, 9.2, 8] }}
@@ -1183,7 +1181,7 @@ function ReturnScene({ timeline, boost, viewportTier, visualMode = "full" }: Sce
             key={wisp}
             cx={46 + (wisp % 3) * 4}
             r="0.9"
-            fill="rgba(255,248,220,0.55)"
+            fill="rgba(236,228,215,0.55)"
             animate={{
               cy: [108 - wisp * 8, 14 + wisp * 2],
               opacity: [0, 0.65, 0]
@@ -1213,7 +1211,7 @@ function ReturnScene({ timeline, boost, viewportTier, visualMode = "full" }: Sce
       />
 
       <motion.span
-        className="pointer-events-none absolute w-1 -translate-x-1/2 rounded-full bg-gradient-to-t from-violet-200/25 via-soul-gold/50 to-white/80"
+        className="pointer-events-none absolute w-1 -translate-x-1/2 rounded-full bg-gradient-to-t from-sand via-gold/70 to-transparent"
         style={{
           left: soulOrigin,
           bottom: "15%",
@@ -1232,7 +1230,7 @@ function ReturnScene({ timeline, boost, viewportTier, visualMode = "full" }: Sce
       {[0, 1, 2, 3].map((trail) => (
         <motion.span
           key={trail}
-          className="absolute h-2 w-2 -translate-x-1/2 rounded-full bg-amber-50/75 blur-[0.5px]"
+          className="absolute h-2 w-2 -translate-x-1/2 rounded-full bg-beige"
           style={{ left: soulOrigin, bottom: "14%" }}
           animate={{
             y: [0, soulLift * (0.28 + trail * 0.14), soulLift * (0.62 + trail * 0.1)],
@@ -1276,10 +1274,10 @@ function SoulMaturityScene({ timeline, boost, viewportTier, visualMode = "full" 
     <div className="relative" style={{ width: size, height: size }} aria-hidden>
       <div className="absolute inset-0" style={{ transform: `translateY(${heartOffsetY}px)` }}>
         <motion.span
-          className="absolute left-1/2 top-1/2 h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
+          className="absolute left-1/2 top-1/2 h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full"
         style={{
           background:
-            "radial-gradient(circle, rgba(255,248,220,0.32) 0%, rgba(232,196,212,0.18) 38%, rgba(212,175,55,0.14) 58%, rgba(126,200,184,0.08) 72%, transparent 84%)"
+            "radial-gradient(circle, rgba(236,228,215,0.32) 0%, rgba(221,210,191,0.18) 38%, rgba(122,95,42,0.14) 58%, rgba(221,210,191,0.08) 72%, transparent 84%)"
         }}
         animate={{
           opacity: boost ? [0.42, 0.85, 0.42] : [0.32, 0.55, 0.32],
@@ -1289,10 +1287,10 @@ function SoulMaturityScene({ timeline, boost, viewportTier, visualMode = "full" 
       />
 
       <motion.span
-        className="pointer-events-none absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full"
         style={{
           background:
-            "radial-gradient(circle, rgba(255,252,235,0.65) 0%, rgba(245,230,200,0.35) 42%, rgba(212,175,55,0.16) 68%, transparent 82%)"
+            "radial-gradient(circle, rgba(255,255,255,0.65) 0%, rgba(221,210,191,0.35) 42%, rgba(122,95,42,0.16) 68%, transparent 82%)"
         }}
         animate={{
           opacity: boost ? [0.55, 0.95, 0.55] : [0.42, 0.68, 0.42],
@@ -1304,13 +1302,13 @@ function SoulMaturityScene({ timeline, boost, viewportTier, visualMode = "full" 
       <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full overflow-visible">
         <defs>
           <linearGradient id={heartGradId} x1="50%" y1="0%" x2="50%" y2="100%">
-            <stop offset="0%" stopColor="rgba(255,254,248,0.98)" />
-            <stop offset="32%" stopColor="rgba(245,230,200,0.92)" />
-            <stop offset="62%" stopColor="rgba(232,196,212,0.82)" />
-            <stop offset="100%" stopColor="rgba(212,175,55,0.72)" />
+            <stop offset="0%" stopColor="rgba(255,255,255,0.98)" />
+            <stop offset="32%" stopColor="rgba(221,210,191,0.92)" />
+            <stop offset="62%" stopColor="rgba(221,210,191,0.82)" />
+            <stop offset="100%" stopColor="rgba(122,95,42,0.72)" />
           </linearGradient>
           <filter id={glowFilterId} x="-60%" y="-60%" width="220%" height="220%">
-            <feGaussianBlur stdDeviation="1.4" result="blur" />
+            <feGaussianBlur stdDeviation="0" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
               <feMergeNode in="SourceGraphic" />
@@ -1325,7 +1323,7 @@ function SoulMaturityScene({ timeline, boost, viewportTier, visualMode = "full" 
             cy="50"
             r={18 + ring * 6}
             fill="none"
-            stroke="rgba(255,248,220,0.35)"
+            stroke="rgba(236,228,215,0.35)"
             strokeWidth="0.5"
             animate={{
               r: boost ? [18 + ring * 6, 26 + ring * 8, 18 + ring * 6] : [18 + ring * 6, 22 + ring * 6, 18 + ring * 6],
@@ -1344,7 +1342,7 @@ function SoulMaturityScene({ timeline, boost, viewportTier, visualMode = "full" 
           <motion.path
             d="M50 68 C40 58 28 54 28 42 C28 32 36 24 50 30 C64 24 72 32 72 42 C72 54 60 58 50 68 Z"
             fill={`url(#${heartGradId})`}
-            stroke="rgba(255,248,220,0.62)"
+            stroke="rgba(236,228,215,0.62)"
             strokeWidth="0.9"
             strokeLinejoin="round"
             animate={{

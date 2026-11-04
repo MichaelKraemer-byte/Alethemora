@@ -27,12 +27,12 @@ export function AlethemoraRing({
       >
         <defs>
           <linearGradient id={gradId} x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#d4af37" />
-            <stop offset="45%" stopColor="#f0e2a8" />
-            <stop offset="100%" stopColor="#00E5FF" />
+            <stop offset="0%" stopColor="#7A5F2A" />
+            <stop offset="45%" stopColor="#ECE4D7" />
+            <stop offset="100%" stopColor="#2A2522" />
           </linearGradient>
           <filter id={glowId} x="-35%" y="-35%" width="170%" height="170%">
-            <feGaussianBlur stdDeviation="2.4" result="b" />
+            <feGaussianBlur stdDeviation="0" result="b" />
             <feMerge>
               <feMergeNode in="b" />
               <feMergeNode in="SourceGraphic" />
@@ -77,7 +77,6 @@ export function AlethemoraRing({
           fill="none"
           stroke={`url(#${gradId})`}
           strokeWidth="2.4"
-          filter={`url(#${glowId})`}
           opacity="0.95"
         />
         <circle
@@ -94,7 +93,7 @@ export function AlethemoraRing({
           cy="100"
           r="72"
           fill="none"
-          stroke="rgba(255,255,255,0.06)"
+          stroke="rgba(221,210,191,0.7)"
           strokeWidth="5"
         />
       </svg>
@@ -111,8 +110,8 @@ export function AlethemoraRing({
       >
         <defs>
           <linearGradient id={gradId} x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#d4af37" />
-            <stop offset="100%" stopColor="#00E5FF" />
+            <stop offset="0%" stopColor="#7A5F2A" />
+            <stop offset="100%" stopColor="#2A2522" />
           </linearGradient>
         </defs>
         <circle
@@ -137,12 +136,12 @@ export function AlethemoraRing({
     >
       <defs>
         <linearGradient id={gradId} x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#d4af37" />
-          <stop offset="55%" stopColor="#ebd489" />
-          <stop offset="100%" stopColor="#00E5FF" />
+          <stop offset="0%" stopColor="#7A5F2A" />
+          <stop offset="55%" stopColor="#DDD2BF" />
+          <stop offset="100%" stopColor="#2A2522" />
         </linearGradient>
         <filter id={glowId} x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="0.8" result="b" />
+          <feGaussianBlur stdDeviation="0" result="b" />
           <feMerge>
             <feMergeNode in="b" />
             <feMergeNode in="SourceGraphic" />
@@ -156,7 +155,6 @@ export function AlethemoraRing({
         fill="none"
         stroke={`url(#${gradId})`}
         strokeWidth="2.2"
-        filter={`url(#${glowId})`}
       />
       <circle
         cx="20"

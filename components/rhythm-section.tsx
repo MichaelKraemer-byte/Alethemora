@@ -56,7 +56,8 @@ export function RhythmSection({ language }: { language: Language }) {
   const hasFinePointer = useFinePointer();
 
   return (
-    <section id="rhythmus" className="section-shell">
+    <section id="rhythmus" className="bg-beige">
+      <div className="section-shell">
       <motion.div
         className="mb-10"
         initial="hidden"
@@ -67,28 +68,28 @@ export function RhythmSection({ language }: { language: Language }) {
         <motion.span
           variants={fadeUp}
           transition={{ duration: 0.45, ease: timelineEase }}
-          className="rounded-full border border-soul-gold/40 bg-soul-gold/10 px-3 py-1 text-xs tracking-[0.16em] text-soul-gold"
+          className="rounded-full border border-gold/40 bg-gold/10 px-3 py-1 text-xs tracking-[0.16em] text-gold"
         >
           {t.badge}
         </motion.span>
         <motion.h2
           variants={fadeUp}
           transition={{ duration: 0.45, ease: timelineEase }}
-          className="mt-4 font-serif text-3xl text-zinc-100 sm:text-4xl"
+          className="mt-4 font-serif text-3xl text-tinte sm:text-4xl"
         >
           {t.title}
         </motion.h2>
         <motion.p
           variants={fadeUp}
           transition={{ duration: 0.45, ease: timelineEase }}
-          className="mt-3 max-w-3xl text-zinc-300"
+          className="mt-3 max-w-3xl text-tinte"
         >
           {t.intro}
         </motion.p>
       </motion.div>
 
       <motion.div
-        className="mb-8 rounded-2xl border border-white/10 bg-charcoal/70 p-3 sm:p-4"
+        className="mb-8 rounded-2xl border border-sand bg-white p-3 sm:p-4"
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.35 }}
@@ -114,12 +115,12 @@ export function RhythmSection({ language }: { language: Language }) {
                 whileTap={{ scale: 0.985 }}
                 className={`rounded-xl border px-4 py-3 text-left transition-colors duration-300 ${
                   isActive
-                    ? "border-soul-gold/55 bg-soul-gold/15 text-zinc-100 shadow-glowGold"
-                    : "border-white/10 bg-black/20 text-zinc-300 [@media(hover:hover)_and_(pointer:fine)]:hover:border-soul-gold/30 [@media(hover:hover)_and_(pointer:fine)]:hover:bg-black/30"
+                    ? "border-gold/55 bg-gold/15 text-tinte shadow-none"
+                    : "border-sand bg-beige text-tinte [@media(hover:hover)_and_(pointer:fine)]:hover:border-gold/30 [@media(hover:hover)_and_(pointer:fine)]:hover:bg-beige"
                 }`}
               >
                 <p className="text-sm font-medium">{levelMeta[level][language].label}</p>
-                <p className="mt-1 text-xs text-zinc-400">{levelMeta[level][language].description}</p>
+                <p className="mt-1 text-xs text-tinte-weich">{levelMeta[level][language].description}</p>
               </motion.button>
             );
           })}
@@ -128,7 +129,7 @@ export function RhythmSection({ language }: { language: Language }) {
 
       <div className="relative pl-6 sm:pl-10">
         <motion.div
-          className="absolute bottom-3 left-1.5 top-3 w-px origin-top bg-gradient-to-b from-soul-gold/70 via-zinc-600 to-quantum-cyan/70 sm:left-4"
+          className="absolute bottom-3 left-1.5 top-3 w-px origin-top bg-sand sm:left-4"
           initial={{ scaleY: 0, opacity: 0 }}
           whileInView={{ scaleY: 1, opacity: 1 }}
           viewport={{ once: true, amount: 0.08 }}
@@ -148,10 +149,10 @@ export function RhythmSection({ language }: { language: Language }) {
                   ? { y: -3, transition: { duration: 0.25, ease: "easeOut" } }
                   : undefined
               }
-              className="group relative rounded-2xl border border-white/10 bg-charcoal/70 p-6 transition-[border-color,box-shadow] duration-300 [@media(hover:hover)_and_(pointer:fine)]:hover:border-soul-gold/35 [@media(hover:hover)_and_(pointer:fine)]:hover:shadow-glowGold"
+              className="group relative rounded-2xl border border-sand bg-white p-6 transition-[border-color,box-shadow] duration-300 [@media(hover:hover)_and_(pointer:fine)]:hover:border-gold/35 [@media(hover:hover)_and_(pointer:fine)]:hover:shadow-none"
             >
               <motion.div
-                className="absolute -left-[1.95rem] top-8 h-3.5 w-3.5 rounded-full border-2 border-soul-gold/80 bg-onyx sm:-left-[2.25rem]"
+                className="absolute -left-[1.95rem] top-8 h-3.5 w-3.5 rounded-full border-2 border-gold bg-white sm:-left-[2.25rem]"
                 initial={{ scale: 0, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: true, amount: 0.5 }}
@@ -166,17 +167,17 @@ export function RhythmSection({ language }: { language: Language }) {
                   hasFinePointer
                     ? {
                         scale: 1.18,
-                        boxShadow: "0 0 16px rgba(212, 175, 55, 0.4)",
+                        boxShadow: "0 4px 10px rgba(42,37,34,0.08)",
                         transition: { duration: 0.2 }
                       }
                     : undefined
                 }
               />
-              <p className="text-xs tracking-[0.14em] text-zinc-400 transition-colors duration-300 [@media(hover:hover)_and_(pointer:fine)]:group-hover:text-soul-gold/70">
+              <p className="text-xs tracking-[0.14em] text-tinte-weich transition-colors duration-300 [@media(hover:hover)_and_(pointer:fine)]:group-hover:text-gold/70">
                 {block.subtitle[language].toUpperCase()}
               </p>
-              <h3 className="mt-2 font-serif text-2xl text-zinc-100">{block.title[language]}</h3>
-              <p className="mt-2 text-zinc-300">{block.purpose[language]}</p>
+              <h3 className="mt-2 font-serif text-2xl text-tinte">{block.title[language]}</h3>
+              <p className="mt-2 text-tinte">{block.purpose[language]}</p>
 
               <motion.ul
                 key={activeLevel}
@@ -196,9 +197,9 @@ export function RhythmSection({ language }: { language: Language }) {
                       visible: { opacity: 1, x: 0 }
                     }}
                     transition={{ duration: 0.3, ease: timelineEase }}
-                    className="flex gap-3 text-zinc-200"
+                    className="flex gap-3 text-tinte"
                   >
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-quantum-cyan transition-transform duration-300 [@media(hover:hover)_and_(pointer:fine)]:group-hover:scale-125" />
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold transition-transform duration-300 [@media(hover:hover)_and_(pointer:fine)]:group-hover:scale-125" />
                     <span>{item}</span>
                   </motion.li>
                 ))}
@@ -206,6 +207,7 @@ export function RhythmSection({ language }: { language: Language }) {
             </motion.article>
           ))}
         </div>
+      </div>
       </div>
     </section>
   );

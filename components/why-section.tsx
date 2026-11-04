@@ -37,9 +37,9 @@ const phaseKeys: readonly BeliefPhaseKey[] = [
 ] as const;
 
 const categoryStyles: Record<ResearchCategoryId, string> = {
-  lbl: "border-soul-gold/35 bg-soul-gold/10 text-soul-gold",
-  reincarnation: "border-indigo-400/35 bg-indigo-400/10 text-indigo-200",
-  nde: "border-cyan-400/35 bg-cyan-400/10 text-cyan-200"
+  lbl: "border-gold/40 bg-white text-gold",
+  reincarnation: "border-sand bg-beige text-tinte",
+  nde: "border-tinte/25 bg-white text-tinte"
 };
 
 const uiCopy = {
@@ -437,19 +437,20 @@ export function WhySection({ language }: { language: Language }) {
   }
 
   return (
-    <section id="why" ref={sectionRef} className="section-shell overflow-x-hidden">
-      <div className="pointer-events-none absolute inset-x-0 top-16 h-56 bg-[radial-gradient(ellipse_at_50%_0%,rgba(212,175,55,0.07),transparent_65%)]" aria-hidden />
+    <section id="why" ref={sectionRef} className="overflow-x-hidden bg-white">
+      <div className="section-shell">
+      <div className="pointer-events-none absolute inset-x-0 top-16 h-56 bg-[radial-gradient(ellipse_at_50%_0%,rgba(255,255,255,0.7),transparent_65%)]" aria-hidden />
 
       <header className="relative mb-8 max-w-3xl">
-        <span className="rounded-full border border-soul-gold/40 bg-soul-gold/10 px-3 py-1 text-xs tracking-[0.16em] text-soul-gold">
+        <span className="rounded-full border border-gold/40 bg-gold/10 px-3 py-1 text-xs tracking-[0.16em] text-gold">
           {t.badge}
         </span>
-        <h2 className="mt-3 font-serif text-3xl text-zinc-100 sm:text-4xl">{t.title}</h2>
-        <p className="mt-3 text-base leading-relaxed text-zinc-300">{t.intro}</p>
+        <h2 className="mt-3 font-serif text-3xl text-tinte sm:text-4xl">{t.title}</h2>
+        <p className="mt-3 text-base leading-relaxed text-tinte">{t.intro}</p>
         <button
           type="button"
           onClick={() => setIntroOpen((o) => !o)}
-          className="mt-3 inline-flex items-center gap-1.5 text-sm text-soul-gold/90 transition hover:text-soul-gold"
+          className="mt-3 inline-flex items-center gap-1.5 text-sm text-gold/90 transition hover:text-gold"
           aria-expanded={introOpen}
         >
           {introOpen ? t.collapseStep : t.expandStep}
@@ -461,7 +462,7 @@ export function WhySection({ language }: { language: Language }) {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="mt-2 overflow-hidden text-sm leading-relaxed text-zinc-400"
+              className="mt-2 overflow-hidden text-sm leading-relaxed text-tinte-weich"
             >
               {t.introExpand}
             </motion.p>
@@ -469,10 +470,10 @@ export function WhySection({ language }: { language: Language }) {
         </AnimatePresence>
       </header>
 
-      <div className="mb-8 rounded-2xl border border-white/10 bg-charcoal/55 p-4 backdrop-blur-sm sm:p-5">
+      <div className="mb-8 rounded-2xl border border-sand bg-white p-4 backdrop-blur-sm sm:p-5">
         <div>
-          <h3 className="font-serif text-lg text-zinc-100">{t.researchersTitle}</h3>
-          <p className="mt-0.5 text-xs text-zinc-500">{t.researchersHint}</p>
+          <h3 className="font-serif text-lg text-tinte">{t.researchersTitle}</h3>
+          <p className="mt-0.5 text-xs text-tinte0">{t.researchersHint}</p>
         </div>
 
         <div className="mt-3 flex flex-wrap gap-2" role="tablist" aria-label={t.researchersTitle}>
@@ -487,12 +488,12 @@ export function WhySection({ language }: { language: Language }) {
                 onClick={() => setResearchCategory(cat.id)}
                 className={`rounded-full border px-3 py-1.5 text-xs transition sm:text-sm ${
                   active
-                    ? "border-soul-gold/50 bg-soul-gold/15 text-soul-gold"
-                    : "border-white/10 bg-black/30 text-zinc-400 hover:border-white/20 hover:text-zinc-200"
+                    ? "border-gold/50 bg-gold/15 text-gold"
+                    : "border-sand bg-beige text-tinte-weich hover:border-tinte/40 hover:text-tinte"
                 }`}
               >
                 <span className="font-medium">{cat.label}</span>
-                <span className="ml-1.5 hidden text-zinc-500 sm:inline">· {cat.short}</span>
+                <span className="ml-1.5 hidden text-tinte0 sm:inline">· {cat.short}</span>
               </button>
             );
           })}
@@ -516,7 +517,7 @@ export function WhySection({ language }: { language: Language }) {
       </div>
 
       <div className="mb-5">
-        <p className="text-xs tracking-[0.14em] text-zinc-500">{t.threadLabel}</p>
+        <p className="text-xs tracking-[0.14em] text-tinte0">{t.threadLabel}</p>
         <div className="mt-2 -mx-1 flex gap-1.5 overflow-x-auto px-1 pb-1.5 [-ms-overflow-style:none] [scrollbar-width:none] [touch-action:pan-x] [&::-webkit-scrollbar]:hidden">
           {t.steps.map((step, idx) => {
             const Icon = phaseIcons[idx]!;
@@ -530,8 +531,8 @@ export function WhySection({ language }: { language: Language }) {
                 aria-current={isActive ? "step" : undefined}
                 className={`flex min-h-11 shrink-0 items-center gap-1.5 rounded-full border px-3 py-2 text-xs transition sm:min-h-0 sm:px-3 sm:py-1 sm:text-xs ${
                   isActive
-                    ? "border-soul-gold/45 bg-soul-gold/10 text-soul-gold"
-                    : "border-white/10 bg-black/20 text-zinc-500 hover:text-zinc-300"
+                    ? "border-gold/45 bg-gold/10 text-gold"
+                    : "border-sand bg-beige text-tinte0 hover:text-tinte"
                 }`}
               >
                 <Icon className="h-3.5 w-3.5 shrink-0 sm:h-3 sm:w-3" strokeWidth={1.75} />
@@ -563,7 +564,7 @@ export function WhySection({ language }: { language: Language }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 grid place-items-center bg-black/70 p-3 backdrop-blur-md sm:p-4"
+            className="fixed inset-0 z-50 grid place-items-center bg-tinte/40 p-3 backdrop-blur-md sm:p-4"
             onClick={() => setActiveResearcherId(null)}
           >
             <motion.div
@@ -576,7 +577,7 @@ export function WhySection({ language }: { language: Language }) {
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={0.08}
               onDragEnd={handleResearcherSwipe}
-              className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-3xl border border-white/15 bg-charcoal p-5 shadow-2xl sm:p-8"
+              className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-3xl border border-sand bg-white p-5 shadow-2xl sm:p-8"
               onClick={(event) => event.stopPropagation()}
             >
               <div className="flex items-start justify-between gap-4">
@@ -586,12 +587,12 @@ export function WhySection({ language }: { language: Language }) {
                   >
                     {categories.find((c) => c.id === activeResearcher.category)?.label.toUpperCase()}
                   </span>
-                  <h4 className="mt-4 font-serif text-[clamp(1.35rem,2.8vw,1.9rem)] text-zinc-100">{activeResearcher.name}</h4>
-                  <p className="mt-1 text-sm text-zinc-400">{activeResearcher.tag}</p>
+                  <h4 className="mt-4 font-serif text-[clamp(1.35rem,2.8vw,1.9rem)] text-tinte">{activeResearcher.name}</h4>
+                  <p className="mt-1 text-sm text-tinte-weich">{activeResearcher.tag}</p>
                 </div>
                 <button
                   type="button"
-                  className="shrink-0 rounded-full border border-white/20 p-2 text-zinc-300 transition hover:text-white"
+                  className="shrink-0 rounded-full border border-tinte p-2 text-tinte transition hover:bg-tinte hover:text-white"
                   onClick={() => setActiveResearcherId(null)}
                   aria-label={t.collapseStep}
                 >
@@ -599,15 +600,15 @@ export function WhySection({ language }: { language: Language }) {
                 </button>
               </div>
 
-              <p className="mt-5 text-[clamp(0.95rem,2.1vw,1.05rem)] leading-relaxed text-zinc-200">{activeResearcher.teaser}</p>
+              <p className="mt-5 text-[clamp(0.95rem,2.1vw,1.05rem)] leading-relaxed text-tinte">{activeResearcher.teaser}</p>
 
               <div className="mt-6 space-y-5">
                 <section>
-                  <h5 className="text-xs tracking-[0.14em] text-soul-gold">{t.worksLabel}</h5>
+                  <h5 className="text-xs tracking-[0.14em] text-gold">{t.worksLabel}</h5>
                   <ul className="mt-3 space-y-2">
                     {activeResearcher.works.map((work) => (
-                      <li key={work} className="flex gap-2 text-sm leading-relaxed text-zinc-300">
-                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-soul-gold/80" />
+                      <li key={work} className="flex gap-2 text-sm leading-relaxed text-tinte">
+                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold/80" />
                         <span>{work}</span>
                       </li>
                     ))}
@@ -615,37 +616,37 @@ export function WhySection({ language }: { language: Language }) {
                 </section>
 
                 <section>
-                  <h5 className="text-xs tracking-[0.14em] text-quantum-cyan">{t.findingsLabel}</h5>
+                  <h5 className="text-xs tracking-[0.14em] text-gold">{t.findingsLabel}</h5>
                   <ul className="mt-3 space-y-2">
                     {activeResearcher.findings.map((finding) => (
-                      <li key={finding} className="flex gap-2 text-sm leading-relaxed text-zinc-300">
-                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-quantum-cyan/80" />
+                      <li key={finding} className="flex gap-2 text-sm leading-relaxed text-tinte">
+                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold/80" />
                         <span>{finding}</span>
                       </li>
                     ))}
                   </ul>
                 </section>
 
-                <section className="rounded-xl border border-white/10 bg-black/25 p-4">
-                  <h5 className="text-xs tracking-[0.14em] text-zinc-400">{t.convergenceLabel}</h5>
-                  <p className="mt-2 text-sm leading-relaxed text-zinc-200">{activeResearcher.convergence}</p>
+                <section className="rounded-xl border border-sand bg-beige p-4">
+                  <h5 className="text-xs tracking-[0.14em] text-tinte-weich">{t.convergenceLabel}</h5>
+                  <p className="mt-2 text-sm leading-relaxed text-tinte">{activeResearcher.convergence}</p>
                 </section>
               </div>
 
-              <p className="mt-5 text-xs text-zinc-500">{t.modalSwipeHint}</p>
+              <p className="mt-5 text-xs text-tinte0">{t.modalSwipeHint}</p>
 
-              <div className="mt-4 flex items-center justify-between gap-3 border-t border-white/10 pt-4">
+              <div className="mt-4 flex items-center justify-between gap-3 border-t border-sand pt-4">
                 <button
                   type="button"
                   onClick={goToPreviousResearcher}
                   disabled={!hasPreviousResearcher}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2 text-sm text-zinc-200 transition hover:border-white/40 hover:text-white disabled:cursor-not-allowed disabled:opacity-35"
+                  className="inline-flex items-center gap-2 rounded-full border border-tinte bg-transparent px-4 py-2 text-sm text-tinte transition hover:bg-tinte hover:text-white disabled:cursor-not-allowed disabled:opacity-35"
                 >
                   <ChevronLeft className="h-4 w-4" />
                   {t.prev}
                 </button>
 
-                <p className="text-xs tracking-[0.12em] text-zinc-500">
+                <p className="text-xs tracking-[0.12em] text-tinte0">
                   {activeResearcherIndex + 1} / {categoryResearchers.length}
                 </p>
 
@@ -653,7 +654,7 @@ export function WhySection({ language }: { language: Language }) {
                   type="button"
                   onClick={goToNextResearcher}
                   disabled={!hasNextResearcher}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2 text-sm text-zinc-200 transition hover:border-white/40 hover:text-white disabled:cursor-not-allowed disabled:opacity-35"
+                  className="inline-flex items-center gap-2 rounded-full border border-tinte bg-transparent px-4 py-2 text-sm text-tinte transition hover:bg-tinte hover:text-white disabled:cursor-not-allowed disabled:opacity-35"
                 >
                   {t.next}
                   <ChevronRight className="h-4 w-4" />
@@ -663,6 +664,7 @@ export function WhySection({ language }: { language: Language }) {
           </motion.div>
         ) : null}
       </AnimatePresence>
+      </div>
     </section>
   );
 }
@@ -674,11 +676,11 @@ function ResearcherChip({ researcher, onOpen }: { researcher: ResearcherProfile;
       onClick={onOpen}
       whileHover={{ y: -2 }}
       whileTap={{ scale: 0.99 }}
-      className="crystal-card rounded-xl p-3 text-left transition hover:border-white/25"
+      className="crystal-card rounded-xl p-3 text-left transition hover:border-tinte/40"
     >
-      <p className="font-serif text-sm text-zinc-100 sm:text-base">{researcher.name}</p>
-      <p className="mt-0.5 text-[10px] tracking-[0.1em] text-zinc-500">{researcher.tag}</p>
-      <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-zinc-400">{researcher.teaser}</p>
+      <p className="font-serif text-sm text-tinte sm:text-base">{researcher.name}</p>
+      <p className="mt-0.5 text-[10px] tracking-[0.1em] text-tinte0">{researcher.tag}</p>
+      <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-tinte-weich">{researcher.teaser}</p>
     </motion.button>
   );
 }

@@ -31,16 +31,18 @@ export function PathOfPracticeSection({ language }: { language: Language }) {
   }
 
   return (
-    <section id="path-of-practice" className="section-shell">
+    <section id="path-of-practice" className="bg-white">
+      <div className="section-shell">
       <div className="mb-8">
-        <span className="rounded-full border border-soul-gold/40 bg-soul-gold/10 px-3 py-1 text-xs tracking-[0.16em] text-soul-gold">
+        <span className="rounded-full border border-gold/40 bg-gold/10 px-3 py-1 text-xs tracking-[0.16em] text-gold">
           {t.badge}
         </span>
-        <h2 className="mt-4 font-serif text-3xl text-zinc-100 sm:text-4xl">{t.title}</h2>
-        <p className="mt-3 max-w-3xl text-zinc-300">{t.intro}</p>
+        <h2 className="mt-4 font-serif text-3xl text-tinte sm:text-4xl">{t.title}</h2>
+        <p className="mt-3 max-w-3xl text-tinte">{t.intro}</p>
       </div>
 
       <EvolutionaryPyramid tiers={tiers} onSelect={handleSelect} />
+      </div>
     </section>
   );
 }

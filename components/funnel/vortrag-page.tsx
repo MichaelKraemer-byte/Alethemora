@@ -15,7 +15,7 @@ export function VortragPage() {
           <>
             <h1 className={funnelH1}>{t.title}</h1>
             <p className={funnelLead}>{t.text}</p>
-            <p className="mt-8 text-base leading-relaxed text-zinc-100">
+            <p className="mt-8 text-base leading-relaxed text-tinte">
               {phase === "live" ? fill(t.models, copyValuesFor(language)) : fill(t.aufbau, copyValuesFor(language))}
             </p>
             <div className="mt-8">

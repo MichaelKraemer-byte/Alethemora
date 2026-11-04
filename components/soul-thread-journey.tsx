@@ -201,26 +201,26 @@ function MobileThreadRail({
     >
       <defs>
         <linearGradient id="mobile-thread-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="rgba(255,248,220,0.95)" />
-          <stop offset="28%" stopColor="rgba(181,168,213,0.78)" />
-          <stop offset="55%" stopColor="rgba(126,200,184,0.68)" />
-          <stop offset="82%" stopColor="rgba(212,175,55,0.82)" />
-          <stop offset="100%" stopColor="rgba(255,248,220,0.9)" />
+          <stop offset="0%" stopColor="rgba(236,228,215,0.95)" />
+          <stop offset="28%" stopColor="rgba(221,210,191,0.78)" />
+          <stop offset="55%" stopColor="rgba(221,210,191,0.68)" />
+          <stop offset="82%" stopColor="rgba(122,95,42,0.82)" />
+          <stop offset="100%" stopColor="rgba(236,228,215,0.9)" />
         </linearGradient>
         <linearGradient id="mobile-thread-glow-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="rgba(255,248,220,0.55)" />
-          <stop offset="50%" stopColor="rgba(212,175,55,0.38)" />
-          <stop offset="100%" stopColor="rgba(181,168,213,0.42)" />
+          <stop offset="0%" stopColor="rgba(236,228,215,0.55)" />
+          <stop offset="50%" stopColor="rgba(122,95,42,0.38)" />
+          <stop offset="100%" stopColor="rgba(221,210,191,0.42)" />
         </linearGradient>
         <filter id="mobile-thread-glow" x="-120%" y="-4%" width="340%" height="108%">
-          <feGaussianBlur stdDeviation="2.2" result="blur" />
+          <feGaussianBlur stdDeviation="0" result="blur" />
           <feMerge>
             <feMergeNode in="blur" />
             <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
         <filter id="mobile-thread-node-glow" x="-200%" y="-200%" width="500%" height="500%">
-          <feGaussianBlur stdDeviation="1.6" result="blur" />
+          <feGaussianBlur stdDeviation="0" result="blur" />
           <feMerge>
             <feMergeNode in="blur" />
             <feMergeNode in="SourceGraphic" />
@@ -231,7 +231,7 @@ function MobileThreadRail({
       <path
         d={pathD}
         fill="none"
-        stroke="rgba(255,255,255,0.07)"
+        stroke="rgba(221,210,191,0.9)"
         strokeWidth={strokeWidth + 0.6}
         strokeLinecap="round"
         pathLength={100}
@@ -265,7 +265,7 @@ function MobileThreadRail({
         className="mobile-thread-progress"
         d={pathD}
         fill="none"
-        stroke="rgba(255,252,235,0.95)"
+        stroke="#7A5F2A"
         strokeWidth={strokeWidth * 0.45}
         strokeLinecap="round"
         pathLength={100}
@@ -278,7 +278,7 @@ function MobileThreadRail({
         cx={flowPoint.x}
         cy={flowPoint.y}
         r={flowR}
-        fill="rgba(255,252,235,0.95)"
+        fill="#7A5F2A"
         filter="url(#mobile-thread-node-glow)"
       />
 
@@ -296,7 +296,7 @@ function MobileThreadRail({
                 cy={point.y}
                 r={nodeOuterR + 2.5}
                 fill="none"
-                stroke="rgba(255,248,220,0.35)"
+                stroke="#7A5F2A"
                 strokeWidth={0.8}
                 opacity={0.7}
               />
@@ -307,17 +307,17 @@ function MobileThreadRail({
               r={isActive ? nodeOuterR : isPast ? nodeOuterR * 0.72 : nodeOuterR * 0.5}
               fill={
                 isActive
-                  ? "rgba(212,175,55,0.18)"
+                  ? "rgba(122,95,42,0.35)"
                   : isPast
-                    ? "rgba(212,175,55,0.1)"
-                    : "rgba(255,255,255,0.04)"
+                    ? "rgba(122,95,42,0.2)"
+                    : "rgba(221,210,191,0.9)"
               }
               stroke={
                 isActive
-                  ? "rgba(255,248,220,0.55)"
+                  ? "#7A5F2A"
                   : isPast
-                    ? "rgba(212,175,55,0.35)"
-                    : "rgba(255,255,255,0.12)"
+                    ? "#7A5F2A"
+                    : "#DDD2BF"
               }
               strokeWidth={isActive ? 0.9 : 0.55}
               opacity={ringOpacity}
@@ -329,10 +329,10 @@ function MobileThreadRail({
               r={isActive ? nodeInnerR : isPast ? nodeInnerR * 0.85 : nodeInnerR * 0.65}
               fill={
                 isActive
-                  ? "rgba(255,248,220,0.98)"
+                  ? "#7A5F2A"
                   : isPast
-                    ? "rgba(212,175,55,0.72)"
-                    : "rgba(255,255,255,0.2)"
+                    ? "#2A2522"
+                    : "#DDD2BF"
               }
               opacity={isActive ? 1 : isPast ? 0.78 : 0.38}
             />
@@ -474,9 +474,9 @@ function LeftRailStepRow({
         initial={false}
         animate={{
           opacity: contentOpacity,
-          borderColor: isActive ? "rgba(212,175,55,0.32)" : "rgba(255,255,255,0.08)",
-          backgroundColor: isActive ? "rgba(212,175,55,0.07)" : "rgba(0,0,0,0.22)",
-          boxShadow: isActive ? "0 0 24px rgba(212,175,55,0.08)" : "0 0 0 transparent"
+          borderColor: isActive ? "rgba(122,95,42,0.55)" : "rgba(221,210,191,1)",
+          backgroundColor: isActive ? "rgba(255,255,255,1)" : "rgba(255,255,255,0.72)",
+          boxShadow: "0 8px 18px rgba(42,37,34,0.04)"
         }}
         transition={{ duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
       >
@@ -487,8 +487,8 @@ function LeftRailStepRow({
             <span
               className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border sm:h-9 sm:w-9 ${
                 isActive
-                  ? "border-soul-gold/45 bg-soul-gold/12 text-soul-gold shadow-[0_0_16px_rgba(212,175,55,0.2)]"
-                  : "border-white/12 bg-black/30 text-zinc-400"
+                  ? "border-gold bg-white text-gold"
+                  : "border-sand bg-white text-tinte-weich"
               }`}
             >
               <Icon className="h-3.5 w-3.5" strokeWidth={isActive ? 2.2 : 1.75} />
@@ -497,21 +497,21 @@ function LeftRailStepRow({
             <div className="min-w-0 flex-1">
               <span
                 className={`text-[10px] tracking-[0.14em] transition-colors duration-500 ${
-                  isActive ? "text-soul-gold/70" : "text-zinc-500"
+                  isActive ? "text-gold/70" : "text-tinte0"
                 }`}
               >
                 {String(idx + 1).padStart(2, "0")}
               </span>
               <h4
                 className={`font-serif text-base leading-snug transition-colors duration-500 sm:text-[1.05rem] ${
-                  isActive ? "text-zinc-50" : "text-zinc-300"
+                  isActive ? "text-tinte" : "text-tinte"
                 }`}
               >
                 {step.title}
               </h4>
               <motion.p
                 className={`mt-1 text-[0.82rem] leading-snug transition-colors duration-500 sm:text-sm ${
-                  isActive ? "text-zinc-100" : "text-zinc-300"
+                  isActive ? "text-tinte" : "text-tinte"
                 }`}
                 initial={false}
                 animate={{ opacity: traitOpacity }}
@@ -531,7 +531,7 @@ function LeftRailStepRow({
             {step.teaserTraits.map((trait, traitIdx) => (
               <motion.li
                 key={trait}
-                className="flex gap-2 text-[0.84rem] leading-[1.55] text-zinc-400 sm:text-sm"
+                className="flex gap-2 text-[0.84rem] leading-[1.55] text-tinte-weich sm:text-sm"
                 initial={false}
                 animate={{ opacity: traitOpacity, y: isActive ? 0 : 1 }}
                 transition={{
@@ -542,7 +542,7 @@ function LeftRailStepRow({
               >
                 <span
                   className={`mt-[0.4rem] h-1.5 w-1.5 shrink-0 rounded-full ${
-                    isActive ? "bg-soul-gold/80" : "bg-soul-gold/35"
+                    isActive ? "bg-gold/80" : "bg-gold/35"
                   }`}
                 />
                 <span className="min-w-0 break-words">{trait}</span>
@@ -555,8 +555,8 @@ function LeftRailStepRow({
             onClick={() => setExpanded((open) => !open)}
             className={`mt-2.5 inline-flex items-center gap-1.5 text-xs transition sm:mt-3 ${
               isActive || isHovered
-                ? "text-soul-gold/85 hover:text-soul-gold"
-                : "text-zinc-500 hover:text-zinc-300"
+                ? "text-gold/85 hover:text-gold"
+                : "text-tinte0 hover:text-tinte"
             }`}
             aria-expanded={expanded}
             aria-controls={`step-detail-${idx}`}
@@ -578,7 +578,7 @@ function LeftRailStepRow({
             className="overflow-hidden"
           >
             <motion.p
-              className="mt-2.5 text-[0.88rem] leading-[1.65] text-zinc-400 sm:text-[0.9rem] sm:leading-relaxed"
+              className="mt-2.5 text-[0.88rem] leading-[1.65] text-tinte-weich sm:text-[0.9rem] sm:leading-relaxed"
               initial={false}
               animate={{ opacity: expanded ? 1 : 0, y: expanded ? 0 : 4 }}
               transition={{ duration: 0.35, ease: "easeOut" }}
@@ -590,9 +590,9 @@ function LeftRailStepRow({
               {step.corePoints.map((point) => (
                 <li
                   key={point}
-                  className="flex gap-2 text-[0.84rem] leading-[1.6] text-zinc-400 sm:text-sm sm:leading-relaxed"
+                  className="flex gap-2 text-[0.84rem] leading-[1.6] text-tinte-weich sm:text-sm sm:leading-relaxed"
                 >
-                  <span className="mt-[0.45rem] h-1.5 w-1.5 shrink-0 rounded-full bg-soul-gold/60" />
+                  <span className="mt-[0.45rem] h-1.5 w-1.5 shrink-0 rounded-full bg-gold/60" />
                   <span className="min-w-0 break-words">{point}</span>
                 </li>
               ))}
@@ -644,13 +644,13 @@ function DesktopZigzagJourney({
       >
         <defs>
           <linearGradient id="soul-thread-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="rgba(255,248,220,0.85)" />
-            <stop offset="35%" stopColor="rgba(181,168,213,0.65)" />
-            <stop offset="68%" stopColor="rgba(126,200,184,0.55)" />
-            <stop offset="100%" stopColor="rgba(212,175,55,0.75)" />
+            <stop offset="0%" stopColor="rgba(236,228,215,0.85)" />
+            <stop offset="35%" stopColor="rgba(221,210,191,0.65)" />
+            <stop offset="68%" stopColor="rgba(221,210,191,0.55)" />
+            <stop offset="100%" stopColor="rgba(122,95,42,0.75)" />
           </linearGradient>
           <filter id="soul-thread-glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="1.2" result="blur" />
+            <feGaussianBlur stdDeviation="0" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
               <feMergeNode in="SourceGraphic" />
@@ -674,7 +674,7 @@ function DesktopZigzagJourney({
             cx={point.x}
             cy={point.y}
             r={idx === activeStep ? 0 : 0.85}
-            fill={idx <= activeStep ? "rgba(212,175,55,0.45)" : "rgba(255,255,255,0.1)"}
+            fill={idx <= activeStep ? "#7A5F2A" : "#DDD2BF"}
           />
         ))}
       </svg>
@@ -803,20 +803,20 @@ function DesktopThreadStepRow({
             <span
               className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full border ${
                 isActive
-                  ? "border-soul-gold/45 bg-soul-gold/12 text-soul-gold"
-                  : "border-white/12 bg-black/30 text-zinc-400"
+                  ? "border-gold bg-white text-gold"
+                  : "border-sand bg-white text-tinte-weich"
               }`}
             >
               <Icon className="h-4 w-4" strokeWidth={isActive ? 2.2 : 1.75} />
             </span>
             <div className="min-w-0 flex-1">
-              <span className="text-[10px] tracking-[0.14em] text-zinc-500">{String(idx + 1).padStart(2, "0")}</span>
-              <h4 className="font-serif text-2xl leading-snug text-zinc-100">{step.title}</h4>
+              <span className="text-[10px] tracking-[0.14em] text-tinte0">{String(idx + 1).padStart(2, "0")}</span>
+              <h4 className="font-serif text-2xl leading-snug text-tinte">{step.title}</h4>
             </div>
           </div>
 
           <motion.p
-            className={`mt-4 text-[1.05rem] leading-relaxed text-zinc-200 ${visualLeft ? "" : "text-right"}`}
+            className={`mt-4 text-[1.05rem] leading-relaxed text-tinte ${visualLeft ? "" : "text-right"}`}
             initial={false}
             animate={{ opacity: showDetail ? 1 : dimOpacity, y: showDetail ? 0 : 4 }}
             transition={{ duration: 0.45, ease: "easeInOut" }}
@@ -833,7 +833,7 @@ function DesktopThreadStepRow({
             {step.corePoints.map((point, pointIdx) => (
               <motion.li
                 key={point}
-                className={`flex gap-2.5 text-[0.95rem] leading-relaxed text-zinc-400 ${
+                className={`flex gap-2.5 text-[0.95rem] leading-relaxed text-tinte-weich ${
                   visualLeft ? "" : "flex-row-reverse"
                 }`}
                 initial={false}
@@ -847,7 +847,7 @@ function DesktopThreadStepRow({
                   delay: showDetail ? 0.08 + pointIdx * 0.05 : 0
                 }}
               >
-                <span className="mt-[0.45rem] h-1.5 w-1.5 shrink-0 rounded-full bg-soul-gold/70" />
+                <span className="mt-[0.45rem] h-1.5 w-1.5 shrink-0 rounded-full bg-gold/70" />
                 <span className="min-w-0 break-words">{point}</span>
               </motion.li>
             ))}

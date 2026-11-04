@@ -20,7 +20,7 @@ export const practiceTiers: PracticeTier[] = [
     subtitle: "Das Gefäß",
     concept:
       "Der Körper ist der Tempel der Seele. Ohne ein stabiles, vitales Gefäß kann die Seele nicht vollständig durch den Menschen wirken.",
-    colorClass: "from-amber-500/35 to-red-500/30 border-amber-300/45",
+    colorClass: "from-beige to-white border-sand",
     resonanceTooltip: "Resonanz: Vitalität, Klarheit, geerdete Präsenz.",
     dissonanceTooltip: "Dissonanz: Trägheit, Entzündung, blockierte Lebensenergie.",
     sections: [
@@ -89,7 +89,7 @@ export const practiceTiers: PracticeTier[] = [
     subtitle: "Das Werkzeug",
     concept:
       "Der Geist ist kein Feind — er ist das präziseste Werkzeug der Seele. Seelenreife bedeutet, ihn zu schulen, nicht ihn zu unterdrücken.",
-    colorClass: "from-cyan-500/30 to-blue-500/30 border-cyan-300/45",
+    colorClass: "from-white to-beige border-sand",
     resonanceTooltip: "Resonanz: Fokus, Unterscheidungskraft, geistige Souveränität.",
     dissonanceTooltip: "Dissonanz: Reaktivität, Zerstreuung, Konditionierungs-Schleifen.",
     sections: [
@@ -158,7 +158,7 @@ export const practiceTiers: PracticeTier[] = [
     subtitle: "Das Wesen",
     concept:
       "Die Seele ist nicht etwas, das man entwickelt — sie ist das, was man ist. Seelenpraxis bedeutet, die Schichten abzutragen, die sie verdecken.",
-    colorClass: "from-soul-gold/35 to-zinc-100/25 border-soul-gold/50",
+    colorClass: "from-gold/15 to-white border-gold/40",
     resonanceTooltip: "Resonanz: Einheit, Mitgefühl, intuitive Führung.",
     dissonanceTooltip: "Dissonanz: Trennungserleben, Ego-Impuls, innere Taubheit.",
     sections: [

@@ -19,29 +19,29 @@ export function LegalPageShell({ title, intro, notice, sections }: LegalPageShel
   const back = language === "en" ? "Back to home" : "Zurück zur Startseite";
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-onyx pb-8 pt-16">
+    <div className="min-h-screen overflow-x-hidden bg-white pb-8 pt-16">
       <SiteHeader language={language} onLanguageChange={setLanguage} />
       <main className="section-shell max-w-3xl">
         <Link
           href="/"
-          className="mb-8 inline-flex items-center gap-2 text-sm text-zinc-400 transition hover:text-zinc-200"
+          className="mb-8 inline-flex items-center gap-2 text-sm text-gold underline decoration-gold underline-offset-4"
         >
           <ArrowLeft className="h-4 w-4" />
           {back}
         </Link>
 
-        <article className="rounded-2xl border border-white/10 bg-charcoal/70 p-6 sm:p-8">
-          <h1 className="font-serif text-3xl text-zinc-100 sm:text-4xl">{title}</h1>
+        <article className="rounded-2xl border border-sand bg-white p-6 sm:p-8">
+          <h1 className="font-serif text-3xl text-tinte sm:text-4xl">{title}</h1>
           {notice}
-          {intro ? <p className="mt-4 text-sm leading-relaxed text-amber-200/90 sm:text-base">{intro}</p> : null}
+          {intro ? <p className="mt-4 text-sm leading-relaxed text-tinte-weich sm:text-base">{intro}</p> : null}
 
           <div className="mt-10 space-y-8">
             {sections.map((section) => (
               <section key={section.heading ?? section.body}>
                 {section.heading ? (
-                  <h2 className="font-serif text-xl text-zinc-100 sm:text-2xl">{section.heading}</h2>
+                  <h2 className="font-serif text-xl text-tinte sm:text-2xl">{section.heading}</h2>
                 ) : null}
-                <div className="mt-3 space-y-2 text-sm leading-relaxed text-zinc-300 sm:text-base">
+                <div className="mt-3 space-y-2 text-sm leading-relaxed text-tinte sm:text-base">
                   {formatLegalBody(section.body).map((line) => (
                     <p key={line}>{line}</p>
                   ))}

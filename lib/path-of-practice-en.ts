@@ -7,7 +7,7 @@ export const practiceTiersEn: PracticeTier[] = [
     subtitle: "The Vessel",
     concept:
       "The body is the temple of the soul. Without a stable, vital vessel, the soul cannot fully express itself through human life.",
-    colorClass: "from-amber-500/35 to-red-500/30 border-amber-300/45",
+    colorClass: "from-beige to-white border-sand",
     resonanceTooltip: "Resonance: Vitality, clarity, grounded presence.",
     dissonanceTooltip: "Dissonance: Lethargy, inflammation, blocked life force.",
     sections: [
@@ -76,7 +76,7 @@ export const practiceTiersEn: PracticeTier[] = [
     subtitle: "The Tool",
     concept:
       "The mind is not an enemy - it is the soul's most precise instrument. Soul maturity means training it, not suppressing it.",
-    colorClass: "from-cyan-500/30 to-blue-500/30 border-cyan-300/45",
+    colorClass: "from-white to-beige border-sand",
     resonanceTooltip: "Resonance: Focus, discernment, mental sovereignty.",
     dissonanceTooltip: "Dissonance: Reactivity, distraction, conditioning loops.",
     sections: [
@@ -145,7 +145,7 @@ export const practiceTiersEn: PracticeTier[] = [
     subtitle: "The Essence",
     concept:
       "The soul is not something to develop - it is what you are. Soul practice means removing the layers that obscure it.",
-    colorClass: "from-soul-gold/35 to-zinc-100/25 border-soul-gold/50",
+    colorClass: "from-gold/15 to-white border-gold/40",
     resonanceTooltip: "Resonance: Unity, compassion, intuitive guidance.",
     dissonanceTooltip: "Dissonance: Separation, ego impulse, inner numbness.",
     sections: [

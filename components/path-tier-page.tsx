@@ -21,27 +21,27 @@ export function PathTierPage({ tierKey }: { tierKey: PracticeTierKey }) {
     <main className="relative min-h-screen overflow-x-hidden pt-16">
       <SiteHeader language={language} onLanguageChange={setLanguage} />
       <section className="section-shell">
-        <div className="mb-6 flex items-center gap-2 text-sm text-zinc-400">
-          <Link href="/#path-of-practice" className="inline-flex items-center gap-2 hover:text-zinc-200">
+        <div className="mb-6 flex items-center gap-2 text-sm text-tinte-weich">
+          <Link href="/#path-of-practice" className="inline-flex items-center gap-2 text-gold underline decoration-gold underline-offset-4">
             <ArrowLeft className="h-4 w-4" />
             {backLabel}
           </Link>
         </div>
 
-        <header className="rounded-3xl border border-white/10 bg-charcoal/70 p-7">
-          <p className="text-xs tracking-[0.14em] text-zinc-400">{tier.subtitle.toUpperCase()}</p>
-          <h1 className="mt-2 font-serif text-4xl text-zinc-100">{tier.title}</h1>
-          <p className="mt-4 max-w-4xl text-zinc-300">{tier.concept}</p>
+        <header className="rounded-3xl border border-sand bg-white p-7">
+          <p className="text-xs tracking-[0.14em] text-tinte-weich">{tier.subtitle.toUpperCase()}</p>
+          <h1 className="mt-2 font-serif text-4xl text-tinte">{tier.title}</h1>
+          <p className="mt-4 max-w-4xl text-tinte">{tier.concept}</p>
         </header>
 
         <section className="mt-7 space-y-5">
           {tier.sections.map((entry) => (
-            <article key={entry.title} className="rounded-2xl border border-white/10 bg-charcoal/70 p-6">
-              <h2 className="font-serif text-2xl text-zinc-100">{entry.title}</h2>
-              <ul className="mt-4 space-y-2 text-zinc-200">
+            <article key={entry.title} className="rounded-2xl border border-sand bg-white p-6">
+              <h2 className="font-serif text-2xl text-tinte">{entry.title}</h2>
+              <ul className="mt-4 space-y-2 text-tinte">
                 {entry.bullets.map((bullet) => (
                   <li key={bullet} className="flex gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-quantum-cyan" />
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
                     <span>{bullet}</span>
                   </li>
                 ))}

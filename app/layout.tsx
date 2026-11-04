@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { Inter, Playfair_Display } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
@@ -17,6 +17,11 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "ALETHEMORA",
   description: "Soul continuity as a lived philosophy — research-informed and practice-rooted."
+};
+
+export const viewport: Viewport = {
+  themeColor: "#FFFFFF",
+  colorScheme: "light"
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {

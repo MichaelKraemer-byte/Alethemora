@@ -9,18 +9,18 @@ import { principlesEn } from "@/lib/principles-en";
 import { principles, spheres, type Principle } from "@/lib/principles";
 
 const spherePalette = [
-  "border-soul-gold/30 bg-soul-gold/10",
-  "border-cyan-400/30 bg-cyan-400/10",
-  "border-indigo-400/30 bg-indigo-400/10",
-  "border-emerald-400/30 bg-emerald-400/10",
-  "border-quantum-cyan/30 bg-quantum-cyan/10",
-  "border-amber-200/30 bg-amber-200/10",
-  "border-emerald-300/30 bg-emerald-300/10",
-  "border-soul-gold/40 bg-soul-gold/15",
-  "border-indigo-300/30 bg-indigo-300/10",
-  "border-cyan-300/30 bg-cyan-300/10",
-  "border-teal-300/30 bg-teal-300/10",
-  "border-white/15 bg-white/5"
+  "border-gold/35 bg-white",
+  "border-sand bg-beige",
+  "border-tinte/20 bg-white",
+  "border-gold/25 bg-beige",
+  "border-sand bg-white",
+  "border-tinte/15 bg-beige",
+  "border-gold/30 bg-white",
+  "border-sand bg-beige",
+  "border-tinte/20 bg-white",
+  "border-gold/20 bg-beige",
+  "border-sand bg-white",
+  "border-tinte/15 bg-beige"
 ] as const;
 
 function sphereStyle(sphere: string) {
@@ -209,7 +209,8 @@ export function PrinciplesSection({ language }: { language: Language }) {
   }, [activePrinciple, goToNext, goToPrevious]);
 
   return (
-    <section id="prinzipien" className="section-shell overflow-hidden">
+    <section id="prinzipien" className="relative overflow-hidden bg-beige">
+      <div className="section-shell">
       <div className="constellation-network" />
       {constellationNodes.map((node, index) => (
         <motion.span
@@ -227,18 +228,18 @@ export function PrinciplesSection({ language }: { language: Language }) {
       ))}
 
       <div className="mb-10 max-w-3xl">
-        <span className="rounded-full border border-soul-gold/40 bg-soul-gold/10 px-3 py-1 text-xs tracking-[0.16em] text-soul-gold">
+        <span className="rounded-full border border-gold/40 bg-gold/10 px-3 py-1 text-xs tracking-[0.16em] text-gold">
           {t.badge}
         </span>
-        <p className="mt-4 font-serif text-2xl leading-snug text-zinc-100 sm:text-3xl">{t.meaning}</p>
-        <p className="mt-4 text-sm leading-relaxed text-zinc-400">{t.name}</p>
-        <p className="mt-4 leading-relaxed text-zinc-300">{t.conviction}</p>
-        <p className="mt-3 text-sm leading-relaxed text-zinc-400">{t.map}</p>
-        <h2 className="mt-10 font-serif text-3xl text-zinc-100 sm:text-4xl">{t.title}</h2>
-        <p className="mt-3 text-zinc-300">{t.intro}</p>
+        <p className="mt-4 font-serif text-2xl leading-snug text-tinte sm:text-3xl">{t.meaning}</p>
+        <p className="mt-4 text-sm leading-relaxed text-tinte-weich">{t.name}</p>
+        <p className="mt-4 leading-relaxed text-tinte">{t.conviction}</p>
+        <p className="mt-3 text-sm leading-relaxed text-tinte-weich">{t.map}</p>
+        <h2 className="mt-10 font-serif text-3xl text-tinte sm:text-4xl">{t.title}</h2>
+        <p className="mt-3 text-tinte">{t.intro}</p>
       </div>
 
-      <div className="overflow-hidden rounded-2xl border border-white/10 bg-charcoal/50 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+      <div className="overflow-hidden rounded-2xl border border-sand bg-white shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
         {spheres.map((sphere, sphereIndex) => {
           const items = principles.filter((principle) => principle.sphere === sphere);
           const isOpen = openSphere === sphere;
@@ -246,7 +247,7 @@ export function PrinciplesSection({ language }: { language: Language }) {
           const headId = `${panelId}-head`;
 
           return (
-            <div key={sphere} className="border-b border-white/10 last:border-b-0">
+            <div key={sphere} className="border-b border-sand last:border-b-0">
               <button
                 type="button"
                 id={headId}
@@ -256,16 +257,16 @@ export function PrinciplesSection({ language }: { language: Language }) {
                 className={`flex w-full items-center justify-between gap-4 px-4 py-4 text-left transition hover:bg-white/[0.04] sm:px-5 sm:py-5 ${sphereStyle(sphere)}`}
               >
                 <div className="min-w-0">
-                  <h3 className="font-serif text-lg leading-snug text-zinc-100 sm:text-2xl">
+                  <h3 className="font-serif text-lg leading-snug text-tinte sm:text-2xl">
                     {sphereLabels[sphere][language]}
                   </h3>
-                  <p className="mt-1 text-xs text-zinc-500">
+                  <p className="mt-1 text-xs text-tinte0">
                     {items.length} {items.length === 1 ? t.principleInTheme : t.principlesInTheme}
                   </p>
                 </div>
                 <ChevronDown
-                  className={`h-5 w-5 shrink-0 text-zinc-400 transition-transform duration-300 ease-out ${
-                    isOpen ? "rotate-180 text-soul-gold/90" : ""
+                  className={`h-5 w-5 shrink-0 text-tinte-weich transition-transform duration-300 ease-out ${
+                    isOpen ? "rotate-180 text-gold/90" : ""
                   }`}
                   strokeWidth={1.75}
                   aria-hidden
@@ -283,7 +284,7 @@ export function PrinciplesSection({ language }: { language: Language }) {
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-                    className="overflow-hidden border-t border-white/5 bg-black/20"
+                    className="overflow-hidden border-t border-sand/60 bg-beige"
                   >
                     <div className="grid gap-4 p-4 sm:p-5 md:grid-cols-2 xl:grid-cols-3">
                       {items.map((principle) => (
@@ -303,29 +304,29 @@ export function PrinciplesSection({ language }: { language: Language }) {
         })}
       </div>
 
-      <div id="buch" className="mt-12 rounded-2xl border border-soul-gold/25 bg-charcoal/60 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] sm:p-8">
-        <h3 className="font-serif text-2xl text-zinc-100 sm:text-3xl">{t.bookTitle}</h3>
-        <p className="mt-3 max-w-3xl text-zinc-300">{t.bookLead}</p>
+      <div id="buch" className="mt-12 rounded-2xl border border-gold/25 bg-white p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] sm:p-8">
+        <h3 className="font-serif text-2xl text-tinte sm:text-3xl">{t.bookTitle}</h3>
+        <p className="mt-3 max-w-3xl text-tinte">{t.bookLead}</p>
         <div className="mt-6 grid gap-3 sm:grid-cols-2">
           {downloads.map((item) => (
             <a
               key={item.href}
               href={item.href}
               download={item.fileName}
-              className="group flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-black/30 px-5 py-4 text-zinc-100 transition hover:border-soul-gold/40 hover:bg-soul-gold/10"
+              className="group flex items-center justify-between gap-4 rounded-2xl border border-sand bg-beige px-5 py-4 text-tinte transition hover:border-gold/40 hover:bg-gold/10"
             >
               <span>
                 <span className="block font-serif text-lg">{item.languageLabel}</span>
-                <span className="mt-1 block text-xs tracking-[0.16em] text-soul-gold">{item.format}</span>
+                <span className="mt-1 block text-xs tracking-[0.16em] text-gold">{item.format}</span>
               </span>
-              <Download className="h-4 w-4 shrink-0 text-soul-gold/80 transition group-hover:text-soul-gold" aria-hidden />
+              <Download className="h-4 w-4 shrink-0 text-gold/80 transition group-hover:text-gold" aria-hidden />
             </a>
           ))}
         </div>
         <p className="mt-6 text-sm leading-relaxed">
           <Link
             href="/start#anmelden"
-            className="text-zinc-50 underline decoration-soul-gold/70 underline-offset-4 transition hover:text-soul-gold"
+            className="text-gold underline decoration-gold underline-offset-4"
           >
             {t.impulsePrompt}
           </Link>
@@ -338,7 +339,7 @@ export function PrinciplesSection({ language }: { language: Language }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 grid place-items-center bg-black/70 p-3 backdrop-blur-md sm:p-4"
+            className="fixed inset-0 z-50 grid place-items-center bg-tinte/40 p-3 backdrop-blur-md sm:p-4"
             onClick={() => setActiveId(null)}
           >
             <motion.div
@@ -350,49 +351,49 @@ export function PrinciplesSection({ language }: { language: Language }) {
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={0.08}
               onDragEnd={handleSwipe}
-              className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-3xl border border-white/15 bg-charcoal p-5 shadow-2xl sm:p-8"
+              className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-3xl border border-sand bg-white p-5 shadow-2xl sm:p-8"
               onClick={(event) => event.stopPropagation()}
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <span
-                    className={`rounded-full border px-3 py-1 text-xs tracking-[0.12em] text-zinc-100 ${sphereStyle(activePrinciple.sphere)}`}
+                    className={`rounded-full border px-3 py-1 text-xs tracking-[0.12em] text-tinte ${sphereStyle(activePrinciple.sphere)}`}
                   >
                     {sphereLabels[activePrinciple.sphere][language].toUpperCase()}
                   </span>
-                  <p className="mt-4 text-sm text-zinc-400">
+                  <p className="mt-4 text-sm text-tinte-weich">
                     {t.principle} {activePrinciple.id}
                   </p>
-                  <h4 className="mt-1 font-serif text-[clamp(1.3rem,2.7vw,1.8rem)] leading-snug text-zinc-100">
+                  <h4 className="mt-1 font-serif text-[clamp(1.3rem,2.7vw,1.8rem)] leading-snug text-tinte">
                     {activeText?.statement}
                   </h4>
                 </div>
                 <button
                   type="button"
-                  className="rounded-full border border-white/20 p-2 text-zinc-300 transition hover:text-white"
+                  className="rounded-full border border-tinte p-2 text-tinte transition hover:bg-tinte hover:text-white"
                   onClick={() => setActiveId(null)}
                 >
                   <X className="h-4 w-4" />
                 </button>
               </div>
 
-              <p className="mt-6 whitespace-pre-line text-[clamp(0.95rem,2vw,1rem)] leading-relaxed text-zinc-300">
+              <p className="mt-6 whitespace-pre-line text-[clamp(0.95rem,2vw,1rem)] leading-relaxed text-tinte">
                 {activeText?.detail}
               </p>
-              <p className="mt-4 text-sm text-zinc-500">{t.modalNote}</p>
+              <p className="mt-4 text-sm text-tinte0">{t.modalNote}</p>
 
-              <div className="mt-6 flex items-center justify-between gap-3 border-t border-white/10 pt-4">
+              <div className="mt-6 flex items-center justify-between gap-3 border-t border-sand pt-4">
                 <button
                   type="button"
                   onClick={goToPrevious}
                   disabled={!hasPrevious}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2 text-sm text-zinc-200 transition hover:border-white/40 hover:text-white disabled:cursor-not-allowed disabled:opacity-35"
+                  className="inline-flex items-center gap-2 rounded-full border border-tinte bg-transparent px-4 py-2 text-sm text-tinte transition hover:bg-tinte hover:text-white disabled:cursor-not-allowed disabled:opacity-35"
                 >
                   <ChevronLeft className="h-4 w-4" />
                   {t.prev}
                 </button>
 
-                <p className="text-xs tracking-[0.12em] text-zinc-500">
+                <p className="text-xs tracking-[0.12em] text-tinte0">
                   {activeIndex + 1} / {principles.length}
                 </p>
 
@@ -400,7 +401,7 @@ export function PrinciplesSection({ language }: { language: Language }) {
                   type="button"
                   onClick={goToNext}
                   disabled={!hasNext}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2 text-sm text-zinc-200 transition hover:border-white/40 hover:text-white disabled:cursor-not-allowed disabled:opacity-35"
+                  className="inline-flex items-center gap-2 rounded-full border border-tinte bg-transparent px-4 py-2 text-sm text-tinte transition hover:bg-tinte hover:text-white disabled:cursor-not-allowed disabled:opacity-35"
                 >
                   {t.next}
                   <ChevronRight className="h-4 w-4" />
@@ -410,6 +411,7 @@ export function PrinciplesSection({ language }: { language: Language }) {
           </motion.div>
         ) : null}
       </AnimatePresence>
+      </div>
     </section>
   );
 }
@@ -430,10 +432,10 @@ function PrincipleCard({
       onClick={onClick}
       whileHover={{ y: -4 }}
       whileTap={{ scale: 0.99 }}
-      className={`crystal-card p-5 text-left transition ${sphereStyle(principle.sphere)} hover:-translate-y-0.5 hover:border-white/40`}
+      className={`crystal-card p-5 text-left transition ${sphereStyle(principle.sphere)} hover:-translate-y-0.5 hover:border-tinte`}
     >
-      <p className="text-xs uppercase tracking-[0.14em] text-zinc-300">ID {principle.id}</p>
-      <h4 className="mt-2 line-clamp-4 font-serif text-lg leading-snug text-zinc-100">{statement}</h4>
+      <p className="text-xs uppercase tracking-[0.14em] text-tinte">ID {principle.id}</p>
+      <h4 className="mt-2 line-clamp-4 font-serif text-lg leading-snug text-tinte">{statement}</h4>
     </motion.button>
   );
 }

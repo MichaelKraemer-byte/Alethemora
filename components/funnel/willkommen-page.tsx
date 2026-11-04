@@ -18,13 +18,13 @@ export function WillkommenPage() {
             <BothEditions language={language} />
             {phase === "live" ? (
               <div className="mt-10">
-                <p className="text-base leading-relaxed text-zinc-300">{t.willkommen.liveLead}</p>
+                <p className="text-base leading-relaxed text-tinte">{t.willkommen.liveLead}</p>
                 <div className="mt-4">
                   <CalButton which="intro" label={t.common.bookCall} />
                 </div>
               </div>
             ) : (
-              <p className="mt-10 text-base leading-relaxed text-zinc-300">{fill(t.willkommen.aufbau, copyValuesFor(language))}</p>
+              <p className="mt-10 text-base leading-relaxed text-tinte">{fill(t.willkommen.aufbau, copyValuesFor(language))}</p>
             )}
             <div>
               <InstagramLink language={language} />

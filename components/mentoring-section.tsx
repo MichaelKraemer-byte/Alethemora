@@ -19,20 +19,22 @@ export function MentoringSection({ language }: { language: Language }) {
   };
 
   return (
-    <section id="mentoring" className="section-shell">
-      <h2 className="font-serif text-3xl text-zinc-100 sm:text-4xl">{t.title}</h2>
-      <p className="mt-4 max-w-3xl text-base leading-relaxed text-zinc-300 sm:text-lg">{t.text}</p>
+    <section id="mentoring" className="bg-white">
+      <div className="section-shell">
+      <h2 className="font-serif text-3xl text-tinte sm:text-4xl">{t.title}</h2>
+      <p className="mt-4 max-w-3xl text-base leading-relaxed text-tinte sm:text-lg">{t.text}</p>
       <div className="mt-10 grid gap-4 md:grid-cols-3">
         {cards.map((card) => (
           <Link
             key={card.href}
             href={card.href}
-            className="crystal-card block p-6 transition hover:border-soul-gold/40"
+            className="crystal-card block p-6 transition hover:border-tinte/30"
           >
-            <h3 className="font-serif text-2xl text-zinc-50">{content[card.key].title}</h3>
-            <p className="mt-3 text-sm leading-relaxed text-zinc-300">{content[card.key].text}</p>
+            <h3 className="font-serif text-2xl text-tinte">{content[card.key].title}</h3>
+            <p className="mt-3 text-sm leading-relaxed text-tinte">{content[card.key].text}</p>
           </Link>
         ))}
+      </div>
       </div>
     </section>
   );

@@ -16,13 +16,13 @@ import { calErstgespraech, calKlarheitsgespraech, instagram } from "@/lib/site-c
 import { funnelH1 } from "@/components/funnel/funnel-layout";
 
 export const primaryButtonClass =
-  "inline-flex min-h-11 items-center justify-center rounded-full border border-soul-gold/70 bg-soul-gold/15 px-5 py-2.5 text-center text-sm font-medium text-zinc-50 transition hover:bg-soul-gold/25 disabled:cursor-not-allowed disabled:border-white/25 disabled:bg-transparent disabled:text-zinc-200";
+  "inline-flex min-h-11 items-center justify-center rounded-full bg-rose px-5 py-2.5 text-center text-sm font-medium text-tinte transition hover:bg-rose-hover disabled:cursor-not-allowed disabled:border disabled:border-sand disabled:bg-transparent disabled:text-tinte-weich";
 
 export const textLinkClass =
-  "text-zinc-50 underline decoration-soul-gold/70 underline-offset-4 transition hover:text-soul-gold";
+  "text-gold underline decoration-gold underline-offset-4";
 
 const downloadClass =
-  "group flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-black/30 px-5 py-4 text-zinc-50 transition hover:border-soul-gold/40 hover:bg-soul-gold/10";
+  "group flex items-center justify-between gap-4 rounded-2xl border border-sand bg-white px-5 py-4 text-tinte transition hover:border-tinte";
 
 export function WaitlistButton({ language }: { language: Language }) {
   return (
@@ -67,13 +67,13 @@ export function LanguageBooks({ language }: { language: Language }) {
       <a href={edition.pdf} download={edition.pdfName} className={downloadClass}>
         <span>
           <span className="block font-serif text-lg">{label}</span>
-          <span className="mt-1 block text-xs tracking-[0.16em] text-soul-gold">PDF</span>
+          <span className="mt-1 block text-xs tracking-[0.16em] text-gold">PDF</span>
         </span>
       </a>
       <a href={edition.epub} download={edition.epubName} className={downloadClass}>
         <span>
           <span className="block font-serif text-lg">{label}</span>
-          <span className="mt-1 block text-xs tracking-[0.16em] text-soul-gold">EPUB</span>
+          <span className="mt-1 block text-xs tracking-[0.16em] text-gold">EPUB</span>
         </span>
       </a>
     </div>
@@ -89,7 +89,7 @@ const editionLabels = {
 export function BothEditions({ language }: { language: Language }) {
   const order = language === "de" ? (["de", "en"] as const) : (["en", "de"] as const);
   return (
-    <div className="mt-8 space-y-3 text-base text-zinc-50 sm:text-lg">
+    <div className="mt-8 space-y-3 text-base text-tinte sm:text-lg">
       {order.map((edition) => (
         <p key={edition}>
           {editionLabels[edition]}
@@ -107,7 +107,7 @@ export function BothEditions({ language }: { language: Language }) {
   );
 }
 
-export function SignupBlock({ language }: { language: Language }) {
+export function SignupBlock({ language, embedded = false }: { language: Language; embedded?: boolean }) {
   const t = funnelCopy[language].form;
   const action = kitFormAction();
 
@@ -120,10 +120,10 @@ export function SignupBlock({ language }: { language: Language }) {
   }
 
   return (
-    <section id="anmelden" className="crystal-card mt-10 p-5 sm:p-6">
+    <section id="anmelden" className={embedded ? "mt-8" : "crystal-card mt-10 p-5 sm:p-6"}>
       <form method="post" action={action} className="space-y-4">
         <div>
-          <label htmlFor="email_address" className="block text-sm font-medium text-zinc-50">
+          <label htmlFor="email_address" className="block text-sm font-medium text-tinte">
             {t.label}
           </label>
           <input
@@ -134,16 +134,16 @@ export function SignupBlock({ language }: { language: Language }) {
             autoComplete="email"
             inputMode="email"
             aria-describedby="email-hint"
-            className="mt-2 w-full rounded-xl border border-white/20 bg-black/40 px-4 py-3 text-base text-zinc-50"
+            className="mt-2 w-full rounded-xl border border-sand bg-white px-4 py-3 text-base text-tinte"
           />
-          <p id="email-hint" className="mt-2 text-sm leading-relaxed text-zinc-300">
+          <p id="email-hint" className="mt-2 text-sm leading-relaxed text-tinte-weich">
             {t.hint}
           </p>
         </div>
         <button type="submit" className={primaryButtonClass}>
           {t.button}
         </button>
-        <p className="text-sm leading-relaxed text-zinc-300">
+        <p className="text-sm leading-relaxed text-tinte-weich">
           {t.fineBefore}
           <Link href="/datenschutz" className={textLinkClass}>
             {t.fineLink}

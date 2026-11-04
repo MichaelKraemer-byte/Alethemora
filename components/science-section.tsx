@@ -91,15 +91,16 @@ const copy = {
 export function ScienceSection({ language }: { language: Language }) {
   const t = copy[language];
   return (
-    <section id="wissenschaft" className="section-shell">
+    <section id="wissenschaft" className="bg-white">
+      <div className="section-shell">
       <div className="mb-10">
-        <span className="rounded-full border border-quantum-cyan/40 bg-quantum-cyan/10 px-3 py-1 text-xs tracking-[0.16em] text-quantum-cyan">
+        <span className="rounded-full border border-gold/40 bg-gold/10 px-3 py-1 text-xs tracking-[0.16em] text-gold">
           {t.badge}
         </span>
-        <h2 className="mt-4 bg-gradient-to-r from-soul-gold via-zinc-100 to-quantum-cyan bg-clip-text font-serif text-3xl text-transparent sm:text-4xl">
+        <h2 className="mt-4 font-serif text-3xl text-tinte sm:text-4xl">
           Science & Civilization Hub
         </h2>
-        <p className="mt-3 max-w-3xl text-zinc-300">
+        <p className="mt-3 max-w-3xl text-tinte">
           {t.intro}
         </p>
       </div>
@@ -114,25 +115,25 @@ export function ScienceSection({ language }: { language: Language }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.35, delay: index * 0.06 }}
-              className="rounded-2xl border border-white/10 bg-charcoal/70 p-6"
+              className="rounded-2xl border border-sand bg-white p-6"
             >
               <div className="flex items-center gap-3">
-                <div className="rounded-lg border border-quantum-cyan/40 bg-quantum-cyan/10 p-2 text-quantum-cyan">
+                <div className="rounded-lg border border-gold/40 bg-gold/10 p-2 text-gold">
                   <Icon className="h-4 w-4" />
                 </div>
-                <h3 className="font-serif text-2xl text-zinc-100">{card.title}</h3>
+                <h3 className="font-serif text-2xl text-tinte">{card.title}</h3>
               </div>
-              <ul className="mt-5 space-y-3 text-zinc-300">
+              <ul className="mt-5 space-y-3 text-tinte">
                 {card.points.map((point) => (
                   <li key={point} className="flex gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-soul-gold" />
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
                     <span>{point}</span>
                   </li>
                 ))}
               </ul>
               <Link
                 href={card.href}
-                className="mt-5 inline-flex rounded-full border border-quantum-cyan/35 bg-quantum-cyan/10 px-4 py-2 text-xs tracking-[0.1em] text-quantum-cyan transition hover:bg-quantum-cyan/20"
+                className="mt-5 inline-flex rounded-full border border-tinte bg-transparent px-4 py-2 text-xs tracking-[0.1em] text-tinte transition hover:bg-tinte hover:text-white"
               >
                 {card.cta}
               </Link>
@@ -146,43 +147,44 @@ export function ScienceSection({ language }: { language: Language }) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.4 }}
-        className="mt-6 rounded-2xl border border-quantum-cyan/25 bg-gradient-to-br from-soul-gold/10 via-charcoal to-quantum-cyan/10 p-7"
+        className="mt-6 rounded-2xl border border-sand bg-white p-7"
       >
         <div className="flex items-center gap-3">
-          <div className="rounded-lg border border-quantum-cyan/45 bg-quantum-cyan/10 p-2">
-            <Bitcoin className="h-5 w-5 text-quantum-cyan" />
+          <div className="rounded-lg border border-gold/45 bg-gold/10 p-2">
+            <Bitcoin className="h-5 w-5 text-gold" />
           </div>
-          <h3 className="font-serif text-2xl text-zinc-100">{t.bitcoinTitle}</h3>
+          <h3 className="font-serif text-2xl text-tinte">{t.bitcoinTitle}</h3>
         </div>
 
         <div className="mt-5 grid gap-4 lg:grid-cols-2">
-          <div className="rounded-xl border border-white/10 bg-black/20 p-4">
-            <p className="flex items-center gap-2 text-sm tracking-[0.14em] text-soul-gold">
+          <div className="rounded-xl border border-sand bg-beige p-4">
+            <p className="flex items-center gap-2 text-sm tracking-[0.14em] text-gold">
               <BrainCircuit className="h-4 w-4" />
               {t.austrian}
             </p>
-            <p className="mt-3 text-zinc-200">
+            <p className="mt-3 text-tinte">
               {t.austrianText}
             </p>
           </div>
 
-          <div className="rounded-xl border border-white/10 bg-black/20 p-4">
-            <p className="flex items-center gap-2 text-sm tracking-[0.14em] text-quantum-cyan">
+          <div className="rounded-xl border border-sand bg-beige p-4">
+            <p className="flex items-center gap-2 text-sm tracking-[0.14em] text-gold">
               <Bitcoin className="h-4 w-4" />
               {t.btcTool}
             </p>
-            <p className="mt-3 text-zinc-200">
+            <p className="mt-3 text-tinte">
               {t.btcText}
             </p>
           </div>
         </div>
         <Link
           href="/science/sovereignty"
-          className="mt-5 inline-flex rounded-full border border-quantum-cyan/35 bg-quantum-cyan/10 px-4 py-2 text-xs tracking-[0.1em] text-quantum-cyan transition hover:bg-quantum-cyan/20"
+          className="mt-5 inline-flex rounded-full border border-tinte bg-transparent px-4 py-2 text-xs tracking-[0.1em] text-tinte transition hover:bg-tinte hover:text-white"
         >
           {t.cta}
         </Link>
       </motion.article>
+      </div>
     </section>
   );
 }

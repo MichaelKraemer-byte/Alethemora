@@ -32,25 +32,25 @@ type ProjectedNode = {
   color: string;
 };
 
-const emergingColor = "#a1a1aa";
+const emergingColor = "#2A2522";
 
 const categoryColor: Record<CategoryId, string> = {
-  "creative-groups": "#d4af37",
-  "aid-orgs": "#34d399",
-  "selfhelp-circles": "#8b5cf6",
-  "learning-pods": "#22d3ee",
-  "mentoring-networks": "#f59e0b",
-  "family-parenting": "#f472b6",
-  "soul-practice": "#6366f1",
-  "regenerative-living": "#14b8a6",
-  "cooperative-economy": "#84cc16",
-  "healing-bodywork": "#e879f9",
-  "wisdom-story": "#fbbf24"
+  "creative-groups": "#7A5F2A",
+  "aid-orgs": "#2A2522",
+  "selfhelp-circles": "#7A5F2A",
+  "learning-pods": "#2A2522",
+  "mentoring-networks": "#7A5F2A",
+  "family-parenting": "#2A2522",
+  "soul-practice": "#7A5F2A",
+  "regenerative-living": "#2A2522",
+  "cooperative-economy": "#7A5F2A",
+  "healing-bodywork": "#2A2522",
+  "wisdom-story": "#7A5F2A"
 };
 
 const emergingShockColor = {
-  core: "rgba(161,161,170,%OP%)",
-  aura: "rgba(228,228,231,%OP%)"
+  core: "rgba(42,37,34,%OP%)",
+  aura: "rgba(221,210,191,%OP%)"
 };
 
 function hexToRgb(hex: string): { r: number; g: number; b: number } {
@@ -595,19 +595,20 @@ export function TribeSection({ language }: { language: Language }) {
   const activeCategoryId = examples[exampleIndex]?.id ?? null;
 
   return (
-    <section id="tribe" className="section-shell">
+    <section id="tribe" className="bg-beige">
+      <div className="section-shell">
       <div className="mx-auto max-w-6xl">
         <header className="text-center">
-          <h2 className="font-serif text-3xl text-zinc-100 sm:text-4xl">{t.title}</h2>
-          <p className="mx-auto mt-4 max-w-4xl rounded-xl border border-white/10 bg-black/35 p-4 text-zinc-200 backdrop-blur-sm">
+          <h2 className="font-serif text-3xl text-tinte sm:text-4xl">{t.title}</h2>
+          <p className="mx-auto mt-4 max-w-4xl rounded-xl border border-sand bg-white p-4 text-tinte backdrop-blur-sm">
             {t.intro}
           </p>
         </header>
 
         <div className="relative z-20 mt-10">
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-soul-gold/18 via-transparent to-quantum-cyan/18 blur-3xl" />
+          <div className="pointer-events-none absolute inset-0" />
           <div
-            className={`relative select-none ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
+            className={`relative select-none rounded-3xl border border-sand bg-white p-3 shadow-[0_10px_28px_rgba(42,37,34,0.05)] sm:p-5 ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
           onPointerDown={(e) => {
             onPointerDown(e.clientX, e.clientY);
             (e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId);
@@ -629,8 +630,8 @@ export function TribeSection({ language }: { language: Language }) {
               const na = byId.get(nodeData[a].id);
               const nb = byId.get(nodeData[b].id);
               if (!na || !nb) return null;
-              const pulse = 0.28 + (Math.sin(time * 3 + index * 0.7) + 1) * 0.22;
-              const edgeColor = rgbaFromHex(nodeColor(nodeData[a].categoryId), pulse);
+              const pulse = 0.55 + (Math.sin(time * 3 + index * 0.7) + 1) * 0.2;
+              const edgeColor = `rgba(221,210,191,${Math.min(1, pulse).toFixed(3)})`;
               return (
                 <line
                   key={`edge-${a}-${b}`}
@@ -658,7 +659,7 @@ export function TribeSection({ language }: { language: Language }) {
               const auraStroke = palette.aura.replace("%OP%", (0.75 * opacity).toFixed(3));
               return (
                 <g key={shock.id}>
-                  <path d={buildLightningPath({ x: from.x2d, y: from.y2d }, { x: to.x2d, y: to.y2d }, time + shock.start)} stroke={`rgba(255,255,255,${(0.95 * opacity).toFixed(3)})`} strokeWidth="2.35" fill="none" />
+                  <path d={buildLightningPath({ x: from.x2d, y: from.y2d }, { x: to.x2d, y: to.y2d }, time + shock.start)} stroke={`rgba(221,210,191,${(0.95 * opacity).toFixed(3)})`} strokeWidth="2.35" fill="none" />
                   <path d={buildLightningPath({ x: from.x2d, y: from.y2d }, { x: to.x2d, y: to.y2d }, time + shock.start + 0.12)} stroke={coreStroke} strokeWidth="1.5" fill="none" />
                   <path d={buildLightningPath({ x: from.x2d, y: from.y2d }, { x: to.x2d, y: to.y2d }, time + shock.start + 0.22)} stroke={auraStroke} strokeWidth="1.1" fill="none" />
                 </g>
@@ -706,7 +707,7 @@ export function TribeSection({ language }: { language: Language }) {
                       opacity={pulseOpacity}
                     />
                   ) : null}
-                  <circle cx={node.x2d} cy={node.y2d} r={node.r + (main ? 10 : 6)} fill="url(#nodeGlow3d)" opacity={main ? 0.25 : 0.12} />
+                  <circle cx={node.x2d} cy={node.y2d} r={node.r + (main ? 10 : 6)} fill="none" />
                   <circle cx={node.x2d} cy={node.y2d} r={node.r + (main ? 3 : 1.8)} fill={node.color} opacity={0.22} />
                   <circle cx={node.x2d} cy={node.y2d} r={node.r} fill={node.color} opacity={0.95} />
                   <circle cx={node.x2d} cy={node.y2d} r={node.r + 2.2} fill="none" stroke={node.color} strokeWidth="1.1" opacity={0.8} />
@@ -717,44 +718,44 @@ export function TribeSection({ language }: { language: Language }) {
 
             {selectedNode && selectedTooltip && tooltipPos ? (
               <div
-                className="pointer-events-none absolute z-20 w-64 -translate-x-1/2 rounded-xl border border-white/20 bg-black/85 p-3 text-xs text-zinc-100 shadow-2xl"
+                className="pointer-events-none absolute z-20 w-64 -translate-x-1/2 rounded-xl border border-sand bg-white p-3 text-xs text-tinte shadow-2xl"
                 style={{ left: `${(tooltipPos.x / VIEW_SIZE) * 100}%`, top: `${(tooltipPos.y / VIEW_SIZE) * 100}%` }}
               >
                 <p className="font-semibold">{selectedTooltip.title}</p>
-                <p className="mt-1 text-zinc-300">{selectedTooltip.text}</p>
+                <p className="mt-1 text-tinte">{selectedTooltip.text}</p>
               </div>
             ) : null}
           </div>
 
-          <div className="relative z-10 mx-auto mt-6 max-w-3xl rounded-xl border border-white/10 bg-black/35 p-4 text-center backdrop-blur-sm">
-            <p className="text-sm text-zinc-300">{t.networkText}</p>
-            <p className="mt-1 text-xs text-zinc-500">{t.hint}</p>
+          <div className="relative z-10 mx-auto mt-6 max-w-3xl rounded-xl border border-sand bg-white p-4 text-center backdrop-blur-sm">
+            <p className="text-sm text-tinte">{t.networkText}</p>
+            <p className="mt-1 text-xs text-tinte0">{t.hint}</p>
           </div>
         </div>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          <article className="rounded-2xl border border-white/10 bg-black/35 p-5 backdrop-blur-sm">
-            <h3 className="font-serif text-2xl text-zinc-100">{t.logicTitle}</h3>
-            <ul className="mt-4 space-y-2 text-zinc-200">
+          <article className="rounded-2xl border border-sand bg-white p-5 backdrop-blur-sm">
+            <h3 className="font-serif text-2xl text-tinte">{t.logicTitle}</h3>
+            <ul className="mt-4 space-y-2 text-tinte">
               {t.logic.map((item) => (
                 <li key={item} className="flex gap-2">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-quantum-cyan" />
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
           </article>
 
-          <article className="rounded-2xl border border-white/10 bg-black/35 p-5 backdrop-blur-sm">
-            <h3 className="font-serif text-2xl text-zinc-100">
+          <article className="rounded-2xl border border-sand bg-white p-5 backdrop-blur-sm">
+            <h3 className="font-serif text-2xl text-tinte">
               {language === "en" ? "Decentralized dynamic" : "Dezentrale Dynamik"}
             </h3>
-            <p className="mt-4 text-zinc-300">
+            <p className="mt-4 text-tinte">
               {language === "en"
                 ? "The network has no central command node. Stability emerges from many local relationships, adaptive signaling, and sovereign contribution."
                 : "Das Netzwerk hat keinen zentralen Kommando-Node. Stabilität entsteht aus vielen lokalen Beziehungen, adaptiver Signalweitergabe und souveräner Beteiligung."}
             </p>
-            <p className="mt-3 text-zinc-300">
+            <p className="mt-3 text-tinte">
               {language === "en"
                 ? "Each node can initiate value flow. This keeps growth antifragile: if one node weakens, the network remains functional."
                 : "Jeder Node kann Wertfluss initiieren. Dadurch bleibt das Wachstum antifragil: Wenn ein Node schwächer wird, bleibt das Netzwerk funktionsfähig."}
@@ -763,9 +764,9 @@ export function TribeSection({ language }: { language: Language }) {
         </div>
 
         <div className="mt-10">
-          <h3 className="font-serif text-2xl text-zinc-100">{t.examplesTitle}</h3>
-          <p className="mt-2 max-w-4xl text-sm text-zinc-400">{t.examplesNote}</p>
-          <div className="mt-4 rounded-2xl border border-white/10 bg-black/35 p-4 backdrop-blur-sm sm:p-5">
+          <h3 className="font-serif text-2xl text-tinte">{t.examplesTitle}</h3>
+          <p className="mt-2 max-w-4xl text-sm text-tinte-weich">{t.examplesNote}</p>
+          <div className="mt-4 rounded-2xl border border-sand bg-white p-4 backdrop-blur-sm sm:p-5">
             <div className="mb-4 flex flex-wrap gap-2">
               {examples.map((example, idx) => {
                 const palette = buttonStyleFromHex(categoryColor[example.id]);
@@ -782,14 +783,10 @@ export function TribeSection({ language }: { language: Language }) {
                         }
                       : {
                           borderColor: palette.idleBorder,
-                          backgroundColor: "rgba(0,0,0,0.22)"
+                          backgroundColor: "#FFFFFF"
                         }
                   }
-                  className={`rounded-full border px-3 py-1 text-xs tracking-[0.08em] transition ${
-                    idx === exampleIndex
-                      ? "text-zinc-100"
-                      : "text-zinc-300 hover:text-zinc-100"
-                  }`}
+                  className={`rounded-full border px-3 py-1 text-xs tracking-[0.08em] text-tinte transition`}
                 >
                   {example.title}
                 </button>
@@ -804,13 +801,13 @@ export function TribeSection({ language }: { language: Language }) {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -6 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
-                className="rounded-xl border border-white/10 bg-black/35 p-5 backdrop-blur-sm"
+                className="rounded-xl border border-sand bg-white p-5 backdrop-blur-sm"
               >
-              <p className="text-xs tracking-[0.12em] text-zinc-500">
+              <p className="text-xs tracking-[0.12em] text-tinte0">
                 {exampleIndex + 1} / {examples.length}
               </p>
-              <h4 className="mt-2 font-serif text-2xl text-zinc-100">{examples[exampleIndex].title}</h4>
-              <p className="mt-3 text-zinc-300">{examples[exampleIndex].text}</p>
+              <h4 className="mt-2 font-serif text-2xl text-tinte">{examples[exampleIndex].title}</h4>
+              <p className="mt-3 text-tinte">{examples[exampleIndex].text}</p>
               </motion.article>
             </AnimatePresence>
 
@@ -818,14 +815,14 @@ export function TribeSection({ language }: { language: Language }) {
               <button
                 type="button"
                 onClick={previousExample}
-                className="rounded-full border border-white/20 px-4 py-2 text-sm text-zinc-200 transition hover:border-white/40"
+                className="rounded-full border border-tinte bg-transparent px-4 py-2 text-sm text-tinte transition hover:bg-tinte hover:text-white"
               >
                 {t.prev}
               </button>
               <button
                 type="button"
                 onClick={nextExample}
-                className="rounded-full border border-white/20 px-4 py-2 text-sm text-zinc-200 transition hover:border-white/40"
+                className="rounded-full border border-tinte bg-transparent px-4 py-2 text-sm text-tinte transition hover:bg-tinte hover:text-white"
               >
                 {t.next}
               </button>
@@ -833,7 +830,8 @@ export function TribeSection({ language }: { language: Language }) {
           </div>
         </div>
 
-        <p className="mt-8 max-w-4xl text-zinc-300">{t.footer}</p>
+        <p className="mt-8 max-w-4xl text-tinte">{t.footer}</p>
+      </div>
       </div>
     </section>
   );

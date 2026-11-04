@@ -3,7 +3,15 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
+  --weiss: #ffffff;
+  --beige: #ece4d7;
+  --sand: #ddd2bf;
+  --tinte: #2a2522;
+  --tinte-weich: #5e564c;
+  --gold: #7a5f2a;
+  --rose: #f6a6ab;
+  --rose-hover: #f28f96;
 }
 
 html {
@@ -15,22 +23,12 @@ section[id] {
 }
 
 body {
-  @apply bg-onyx text-zinc-100 antialiased;
-  background-image:
-    radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.08), transparent 32%),
-    radial-gradient(circle at 80% 18%, rgba(0, 229, 255, 0.09), transparent 28%),
-    radial-gradient(circle at 48% 68%, rgba(255, 255, 255, 0.03), transparent 40%);
+  @apply bg-weiss text-tinte antialiased;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 30% -10%, rgba(212, 175, 55, 0.08), transparent 32%),
-    radial-gradient(circle at 80% 110%, rgba(0, 229, 255, 0.08), transparent 34%);
-  z-index: -1;
+::selection {
+  background: var(--rose);
+  color: var(--tinte);
 }
 
 .mesh-overlay {
@@ -38,8 +36,8 @@ body::before {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    linear-gradient(rgba(221, 210, 191, 0.45) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(221, 210, 191, 0.45) 1px, transparent 1px);
   background-size: 56px 56px;
   mask-image: radial-gradient(circle at center, black 28%, transparent 85%);
 }
@@ -49,31 +47,28 @@ body::before {
 }
 
 .crystal-card {
-  @apply rounded-2xl border border-white/10 bg-charcoal/70;
-  box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(8px);
+  @apply rounded-2xl border border-sand bg-white;
+  box-shadow: 0 10px 28px rgba(42, 37, 34, 0.05);
 }
 
 .constellation-network {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.45;
+  opacity: 0.7;
   background-image:
-    radial-gradient(circle at 12% 20%, rgba(212, 175, 55, 0.24) 0 1px, transparent 2px),
-    radial-gradient(circle at 72% 14%, rgba(0, 229, 255, 0.24) 0 1px, transparent 2px),
+    radial-gradient(circle at 12% 20%, rgba(122, 95, 42, 0.9) 0 1.5px, transparent 2px),
+    radial-gradient(circle at 72% 14%, rgba(42, 37, 34, 0.55) 0 1.5px, transparent 2px),
     repeating-linear-gradient(
       26deg,
       transparent 0 55px,
-      rgba(255, 255, 255, 0.045) 56px 57px,
+      rgba(221, 210, 191, 0.95) 56px 57px,
       transparent 58px 118px
     ),
     repeating-linear-gradient(
       -22deg,
       transparent 0 68px,
-      rgba(255, 255, 255, 0.035) 69px 70px,
+      rgba(221, 210, 191, 0.8) 69px 70px,
       transparent 71px 134px
     );
   mask-image: radial-gradient(circle at center, black 28%, transparent 92%);
@@ -85,43 +80,7 @@ body::before {
   height: 6px;
   border-radius: 999px;
   pointer-events: none;
-  background: radial-gradient(circle, rgba(0, 229, 255, 0.95) 0%, rgba(212, 175, 55, 0.5) 55%, transparent 100%);
-  box-shadow:
-    0 0 10px rgba(0, 229, 255, 0.45),
-    0 0 20px rgba(212, 175, 55, 0.25);
-}
-
-.pyramid-shell::before {
-  content: "";
-  position: absolute;
-  inset: -30% -10% auto -10%;
-  height: 60%;
-  pointer-events: none;
-  background: radial-gradient(circle at 50% 30%, rgba(212, 175, 55, 0.18), transparent 70%);
-  animation: pyramidGlow 5.2s ease-in-out infinite;
-}
-
-.pyramid-shell::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.06), transparent 35%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 25%);
-  mix-blend-mode: screen;
-}
-
-@keyframes beliefGlowPulse {
-  0%,
-  100% {
-    opacity: 0.35;
-    transform: scale(0.96);
-  }
-  50% {
-    opacity: 0.75;
-    transform: scale(1.04);
-  }
+  background: #7a5f2a;
 }
 
 .belief-visual-stage {
@@ -134,23 +93,12 @@ body::before {
 }
 
 .belief-visual-glow {
-  background:
-    radial-gradient(circle at 35% 30%, rgba(212, 175, 55, 0.22), transparent 55%),
-    radial-gradient(circle at 70% 65%, rgba(0, 229, 255, 0.16), transparent 50%);
-  animation: beliefGlowPulse 4.8s ease-in-out infinite;
+  background: radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.45), transparent 62%);
 }
 
-.belief-visual-stage[data-phase="source"] .belief-visual-glow {
-  background:
-    radial-gradient(circle at 50% 45%, rgba(255, 248, 220, 0.28), transparent 58%),
-    radial-gradient(circle at 30% 70%, rgba(212, 175, 55, 0.18), transparent 52%);
-}
-
+.belief-visual-stage[data-phase="source"] .belief-visual-glow,
 .belief-visual-stage[data-phase="soulWorld"] .belief-visual-glow {
-  background:
-    radial-gradient(circle at 40% 35%, rgba(155, 135, 196, 0.22), transparent 55%),
-    radial-gradient(circle at 65% 60%, rgba(126, 200, 200, 0.16), transparent 50%),
-    radial-gradient(circle at 50% 80%, rgba(232, 180, 212, 0.1), transparent 45%);
+  background: radial-gradient(circle at 50% 42%, rgba(236, 228, 215, 0.55), transparent 64%);
 }
 
 .belief-visual-stage-return,
@@ -219,12 +167,10 @@ body::before {
   background: transparent;
 }
 
-/* Left-rail journey (mobile / tablet) */
 .soul-left-rail {
   contain: layout style;
 }
 
-/* Mobile thread — flowing dash, pulse, scroll-linked glow */
 .mobile-thread-line {
   stroke-dasharray: 3 7;
   animation: mobileThreadFlow 4.5s linear infinite;
@@ -251,10 +197,10 @@ body::before {
 @keyframes mobileThreadGlowPulse {
   0%,
   100% {
-    opacity: 0.42;
+    opacity: 0.45;
   }
   50% {
-    opacity: 0.62;
+    opacity: 0.7;
   }
 }
 
@@ -280,7 +226,6 @@ body::before {
   }
 }
 
-/* Phase card background patterns — lightweight CSS gradients */
 .phase-pattern {
   z-index: 0;
   opacity: 0.55;
@@ -316,52 +261,34 @@ body::before {
   animation: phasePatternDrift 18s ease-in-out infinite reverse;
 }
 
-.phase-pattern-source::before {
-  background: radial-gradient(circle, rgba(255, 248, 220, 0.22) 0%, rgba(212, 175, 55, 0.08) 55%, transparent 72%);
-}
-
-.phase-pattern-source::after {
-  background: radial-gradient(circle, rgba(255, 252, 235, 0.14) 0%, rgba(245, 230, 200, 0.06) 50%, transparent 70%);
-}
-
-.phase-pattern-soulWorld::before {
-  background: radial-gradient(circle, rgba(155, 135, 196, 0.2) 0%, rgba(99, 102, 241, 0.1) 52%, transparent 72%);
-}
-
-.phase-pattern-soulWorld::after {
-  background: radial-gradient(circle, rgba(126, 200, 184, 0.12) 0%, rgba(181, 168, 213, 0.07) 48%, transparent 68%);
-}
-
-.phase-pattern-incarnation::before {
-  background: radial-gradient(circle, rgba(245, 210, 190, 0.2) 0%, rgba(232, 196, 212, 0.1) 50%, transparent 72%);
-}
-
-.phase-pattern-incarnation::after {
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, rgba(245, 200, 170, 0.06) 55%, transparent 70%);
-}
-
-.phase-pattern-earthly::before {
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.16) 0%, rgba(34, 197, 94, 0.1) 52%, transparent 72%);
-}
-
-.phase-pattern-earthly::after {
-  background: radial-gradient(circle, rgba(125, 211, 252, 0.1) 0%, rgba(72, 168, 108, 0.06) 48%, transparent 68%);
-}
-
+.phase-pattern-source::before,
 .phase-pattern-frequency::before {
-  background: radial-gradient(circle, rgba(255, 248, 220, 0.2) 0%, rgba(212, 175, 55, 0.12) 50%, transparent 72%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.7) 0%, rgba(122, 95, 42, 0.1) 55%, transparent 72%);
 }
 
+.phase-pattern-source::after,
 .phase-pattern-frequency::after {
-  background: radial-gradient(circle, rgba(181, 168, 213, 0.12) 0%, rgba(255, 252, 235, 0.06) 55%, transparent 70%);
+  background: radial-gradient(circle, rgba(236, 228, 215, 0.8) 0%, rgba(221, 210, 191, 0.25) 50%, transparent 70%);
 }
 
+.phase-pattern-soulWorld::before,
 .phase-pattern-mastery::before {
-  background: radial-gradient(circle, rgba(232, 196, 212, 0.18) 0%, rgba(212, 175, 55, 0.1) 52%, transparent 72%);
+  background: radial-gradient(circle, rgba(221, 210, 191, 0.7) 0%, rgba(122, 95, 42, 0.12) 52%, transparent 72%);
 }
 
+.phase-pattern-soulWorld::after,
 .phase-pattern-mastery::after {
-  background: radial-gradient(circle, rgba(255, 248, 220, 0.12) 0%, rgba(245, 210, 225, 0.07) 48%, transparent 68%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.65) 0%, rgba(236, 228, 215, 0.4) 48%, transparent 68%);
+}
+
+.phase-pattern-incarnation::before,
+.phase-pattern-earthly::before {
+  background: radial-gradient(circle, rgba(236, 228, 215, 0.85) 0%, rgba(221, 210, 191, 0.35) 50%, transparent 72%);
+}
+
+.phase-pattern-incarnation::after,
+.phase-pattern-earthly::after {
+  background: radial-gradient(circle, rgba(122, 95, 42, 0.1) 0%, rgba(255, 255, 255, 0.4) 55%, transparent 70%);
 }
 
 @keyframes phasePatternDrift {
@@ -377,7 +304,6 @@ body::before {
 }
 
 .soul-rail-card {
-  backdrop-filter: blur(6px);
   transition: border-color 0.4s ease, background-color 0.4s ease, opacity 0.4s ease;
 }
 
@@ -388,25 +314,12 @@ body::before {
 
 .soul-comet-trail-core {
   width: 100%;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(181, 168, 213, 0.22) 28%,
-    rgba(212, 175, 55, 0.55) 62%,
-    rgba(255, 248, 220, 0.92) 100%
-  );
-  filter: blur(0.5px);
+  background: linear-gradient(to bottom, transparent 0%, rgba(221, 210, 191, 0.2) 28%, rgba(122, 95, 42, 0.55) 70%, #7a5f2a 100%);
   animation: soulTrailPulse 2s ease-in-out infinite;
 }
 
 .soul-comet-trail-glow {
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(212, 175, 55, 0.18) 50%,
-    rgba(255, 248, 220, 0.45) 100%
-  );
-  filter: blur(3px);
+  background: linear-gradient(to bottom, transparent 0%, rgba(221, 210, 191, 0.35) 100%);
   animation: soulTrailGlow 2.4s ease-in-out infinite;
 }
 
@@ -428,7 +341,7 @@ body::before {
     opacity: 0.35;
   }
   50% {
-    opacity: 0.7;
+    opacity: 0.6;
   }
 }
 
@@ -462,7 +375,6 @@ body::before {
   }
 }
 
-/* Erdenschule: nahtlose Kontinent-Textur — GPU, linear, 2-Keyframe-Loop */
 .earth-texture-scroll {
   will-change: transform;
   backface-visibility: hidden;
@@ -490,18 +402,20 @@ button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-  outline: 2px solid #d4af37;
-  outline-offset: 3px;
+  outline: 2px solid var(--tinte);
+  outline-offset: 2px;
 }
 
-@keyframes pyramidGlow {
-  0%,
-  100% {
-    opacity: 0.42;
-    transform: translateY(0px) scale(1);
-  }
-  50% {
-    opacity: 0.75;
-    transform: translateY(8px) scale(1.04);
-  }
+input,
+textarea,
+select {
+  background-color: var(--weiss);
+  border: 1px solid var(--sand);
+  color: var(--tinte);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--tinte);
 }
