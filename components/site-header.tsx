@@ -38,7 +38,7 @@ function itemHref(isHome: boolean, href: string) {
 }
 
 const ctaClass =
-  "inline-flex min-h-10 shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-rose px-2.5 text-[11px] font-bold tracking-wide text-white transition hover:bg-rose-hover sm:px-3.5 sm:text-xs";
+  "inline-flex min-h-10 shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-rose px-2.5 text-[11px] font-bold tracking-wide text-white transition hover:bg-rose-hover hover:font-bold hover:text-white sm:px-3.5 sm:text-xs";
 
 const menuCtaClass =
   "inline-flex min-h-10 w-full items-center justify-center whitespace-nowrap rounded-full border border-tinte bg-transparent px-2.5 text-[11px] font-medium tracking-wide text-tinte transition hover:bg-tinte hover:text-white sm:px-3.5 sm:text-xs";

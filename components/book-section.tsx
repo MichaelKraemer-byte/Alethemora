@@ -43,7 +43,7 @@ export function BookSection({ language }: { language: Language }) {
             <p className="type-body mt-5">{emphasize(t.text, t.lead)}</p>
             <Link
               href="/start"
-              className="mt-8 inline-flex min-h-12 items-center justify-center rounded-full bg-rose px-7 text-sm font-bold tracking-wide text-white transition hover:bg-rose-hover sm:text-base"
+              className="mt-8 inline-flex min-h-12 items-center justify-center rounded-full bg-rose px-7 text-sm font-bold tracking-wide text-white transition hover:bg-rose-hover hover:font-bold hover:text-white sm:text-base"
             >
               {t.button}
             </Link>

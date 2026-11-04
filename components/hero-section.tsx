@@ -68,7 +68,7 @@ export function HeroSection({ language }: { language: Language }) {
           <div className="rounded-full bg-white p-1.5">
             <Link
               href="/start"
-              className="inline-flex min-h-12 items-center justify-center rounded-full bg-rose px-7 text-sm font-bold tracking-wide text-white transition hover:bg-rose-hover sm:text-base"
+              className="inline-flex min-h-12 items-center justify-center rounded-full bg-rose px-7 text-sm font-bold tracking-wide text-white transition hover:bg-rose-hover hover:font-bold hover:text-white sm:text-base"
             >
               {t.primary}
             </Link>

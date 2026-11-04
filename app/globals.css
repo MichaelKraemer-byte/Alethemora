@@ -286,3 +286,16 @@ textarea:focus,
 select:focus {
   border-color: var(--tinte);
 }
+
+/* Rose primary controls: white (#fff) and bold, including hover. */
+a.bg-rose,
+button.bg-rose:not(:disabled) {
+  color: #fff;
+  font-weight: 700;
+}
+
+a.bg-rose:hover,
+button.bg-rose:not(:disabled):hover {
+  color: #fff;
+  font-weight: 700;
+}
