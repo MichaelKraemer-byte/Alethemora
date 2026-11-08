@@ -24,11 +24,46 @@ const playfair = Playfair_Display({
   preload: true
 });
 
+const title = "ALETHEMORA";
+// TODO: EN prüfen
+const description =
+  "The name carries three words: Aletheia, the unconcealed truth and a path of science; Hem, the soul's home and the soul friends who stay with us; Amor, love, the endless energy of creation, of being, and of the light. The full text is in the free book.";
+
+const shareImage = {
+  url: "https://alethemora.com/og/og-image.jpg",
+  width: 1200,
+  height: 630,
+  alt: "Das Auge von Alethemora auf cremefarbenem Grund"
+} as const;
+
 export const metadata: Metadata = {
-  title: "ALETHEMORA",
-  // TODO: EN prüfen
-  description:
-    "The name carries three words: Aletheia, the unconcealed truth and a path of science; Hem, the soul's home and the soul friends who stay with us; Amor, love, the endless energy of creation, of being, and of the light. The full text is in the free book."
+  metadataBase: new URL("https://alethemora.com"),
+  title,
+  description,
+  appleWebApp: {
+    capable: true,
+    title: "Alethemora",
+    statusBarStyle: "default"
+  },
+  openGraph: {
+    type: "website",
+    siteName: "Alethemora",
+    locale: "de_DE",
+    url: "https://alethemora.com",
+    title,
+    description,
+    images: [shareImage]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: [shareImage.url]
+  },
+  other: {
+    "msapplication-TileColor": "#FFFFFF",
+    "msapplication-TileImage": "https://alethemora.com/icons/icon-192.png"
+  }
 };
 
 export const viewport: Viewport = {
