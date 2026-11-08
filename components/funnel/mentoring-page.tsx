@@ -9,7 +9,7 @@ import { FunnelLayout, funnelH1, funnelLead } from "@/components/funnel/funnel-l
 
 export function MentoringPage() {
   return (
-    <FunnelLayout page="mentoring">
+    <FunnelLayout page="mentoring" reading>
       {(language) => {
         const t = funnelCopy[language];
         const m = t.mentoring;

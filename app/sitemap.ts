@@ -11,9 +11,15 @@ const paths = [
   "/die-wandlung",
   "/klarheitsgespraech",
   "/vortrag",
+  "/prinzipien",
+  "/praxis",
   "/science/reincarnation",
   "/science/resonanz",
-  "/science/sovereignty"
+  "/science/sovereignty",
+  "/science/bildung",
+  "/science/ernaehrung",
+  "/science/quellen",
+  "/science/fordern-und-foerdern"
 ];
 
 if (phase === "live") paths.push("/agb");

@@ -8,7 +8,7 @@ import { FunnelLayout, funnelH1, funnelLead, funnelList } from "@/components/fun
 
 export function WandlungPage() {
   return (
-    <FunnelLayout page="wandlung">
+    <FunnelLayout page="wandlung" reading>
       {(language) => {
         const t = funnelCopy[language];
         const w = t.wandlung;

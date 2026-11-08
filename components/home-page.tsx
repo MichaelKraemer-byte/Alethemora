@@ -2,14 +2,12 @@
 
 import { AuthorSection } from "@/components/author-section";
 import { BookSection } from "@/components/book-section";
-import { CommunitySection } from "@/components/community-section";
 import { DocumentMeta } from "@/components/funnel/document-meta";
 import { HeroSection } from "@/components/hero-section";
 import { LoveSection } from "@/components/love-section";
 import { MentoringSection } from "@/components/mentoring-section";
-import { PathOfPracticeSection } from "@/components/path-of-practice-section";
-import { PrinciplesSection } from "@/components/principles-section";
-import { RhythmSection } from "@/components/rhythm-section";
+import { PracticeTeaser } from "@/components/practice-teaser";
+import { PrinciplesTeaser } from "@/components/principles-teaser";
 import { ScienceSection } from "@/components/science-section";
 import { SiteHeader } from "@/components/site-header";
 import { WhySection } from "@/components/why-section";
@@ -42,11 +40,9 @@ export function HomePage() {
         <WhySection language={language} />
         <LoveSection language={language} />
         <BookSection language={language} />
-        <PrinciplesSection language={language} />
-        <PathOfPracticeSection language={language} />
-        <RhythmSection language={language} />
+        <PrinciplesTeaser language={language} />
+        <PracticeTeaser language={language} />
         <ScienceSection language={language} />
-        <CommunitySection language={language} />
         <AuthorSection language={language} />
         <MentoringSection language={language} />
       </main>

@@ -102,18 +102,17 @@ export function PrinciplesSection({ language }: { language: Language }) {
   return (
     <section id="prinzipien" className="bg-beige">
       <div className="section-shell">
-        <h2 className="type-h2">{t.title}</h2>
-        <div className="mt-6 max-w-3xl space-y-4">
-          <p className="type-lead">{emphasize(t.credo, t.credoMark)}</p>
-          <p className="type-lead">{emphasize(t.rules, t.rulesMark)}</p>
-        </div>
+        <div className="reading-column">
+        <h1 className="type-h1">{t.title}</h1>
+        <p className="type-lead mt-6">{emphasize(t.credo, t.credoMark)}</p>
+        <p className="type-lead">{emphasize(t.rules, t.rulesMark)}</p>
         <div className="mt-14 space-y-14">
           {spheres.map((sphere) => {
             const items = principles.filter((principle) => principle.sphere === sphere);
             return (
               <div key={sphere}>
                 <h3 className="type-h3-sm">{sphereTitle[language][sphere]}</h3>
-                <p className="type-small mt-3 max-w-3xl text-tinte-weich">
+                <p className="type-small mt-3 text-tinte-weich">
                   <span className="text-gold">{t.pauseLabel}: </span>
                   {pause[language][sphere]}
                 </p>
@@ -123,13 +122,20 @@ export function PrinciplesSection({ language }: { language: Language }) {
                       language === "en" ? principlesEn[principle.id]?.statement ?? principle.statement : principle.statement;
                     const detail =
                       language === "en" ? principlesEn[principle.id]?.detail ?? principle.detail : principle.detail;
+                    const paragraphs = detail.split(/\n\n+/);
                     return (
                       <details key={principle.id} className="border-t border-sand py-3">
                         <summary className="cursor-pointer type-card-title">
                           <span className="text-gold">{principle.id}. </span>
                           {statement}
                         </summary>
-                        <p className="type-body mt-3 max-w-3xl whitespace-pre-line">{detail}</p>
+                        <div className="mt-3">
+                          {paragraphs.map((paragraph) => (
+                            <p key={paragraph} className="type-body">
+                              {paragraph}
+                            </p>
+                          ))}
+                        </div>
                       </details>
                     );
                   })}
@@ -137,6 +143,7 @@ export function PrinciplesSection({ language }: { language: Language }) {
               </div>
             );
           })}
+        </div>
         </div>
       </div>
     </section>

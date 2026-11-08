@@ -8,7 +8,8 @@ const copy: Record<
   Language,
   {
     whatTitle: string;
-    whatName: string;
+    nameLead: string;
+    nameParts: { word: string; text: string }[];
     whatMap: string;
     bookTitle: string;
     bookClose: string;
@@ -18,8 +19,22 @@ const copy: Record<
 > = {
   en: {
     whatTitle: "What the name means",
-    whatName:
-      "The name Alethemora goes back to two Greek words. Aletheia means truth. Moira is the allotted share, the lot in life, fate.",
+    // TODO: EN prüfen
+    nameLead: "The name carries three words.",
+    nameParts: [
+      {
+        word: "Aletheia",
+        text: "the unconcealed, the truth: Alethemora is a path of science. The truth of the spirit guides lies before our eyes, in the signs they give us on our way."
+      },
+      {
+        word: "Hem",
+        text: "the soul's home, where we come from, and the soul friends who are always with us."
+      },
+      {
+        word: "Amor",
+        text: "love: the endless energy of creation, of being, and of the light, our divinity, in which, with which, and through which we unfold for eternity."
+      }
+    ],
     whatMap:
       "This conviction is not a proven fact, and it does not need to be one. It is a map, not a dogma — a hope that is tested in lived practice, not in blind profession.",
     bookTitle: "In the book",
@@ -45,8 +60,21 @@ const copy: Record<
   },
   de: {
     whatTitle: "Was der Name bedeutet",
-    whatName:
-      "Der Name Alethemora geht auf zwei griechische Wörter zurück. Aletheia heißt Wahrheit. Moira ist der zugeteilte Anteil, das Lebenslos, das Schicksal.",
+    nameLead: "Der Name trägt drei Worte.",
+    nameParts: [
+      {
+        word: "Aletheia",
+        text: "das Unverborgene, die Wahrheit: Alethemora ist ein Pfad der Wissenschaft. Die Wahrheit der Geistführer liegt vor unseren Augen, in den Zeichen, die sie uns auf den Weg legen."
+      },
+      {
+        word: "Hem",
+        text: "das Seelenheim, woher wir kommen, und die Seelenfreunde, die immer bei uns sind."
+      },
+      {
+        word: "Amor",
+        text: "die Liebe: die endlose Energie der Schöpfung, des Daseins und des Lichts, unsere Göttlichkeit, in der, mit der und durch die wir uns in Ewigkeit entfalten."
+      }
+    ],
     whatMap:
       "Diese Überzeugung ist keine bewiesene Tatsache, und sie soll es auch nicht sein müssen. Sie ist eine Landkarte, kein Dogma — eine Hoffnung, die sich in gelebter Praxis prüft, nicht in blindem Bekenntnis.",
     bookTitle: "Im Buch",
@@ -79,8 +107,14 @@ export function WhatSection({ language }: { language: Language }) {
     <section id="was" className="bg-white">
       <div className="section-shell">
         <h2 className="type-h2">{t.whatTitle}</h2>
-        <div className="mt-6 max-w-3xl space-y-4">
-          <p className="type-lead">{t.whatName}</p>
+        <div className="mt-6 max-w-3xl space-y-3">
+          <p className="type-lead">{t.nameLead}</p>
+          {t.nameParts.map((part) => (
+            <p key={part.word} className="type-lead">
+              <strong className="font-bold text-tinte">{part.word}</strong>
+              {`, ${part.text}`}
+            </p>
+          ))}
           <p className="type-lead">{t.whatMap}</p>
         </div>
       </div>

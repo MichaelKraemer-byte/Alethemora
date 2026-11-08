@@ -7,12 +7,12 @@ import { levelMeta, rhythmBlocks, type RhythmLevel } from "@/lib/rhythm";
 // TODO: EN prüfen
 const intro = {
   de: {
-    title: "Rhythmus",
-    text: "Stille, Meditation und Yoga sind seine Werkzeuge."
+    title: "Tagesrhythmus",
+    example: "Beispiel"
   },
   en: {
-    title: "Rhythm",
-    text: "Silence, meditation, and yoga are its tools."
+    title: "Daily rhythm",
+    example: "Example"
   }
 } as const;
 
@@ -25,9 +25,10 @@ export function RhythmSection({ language }: { language: Language }) {
   return (
     <section id="rhythmus" className="bg-beige">
       <div className="section-shell">
+        <div className="reading-column min-w-0">
         <h2 className="type-h2">{t.title}</h2>
-        <p className="type-lead mt-6 max-w-3xl">{t.text}</p>
-        <div className="mt-8 flex flex-wrap gap-2" role="tablist" aria-label={t.title}>
+        <p className="mt-2 text-sm font-normal text-tinte-weich">{t.example}</p>
+        <div className="mt-10 flex flex-wrap gap-2" role="tablist" aria-label={t.title}>
           {levels.map((key) => {
             const active = level === key;
             return (
@@ -46,22 +47,23 @@ export function RhythmSection({ language }: { language: Language }) {
             );
           })}
         </div>
-        <p className="type-small mt-4 max-w-3xl text-tinte-weich">{levelMeta[level][language].description}</p>
-        <div className="mt-10 grid gap-4 lg:grid-cols-3">
+        <p className="type-body mt-6">{levelMeta[level][language].description}</p>
+        <div className="mt-16 space-y-12">
           {rhythmBlocks.map((block) => (
-            <article key={block.key} className="crystal-card p-6">
+            <article key={block.key} className="crystal-card p-6 sm:p-8">
               <h3 className="type-h3-sm">{block.title[language]}</h3>
-              <p className="type-small mt-1 text-gold">{block.subtitle[language]}</p>
-              <p className="type-body mt-3">{block.purpose[language]}</p>
-              <ul className="mt-4 list-disc space-y-2 pl-5">
+              <p className="type-small mt-2 text-gold">{block.subtitle[language]}</p>
+              <p className="type-body mt-4">{block.purpose[language]}</p>
+              <ul className="mt-5 list-disc space-y-3 pl-5">
                 {block.levels[level][language].map((line) => (
-                  <li key={line} className="type-small">
+                  <li key={line} className="type-body">
                     {line}
                   </li>
                 ))}
               </ul>
             </article>
           ))}
+        </div>
         </div>
       </div>
     </section>

@@ -8,7 +8,7 @@ import { FunnelLayout, funnelH1, funnelLead } from "@/components/funnel/funnel-l
 
 export function VortragPage() {
   return (
-    <FunnelLayout page="vortrag">
+    <FunnelLayout page="vortrag" reading>
       {(language) => {
         const t = funnelCopy[language].vortrag;
         return (

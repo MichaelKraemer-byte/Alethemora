@@ -19,11 +19,14 @@ export function FunnelLayout({
   page,
   focus = false,
   canvas = "weiss",
+  reading = false,
   children
 }: {
   page: FunnelPageId;
   focus?: boolean;
   canvas?: "weiss" | "beige";
+  /** Long reading text. The /start signup card does not use this. */
+  reading?: boolean;
   children: (language: Language) => ReactNode;
 }) {
   const { language, setLanguage } = useLanguagePreference();
@@ -35,7 +38,9 @@ export function FunnelLayout({
     <div className={`min-h-screen overflow-x-hidden pt-16 ${canvas === "beige" ? "bg-beige" : "bg-white"}`}>
       <DocumentMeta title={meta.title} description={description} />
       <SiteHeader variant={focus ? "focus" : "full"} language={language} onLanguageChange={setLanguage} />
-      <main className="section-shell max-w-3xl">{children(language)}</main>
+      <main className="section-shell max-w-3xl">
+        {reading ? <div className="reading-column">{children(language)}</div> : children(language)}
+      </main>
     </div>
   );
 }

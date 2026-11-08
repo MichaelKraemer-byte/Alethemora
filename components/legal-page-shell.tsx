@@ -14,6 +14,16 @@ type LegalPageShellProps = {
   sections: readonly { heading?: string; body: string }[];
 };
 
+function renderLegalBody(body: string) {
+  const lines = formatLegalBody(body);
+  const compact =
+    lines.length > 1 && lines.every((line) => line.length < 60 && !/[.!?…]$/.test(line.trim()));
+  if (compact) {
+    return <p className="whitespace-pre-line">{lines.join("\n")}</p>;
+  }
+  return lines.map((line) => <p key={line}>{line}</p>);
+}
+
 export function LegalPageShell({ title, intro, notice, sections }: LegalPageShellProps) {
   const { language, setLanguage } = useLanguagePreference();
   const back = language === "en" ? "Back to home" : "Zurück zur Startseite";
@@ -21,7 +31,8 @@ export function LegalPageShell({ title, intro, notice, sections }: LegalPageShel
   return (
     <div className="min-h-screen overflow-x-hidden bg-white pb-8 pt-16">
       <SiteHeader language={language} onLanguageChange={setLanguage} />
-      <main className="section-shell max-w-3xl">
+      <main className="section-shell">
+        <div className="reading-column">
         <Link
           href="/"
           className="mb-8 inline-flex items-center gap-2 text-sm font-normal text-gold underline decoration-gold underline-offset-4"
@@ -41,15 +52,14 @@ export function LegalPageShell({ title, intro, notice, sections }: LegalPageShel
                 {section.heading ? (
                   <h2 className="type-doc-heading">{section.heading}</h2>
                 ) : null}
-                <div className="mt-3 space-y-3 text-base font-normal leading-relaxed text-tinte">
-                  {formatLegalBody(section.body).map((line) => (
-                    <p key={line}>{line}</p>
-                  ))}
+                <div className="mt-3 text-base font-normal text-tinte">
+                  {renderLegalBody(section.body)}
                 </div>
               </section>
             ))}
           </div>
         </article>
+        </div>
       </main>
     </div>
   );

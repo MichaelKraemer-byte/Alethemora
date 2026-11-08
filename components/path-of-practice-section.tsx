@@ -1,7 +1,17 @@
 "use client";
 
+import Link from "next/link";
+import { BodyMindSoulSection } from "@/components/body-mind-soul-section";
 import { emphasize } from "@/lib/emphasize";
 import type { Language } from "@/lib/i18n";
+
+const rhythmLink = {
+  de: "Tagesrhythmus",
+  en: "Daily rhythm" // TODO: EN prüfen
+} as const;
+
+const rhythmButtonClass =
+  "mt-8 inline-flex min-h-12 items-center justify-center rounded-full border border-sand bg-white px-7 text-sm font-bold tracking-wide text-tinte transition hover:bg-beige hover:text-tinte sm:text-base";
 
 type Practice = { title: string; bullets: string[]; note?: string };
 
@@ -298,31 +308,37 @@ export function PathOfPracticeSection({ language }: { language: Language }) {
   return (
     <section id="path-of-practice" className="bg-white">
       <div className="section-shell">
-        <p className="type-eyebrow">{t.eyebrow}</p>
-        <h2 className="type-h2 mt-4">{t.title}</h2>
-        <p className="type-lead mt-6 max-w-3xl">{emphasize(t.intro, t.introMark)}</p>
-        <p className="type-body mt-4 max-w-3xl">{t.book}</p>
-        <div className="mt-12 space-y-12">
-          {t.groups.map((group) => (
-            <div key={group.title}>
-              <h3 className="type-h3-sm">{group.title}</h3>
-              <ol className="mt-6 grid gap-4 md:grid-cols-2">
-                {group.practices.map((practice) => (
-                  <li key={practice.title} className="crystal-card p-5">
-                    <h4 className="type-card-title">{practice.title}</h4>
-                    <ul className="mt-3 list-disc space-y-1 pl-5">
-                      {practice.bullets.map((bullet) => (
-                        <li key={bullet} className="type-small">
-                          {bullet}
-                        </li>
-                      ))}
-                    </ul>
-                    {practice.note ? <p className="type-small mt-3 text-tinte-weich">{practice.note}</p> : null}
-                  </li>
-                ))}
-              </ol>
-            </div>
-          ))}
+        <div className="reading-column min-w-0">
+          <p className="type-eyebrow">{t.eyebrow}</p>
+          <h1 className="type-h1 mt-4">{t.title}</h1>
+          <Link href="/praxis#rhythmus" className={rhythmButtonClass}>
+            {rhythmLink[language]}
+          </Link>
+          <BodyMindSoulSection language={language} />
+          <p className="type-lead mt-24">{emphasize(t.intro, t.introMark)}</p>
+          <p className="type-body">{t.book}</p>
+          <div className="mt-16 space-y-20">
+            {t.groups.map((group) => (
+              <div key={group.title}>
+                <h2 className="type-h2-sm">{group.title}</h2>
+                <ol className="mt-8 border-t border-sand">
+                  {group.practices.map((practice) => (
+                    <li key={practice.title} className="border-b border-sand py-8">
+                      <h3 className="type-card-title">{practice.title}</h3>
+                      <ul className="mt-4 list-disc space-y-3 pl-5">
+                        {practice.bullets.map((bullet) => (
+                          <li key={bullet} className="type-body">
+                            {bullet}
+                          </li>
+                        ))}
+                      </ul>
+                      {practice.note ? <p className="type-body mt-4">{practice.note}</p> : null}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -8,7 +8,7 @@ import { FunnelLayout, funnelH1, funnelLead, funnelList } from "@/components/fun
 
 export function KlarheitPage() {
   return (
-    <FunnelLayout page="klarheit">
+    <FunnelLayout page="klarheit" reading>
       {(language) => {
         if (phase !== "live") return <WaitlistOnly language={language} />;
         const t = funnelCopy[language].klarheit;

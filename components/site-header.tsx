@@ -14,20 +14,16 @@ import { phase } from "@/lib/site-config";
 const navItems: Record<Language, { label: string; href: string }[]> = {
   en: [
     { label: "Core", href: "#why" },
-    { label: "Principles", href: "#prinzipien" },
-    { label: "Practice", href: "#path-of-practice" },
-    { label: "Rhythm", href: "#rhythmus" },
+    { label: "Principles", href: "/prinzipien" },
+    { label: "Practice", href: "/praxis" },
     { label: "Science", href: "#wissenschaft" },
-    { label: "Community", href: "#tribe" },
     { label: "Mentoring", href: "/mentoring" }
   ],
   de: [
     { label: "Kern", href: "#why" },
-    { label: "Prinzipien", href: "#prinzipien" },
-    { label: "Praxis", href: "#path-of-practice" },
-    { label: "Rhythmus", href: "#rhythmus" },
+    { label: "Prinzipien", href: "/prinzipien" },
+    { label: "Praxis", href: "/praxis" },
     { label: "Wissenschaft", href: "#wissenschaft" },
-    { label: "Gemeinschaft", href: "#tribe" },
     { label: "Mentoring", href: "/mentoring" }
   ]
 };

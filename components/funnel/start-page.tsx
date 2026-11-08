@@ -44,6 +44,7 @@ export function StartPage({ showPortrait = false, showCoverDe = false, showCover
                 </div>
               </div>
             </div>
+            <div className="reading-column">
             <ul className={funnelList}>
               <li>{t.pointBook}</li>
               <li>{t.pointMail}</li>
@@ -71,6 +72,7 @@ export function StartPage({ showPortrait = false, showCoverDe = false, showCover
                 />
               ) : null}
               <p className="type-body">{t.about}</p>
+            </div>
             </div>
           </>
         );
