@@ -21,8 +21,55 @@ export const primaryButtonClass =
 export const textLinkClass =
   "font-normal text-gold underline decoration-gold underline-offset-4";
 
-const downloadClass =
-  "group flex items-center justify-between gap-4 rounded-2xl border border-sand bg-white px-5 py-4 text-tinte transition hover:border-tinte";
+const downloadFocus =
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tinte";
+
+const downloadPrimaryClass = `${primaryButtonClass} h-full w-full ${downloadFocus}`;
+
+const downloadSecondaryClass =
+  `inline-flex h-full min-h-11 w-full items-center justify-center rounded-full border border-tinte bg-transparent px-5 py-2.5 text-center text-sm font-medium text-tinte transition hover:bg-tinte hover:text-white ${downloadFocus}`;
+
+type BookEdition = keyof typeof books;
+type BookFormat = "pdf" | "epub";
+
+/** Fixed bilingual labels. Do not translate them away. */
+const editionLanguage = {
+  de: "Deutsch",
+  en: "English"
+} as const;
+
+const formatLabel: Record<BookFormat, string> = {
+  pdf: "PDF",
+  epub: "EPUB"
+};
+
+function downloadItems(editions: readonly BookEdition[]) {
+  return editions.flatMap((edition) =>
+    (["pdf", "epub"] as const).map((format) => ({ edition, format }))
+  );
+}
+
+function DownloadButtons({ items }: { items: { edition: BookEdition; format: BookFormat }[] }) {
+  return (
+    <div className="grid auto-rows-fr grid-cols-1 gap-3 sm:grid-cols-2">
+      {items.map((item, index) => {
+        const file = books[item.edition];
+        const href = item.format === "pdf" ? file.pdf : file.epub;
+        const name = item.format === "pdf" ? file.pdfName : file.epubName;
+        return (
+          <a
+            key={`${item.edition}-${item.format}`}
+            href={href}
+            download={name}
+            className={index === 0 ? downloadPrimaryClass : downloadSecondaryClass}
+          >
+            {`${formatLabel[item.format]} · ${editionLanguage[item.edition]}`}
+          </a>
+        );
+      })}
+    </div>
+  );
+}
 
 export function WaitlistButton({ language }: { language: Language }) {
   return (
@@ -60,67 +107,45 @@ export function CalButton({ which, label }: { which: "intro" | "clarity"; label:
 }
 
 export function LanguageBooks({ language }: { language: Language }) {
-  const edition = books[language];
-  const label = language === "de" ? "Deutsch" : "English";
-  return (
-    <div className="grid gap-3 sm:grid-cols-2">
-      <a href={edition.pdf} download={edition.pdfName} className={downloadClass}>
-        <span>
-          <span className="type-card-title">{label}</span>
-          <span className="type-eyebrow mt-1 block">PDF</span>
-        </span>
-      </a>
-      <a href={edition.epub} download={edition.epubName} className={downloadClass}>
-        <span>
-          <span className="type-card-title">{label}</span>
-          <span className="type-eyebrow mt-1 block">EPUB</span>
-        </span>
-      </a>
-    </div>
-  );
+  return <DownloadButtons items={downloadItems([language])} />;
 }
-
-/** Fixed bilingual labels. Do not translate them away. */
-const editionLabels = {
-  de: "Deutsche Ausgabe",
-  en: "English edition"
-} as const;
 
 export function BothEditions({ language }: { language: Language }) {
   const order = language === "de" ? (["de", "en"] as const) : (["en", "de"] as const);
   return (
-    <div className="type-lead mt-8 space-y-3">
-      {order.map((edition) => (
-        <p key={edition}>
-          {editionLabels[edition]}
-          {": "}
-          <a href={books[edition].pdf} download={books[edition].pdfName} className={textLinkClass}>
-            PDF
-          </a>
-          {" · "}
-          <a href={books[edition].epub} download={books[edition].epubName} className={textLinkClass}>
-            EPUB
-          </a>
-        </p>
-      ))}
+    <div className="mt-8">
+      <DownloadButtons items={downloadItems(order)} />
     </div>
   );
 }
 
-export function SignupBlock({ language, embedded = false }: { language: Language; embedded?: boolean }) {
+export function SignupBlock({
+  language,
+  embedded = false,
+  list = false,
+  anchored = true
+}: {
+  language: Language;
+  embedded?: boolean;
+  /** true auf /start#anmelden: Buch und Mentoring-Liste, dasselbe Formular. */
+  list?: boolean;
+  /** false, wenn die umgebende Überschrift den Anker #anmelden schon trägt. */
+  anchored?: boolean;
+}) {
   const t = funnelCopy[language].form;
   const action = kitFormAction();
+  const anchorId = anchored ? "anmelden" : undefined;
 
   if (!action) {
     return (
-      <section id="anmelden" className="mt-10">
+      <section id={anchorId} className="mt-10">
         <LanguageBooks language={language} />
       </section>
     );
   }
 
   return (
-    <section id="anmelden" className={embedded ? "mt-8" : "crystal-card mt-10 p-5 sm:p-6"}>
+    <section id={anchorId} className={embedded ? "mt-8" : "crystal-card mt-10 p-5 sm:p-6"}>
       <form method="post" action={action} className="space-y-4">
         <div>
           <label htmlFor="email_address" className="type-field-label">
@@ -141,7 +166,7 @@ export function SignupBlock({ language, embedded = false }: { language: Language
           </p>
         </div>
         <button type="submit" className={primaryButtonClass}>
-          {t.button}
+          {list ? t.buttonList : t.button}
         </button>
         <p className="type-muted text-sm">
           {t.fineBefore}

@@ -162,9 +162,9 @@ body {
   }
 
   .type-wordmark {
-    @apply truncate text-tinte;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
+    @apply whitespace-nowrap text-tinte;
+    font-size: 0.875rem;
+    letter-spacing: 0.02em;
     line-height: 1.2;
   }
 
@@ -208,6 +208,13 @@ body {
     font-size: 0.875rem;
     font-weight: 500;
     line-height: 1.45;
+  }
+}
+
+@media (min-width: 380px) {
+  .type-wordmark {
+    font-size: 1rem;
+    letter-spacing: 0.04em;
   }
 }
 

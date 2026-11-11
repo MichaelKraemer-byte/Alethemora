@@ -39,6 +39,64 @@ const ctaClass =
 const menuCtaClass =
   "inline-flex min-h-10 w-full items-center justify-center whitespace-nowrap rounded-full border border-tinte bg-transparent px-2.5 text-[11px] font-medium tracking-wide text-tinte transition hover:bg-tinte hover:text-white sm:px-3.5 sm:text-xs";
 
+function LanguageSwitch({
+  language,
+  onLanguageChange,
+  variant
+}: {
+  language: Language;
+  onLanguageChange: (lang: Language) => void;
+  variant: "bar" | "menu";
+}) {
+  const bar = variant === "bar";
+  return (
+    <div
+      className={
+        bar
+          ? "inline-flex items-center rounded-full border border-sand bg-white p-0.5 sm:p-1"
+          : "grid grid-cols-2 gap-2"
+      }
+      role="group"
+      aria-label={language === "de" ? "Sprache" : "Language"}
+    >
+      {(["en", "de"] as const).map((lang) => {
+        const active = language === lang;
+        return (
+          <button
+            key={lang}
+            type="button"
+            onClick={() => onLanguageChange(lang)}
+            className={
+              bar
+                ? `inline-flex items-center gap-1 rounded-full px-2 py-1 text-[10px] font-medium tracking-[0.12em] transition sm:gap-1.5 sm:px-3 sm:py-1 sm:text-[11px] sm:tracking-[0.14em] ${
+                    active ? "bg-beige text-tinte" : "text-tinte-weich hover:bg-beige hover:text-tinte"
+                  }`
+                : `inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-sand px-3 text-sm font-medium tracking-[0.12em] transition ${
+                    active ? "bg-beige text-tinte" : "bg-white text-tinte-weich hover:bg-beige hover:text-tinte"
+                  }`
+            }
+            aria-label={lang === "en" ? "English" : "Deutsch"}
+            aria-pressed={active}
+          >
+            {bar ? (
+              <>
+                <Globe2 className="hidden h-3 w-3 sm:block" />
+                <span className="sm:hidden">{lang.toUpperCase()}</span>
+                <span className="hidden sm:inline">{lang === "en" ? "ENGLISH" : "DEUTSCH"}</span>
+              </>
+            ) : (
+              <>
+                <Globe2 className="h-4 w-4" aria-hidden />
+                <span>{lang === "en" ? "ENGLISH" : "DEUTSCH"}</span>
+              </>
+            )}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
 export function SiteHeader({
   language,
   onLanguageChange,
@@ -78,9 +136,7 @@ export function SiteHeader({
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between gap-2 px-4 sm:gap-3 sm:px-6 lg:px-10">
         <Link
           href="/"
-          className={`flex min-w-0 items-center gap-2 sm:gap-3 ${
-            showNav ? "max-w-[28%] sm:max-w-[48%] md:max-w-none" : "max-w-[70%] sm:max-w-none"
-          }`}
+          className="flex shrink-0 items-center gap-2 sm:gap-3"
           onClick={closeMobile}
         >
           <div className="shrink-0 rounded-xl border border-sand bg-white p-1.5 sm:p-2">
@@ -90,7 +146,7 @@ export function SiteHeader({
         </Link>
 
         {showNav ? (
-          <nav className="hidden items-center gap-5 text-sm font-normal text-tinte lg:gap-6 md:flex">
+          <nav className="hidden shrink-0 items-center gap-5 text-sm font-normal text-tinte min-[1100px]:flex lg:gap-6">
             {navItems[language].map((item) => (
               <Link
                 key={item.label}
@@ -109,34 +165,14 @@ export function SiteHeader({
               {cta.label}
             </Link>
           ) : null}
-          <div className="inline-flex items-center rounded-full border border-sand bg-white p-0.5 sm:p-1">
-            {(["en", "de"] as const).map((lang) => {
-              const active = language === lang;
-              return (
-                <button
-                  key={lang}
-                  type="button"
-                  onClick={() => onLanguageChange(lang)}
-                  className={`inline-flex items-center gap-1 rounded-full px-2 py-1 text-[10px] font-medium tracking-[0.12em] transition sm:gap-1.5 sm:px-3 sm:py-1 sm:text-[11px] sm:tracking-[0.14em] ${
-                    active
-                      ? "bg-beige text-tinte"
-                      : "text-tinte-weich hover:bg-beige hover:text-tinte"
-                  }`}
-                  aria-label={lang === "en" ? "English" : "Deutsch"}
-                  aria-pressed={active}
-                >
-                  <Globe2 className="hidden h-3 w-3 sm:block" />
-                  <span className="sm:hidden">{lang.toUpperCase()}</span>
-                  <span className="hidden sm:inline">{lang === "en" ? "ENGLISH" : "DEUTSCH"}</span>
-                </button>
-              );
-            })}
+          <div className={showNav ? "hidden min-[1100px]:block" : "block"}>
+            <LanguageSwitch language={language} onLanguageChange={onLanguageChange} variant="bar" />
           </div>
 
           {showNav ? (
             <button
               type="button"
-              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-sand bg-white text-tinte transition hover:bg-beige md:hidden"
+              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-sand bg-white text-tinte transition hover:bg-beige min-[1100px]:hidden"
               aria-expanded={mobileOpen}
               aria-controls="site-mobile-nav"
               aria-label={mobileOpen ? "Navigation schließen" : "Navigation öffnen"}
@@ -155,7 +191,7 @@ export function SiteHeader({
               <motion.button
                 type="button"
                 aria-label="Menü schließen"
-                className="fixed inset-0 top-16 z-40 bg-tinte/30 backdrop-blur-[2px] md:hidden"
+                className="fixed inset-0 top-16 z-40 bg-tinte/30 backdrop-blur-[2px] min-[1100px]:hidden"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -164,7 +200,7 @@ export function SiteHeader({
               />
               <motion.nav
                 id="site-mobile-nav"
-                className="fixed left-0 right-0 top-16 z-50 max-h-[min(32rem,calc(100dvh-4rem))] overflow-y-auto border-b border-t border-sand bg-white shadow-[0_16px_40px_rgba(42,37,34,0.08)] md:hidden"
+                className="fixed left-0 right-0 top-16 z-50 max-h-[min(32rem,calc(100dvh-4rem))] overflow-y-auto border-b border-t border-sand bg-white shadow-[0_16px_40px_rgba(42,37,34,0.08)] min-[1100px]:hidden"
                 initial={{ opacity: 0, y: -8 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
@@ -200,6 +236,12 @@ export function SiteHeader({
                     </li>
                   ))}
                 </ul>
+                <div className="border-t border-sand px-3 py-3">
+                  <p className="px-1 pb-2 text-[11px] font-medium uppercase tracking-[0.14em] text-tinte-weich">
+                    {language === "de" ? "Sprache" : "Language"}
+                  </p>
+                  <LanguageSwitch language={language} onLanguageChange={onLanguageChange} variant="menu" />
+                </div>
               </motion.nav>
             </>
           ) : null}

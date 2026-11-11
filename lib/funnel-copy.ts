@@ -63,6 +63,8 @@ const en = {
   form: {
     label: "Your email address",
     button: "Get the book for free",
+    // TODO: EN prüfen
+    buttonList: "Get the book and join the list",
     hint: "Please enter a valid email address, for example name@example.com.",
     fineBefore:
       "You will receive an email to confirm. After that you can download your book. Now and then I send you short impulses — you can unsubscribe any time with one click. More about this in the ",
@@ -75,6 +77,11 @@ const en = {
     eyebrow: "Free for you",
     title: "Remember who you are.",
     text: "Get my book “Alethemora — A Philosophy of Life for a Higher Civilization” as a PDF and EPUB, free. Along with it you receive short impulses for your everyday life by email now and then — honest, down to earth, and you can unsubscribe at any time.",
+    // TODO: EN prüfen
+    listTitle: "Book and mentoring list.",
+    // TODO: EN prüfen
+    listText:
+      "Sign up. You receive the book as a PDF and EPUB, free, and you are on the mentoring list. It begins {startTermin}. Now and then, short impulses by email. Unsubscribe any time.",
     pointBook: "the whole book as PDF and EPUB",
     pointMail: "short impulses for your everyday life by email",
     afterTitle: "And then?",
@@ -230,6 +237,7 @@ const de = {
   form: {
     label: "Deine E-Mail-Adresse",
     button: "Buch kostenlos erhalten",
+    buttonList: "Buch erhalten und mich eintragen",
     hint: "Bitte gib eine gültige E-Mail-Adresse ein, zum Beispiel name@beispiel.de.",
     fineBefore:
       "Du bekommst eine E-Mail zur Bestätigung. Danach kannst du dein Buch herunterladen. Ab und zu schicke ich dir kurze Impulse – Abmeldung jederzeit mit einem Klick. Mehr dazu im ",
@@ -242,6 +250,9 @@ const de = {
     eyebrow: "Kostenlos für dich",
     title: "Erinnere dich, wer du bist.",
     text: "Hol dir mein Buch „Alethemora – Eine Lebensphilosophie für eine höhere Zivilisation“ als PDF und EPUB, kostenlos. Dazu bekommst du ab und zu kurze Impulse für deinen Alltag per E-Mail – ehrlich, bodenständig, jederzeit abbestellbar.",
+    listTitle: "Das Buch und die Mentoring-Liste.",
+    listText:
+      "Trag dich ein. Du bekommst das Buch als PDF und EPUB, kostenlos, und stehst damit auf der Liste für das Mentoring. Beginn ist {startTermin}. Ab und zu kurze Impulse per E-Mail. Abmelden kannst du dich jederzeit.",
     pointBook: "das ganze Buch als PDF und EPUB",
     pointMail: "kurze Impulse für deinen Alltag per E-Mail",
     afterTitle: "Und danach?",

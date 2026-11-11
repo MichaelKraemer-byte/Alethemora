@@ -1,10 +1,34 @@
 "use client";
 
+import { useLayoutEffect, useState } from "react";
 import { copyValuesFor, fill } from "@/lib/funnel";
 import { funnelCopy } from "@/lib/funnel-copy";
 import { phase } from "@/lib/site-config";
 import { CalButton, SignupBlock } from "@/components/funnel/actions";
 import { FunnelLayout, funnelH1, funnelH2, funnelLead, funnelList } from "@/components/funnel/funnel-layout";
+
+/** #anmelden: Buch und Liste. Ohne Hash: nur das Buch. Dieselbe Anmeldung. */
+function useAnmeldenIntent() {
+  const [onList, setOnList] = useState(false);
+
+  useLayoutEffect(() => {
+    const read = () => setOnList(window.location.hash === "#anmelden");
+    read();
+    window.addEventListener("hashchange", read);
+    window.addEventListener("popstate", read);
+    return () => {
+      window.removeEventListener("hashchange", read);
+      window.removeEventListener("popstate", read);
+    };
+  }, []);
+
+  useLayoutEffect(() => {
+    if (!onList) return;
+    document.getElementById("anmelden")?.scrollIntoView();
+  }, [onList]);
+
+  return onList;
+}
 
 const coverSrc = {
   de: "/images/cover-de.jpg",
@@ -20,11 +44,14 @@ type StartPageProps = {
 
 export function StartPage({ showPortrait = false, showCoverDe = false, showCoverEn = false }: StartPageProps) {
   const coverPresent = { de: showCoverDe, en: showCoverEn };
+  const onList = useAnmeldenIntent();
   return (
     <FunnelLayout page="start" focus canvas="beige">
       {(language) => {
         const t = funnelCopy[language].start;
         const cover = coverSrc[language];
+        const title = onList ? t.listTitle : t.title;
+        const text = onList ? fill(t.listText, copyValuesFor(language)) : t.text;
         return (
           <>
             <div className="rounded-3xl border border-sand bg-white p-6 shadow-[0_12px_40px_rgba(42,37,34,0.06)] sm:p-10">
@@ -36,12 +63,12 @@ export function StartPage({ showPortrait = false, showCoverDe = false, showCover
                     className="w-full max-w-[16rem] shrink-0 rounded-2xl border border-sand shadow-[0_6px_18px_rgba(42,37,34,0.05)]"
                   />
                 ) : null}
-                <div className="min-w-0 w-full flex-1">
+                <section id="anmelden" className="min-w-0 w-full flex-1">
                   <p className="type-eyebrow">{t.eyebrow}</p>
-                  <h1 className={`mt-4 ${funnelH1}`}>{t.title}</h1>
-                  <p className={funnelLead}>{t.text}</p>
-                  <SignupBlock language={language} embedded />
-                </div>
+                  <h1 className={`mt-4 ${funnelH1}`}>{title}</h1>
+                  <p className={funnelLead}>{text}</p>
+                  <SignupBlock language={language} embedded list={onList} anchored={false} />
+                </section>
               </div>
             </div>
             <div className="reading-column">
