@@ -84,8 +84,7 @@ body {
   .type-subtitle,
   .type-card-title,
   .type-doc-title,
-  .type-doc-heading,
-  .type-wordmark {
+  .type-doc-heading {
     font-family: var(--font-playfair), Georgia, "Times New Roman", serif;
     font-weight: 400;
     text-wrap: balance;
@@ -162,7 +161,14 @@ body {
   }
 
   .type-wordmark {
+    font-family: var(--font-playfair), Georgia, "Times New Roman", serif;
+    font-weight: 400;
     @apply whitespace-nowrap text-tinte;
+    overflow: visible;
+    text-overflow: clip;
+    flex-shrink: 0;
+    min-width: max-content;
+    max-width: none;
     font-size: 0.875rem;
     letter-spacing: 0.02em;
     line-height: 1.2;

@@ -142,7 +142,7 @@ export function SiteHeader({
           <div className="shrink-0 rounded-xl border border-sand bg-white p-1.5 sm:p-2">
             <AlethemoraRing variant="mark" className="h-7 w-7 sm:h-8 sm:w-8" />
           </div>
-          <span className="type-wordmark">ALETHEMORA</span>
+          <span className="type-wordmark shrink-0">ALETHEMORA</span>
         </Link>
 
         {showNav ? (
