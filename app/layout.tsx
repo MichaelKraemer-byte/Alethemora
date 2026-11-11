@@ -30,10 +30,10 @@ const description =
   "The name carries three words: Aletheia, the unconcealed truth and a path of science; Hem, the soul's home and the soul friends who stay with us; Amor, love, the endless energy of creation, of being, and of the light. The full text is in the free book.";
 
 const shareImage = {
-  url: "https://alethemora.com/og/og-image.jpg",
+  url: "https://alethemora.com/og/og-rings.jpg",
   width: 1200,
   height: 630,
-  alt: "Das Auge von Alethemora auf cremefarbenem Grund"
+  alt: "Das Ring-Zeichen von Alethemora"
 } as const;
 
 export const metadata: Metadata = {
